@@ -5,7 +5,7 @@ It is userfull to show nearby bikesharing bikes in public transport apps. So i t
 
 ## Nextbike (Worldwide)
 
-URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. You also can filter by city, with the `GET`-Parameter `city`. Eg `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
+URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. You also can filter by city, with the GET-Parameter `city`. Eg `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
 
 For some citys nextbike has flexzones (free floating in this zones). At the moment these are:
  
@@ -33,7 +33,24 @@ tbd
 
 ## yobike/ohbike
 
-tbd
+POST-Request to `https://en.api.ohbike.com/v1/vehicle/` with form-paramters:
+ 
+ * `bounds`: `51.319838,-2.735466;51.605178,-2.477974` (boundingbox)
+ * `coord_type`: `1`
+ * `distance`: `700`
+ * `ak`: `WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18` (Application Key)
+ * `lat`: `51.462731`
+ * `lng`: `-2.606720`
+ * `zoom`: `11.000000`
+ * `sign`: `58f66c2424cb6d410e9277a8f6cc81b4` md5 sum
+
+The sign parameter is a md5 sum of all paramters. You need to build it, by:
+ * get all POST *values* (excl. sign)
+ * sort the values
+ * concat the sorted values (ignoring empty values) to string
+ * add `@ohbile` on the end of the string
+ * md5 sum the string and add as sign paramter
+ * string of this example would be `-2.606720111.00000051.319838,-2.735466;51.605178,-2.47797451.462731700WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18geonear@ohbile` and the md5: `58f66c2424cb6d410e9277a8f6cc81b4`
 
 ## Gobee bike (Hong Kong)
 
@@ -53,4 +70,4 @@ URL: `https://gbfs.fordgobike.com/gbfs/en/station_status.json`
 
 ## More...
 
-Also have a look on [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
+Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
