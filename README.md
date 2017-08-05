@@ -44,3 +44,13 @@ tbd
 tbd
 
 ## LimeBike (US)
+
+tbd
+
+## Ford GoBike (US)
+
+URL: `https://gbfs.fordgobike.com/gbfs/en/station_status.json`
+
+## More...
+
+Also have a look on [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
