@@ -19,3 +19,28 @@ For some citys nextbike has flexzones (free floating in this zones). At the mome
 
 Call-a-Bike has [historic datasets](http://data.deutschebahn.com/dataset/data-call-a-bike) OpenData on the DeutscheBahn OpenData portal under CC-BY License.
 
+## oBike (Worldwide)
+
+URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` gives you all available bikes in a 1km*1km bounding box around the requested point. Example: `https://mobile.o.bike/api/v1/bike/list?latitude=48.1481&longitude=11.5755`
+
+## ofo bike (China, UK, US)
+
+tbd
+
+## mobike (China, Italy, UK)
+
+tbd
+
+## yobike/ohbike
+
+tbd
+
+## Gobee bike (Hong Kong)
+
+tbd
+
+## bluegogo (China, US)
+
+tbd
+
+## LimeBike (US)
