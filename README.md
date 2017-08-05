@@ -25,18 +25,14 @@ URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` giv
 
 ## ofo bike (China, UK, US)
 
-For ofo bike you can only get the location if you have registered an account with a phone number.
+For ofo bike you can only get the bike-locations if you have registered an account with a phone number. 
 
 POST Request: `http://one.ofo.so/nearbyofoCar` with form parameters:
 
  * `lat`: `52.20`
  * `lng`: `0.134`
  * `source`: `1`
- * `source-version`: `37`
- * `countryCode`: `DE`
- * `languageArea`: `DE`
- * `languageCode`: `de`
- * `token`: You need to register a phone number to get a token
+ * `token`: You need to register an account via phone number to get a token
 
 ## mobike (China, Italy, UK)
 
