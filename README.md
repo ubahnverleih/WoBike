@@ -29,7 +29,12 @@ tbd
 
 ## mobike (China, Italy, UK)
 
-tbd
+POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with form parameters:
+
+ * `latitude`: `22.5376`
+ * `longitude`: `114.0577`
+
+ Also you need to set the `Referer` header to `https://servicewechat.com/`.
 
 ## yobike/ohbike
 
