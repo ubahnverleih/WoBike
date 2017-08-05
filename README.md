@@ -25,7 +25,18 @@ URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` giv
 
 ## ofo bike (China, UK, US)
 
-tbd
+For ofo bike you can only get the location if you have registered an account with a phone number.
+
+POST Request: `http://one.ofo.so/nearbyofoCar` with form parameters:
+
+ * `lat`: `52.20`
+ * `lng`: `0.134`
+ * `source`: `1`
+ * `source-version`: `37`
+ * `countryCode`: `DE`
+ * `languageArea`: `DE`
+ * `languageCode`: `de`
+ * `token`: You need to register a phone number to get a token
 
 ## mobike (China, Italy, UK)
 
@@ -35,6 +46,8 @@ POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with
  * `longitude`: `114.0577`
 
  Also you need to set the `Referer` header to `https://servicewechat.com/`.
+
+ The requested radius looks very small.
 
 ## yobike/ohbike
 
