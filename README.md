@@ -68,7 +68,7 @@ The sign parameter is a md5 sum of all paramters. You need to build it, by:
 
 ## Gobee bike (Hong Kong)
 
-tbd
+Simple GET-Request example: `http://aws.gobee.bike/GobeeBike/bikes/near_bikes?accuracy=20&lat=22.38&lng=114.198`
 
 ## bluegogo (China, US)
 
