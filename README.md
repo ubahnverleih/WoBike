@@ -78,10 +78,23 @@ tbd
 
 tbd
 
-## Ford GoBike (US)
+## Motivate (US)
 
-URL: `https://gbfs.fordgobike.com/gbfs/en/station_status.json`
+[Motivate](https://www.motivateco.com/) builds Bikeshring Systems. They Publish there [Data and APIs](https://www.motivateco.com/use-our-data/). This includes the Following Systems (Cities) in the US:
+
+ * Ford GoBike (Bay Area, CA)
+ 	* GBFS: `https://gbfs.fordgobike.com/gbfs/gbfs.json`
+ * Biketown (Portland, OR)
+ * Capital Bikeshare (Washington, DC)
+ * Bike Chattanooga (Chattanooga, TN)
+ * Citi Bike (New York)
+ * CoGo (Columbus, OH)
+ * Divvy (Chicago, IL)
+ * Hubway (Boston, MA)
+
+All APIs and Data are also listed on `https://www.motivateco.com/use-our-data/`
 
 ## More...
 
-Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
+ * Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
+ * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
