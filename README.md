@@ -14,6 +14,7 @@ For some citys nextbike has flexzones (free floating in this zones). At the mome
  * Dresden `https://api.nextbike.net/reservation/geojson/flexzone_sz.json`
  * Karlsruhe `https://api.nextbike.net/reservation/geojson/flexzone_fg.json`
  * Nürnberg `https://api.nextbike.net/reservation/geojson/flexzone_nb.json`
+ * For all zones: `https://api.nextbike.net/reservation/geojson/flexzone_all.json`
 
 ## Call-a-Bike (Germany / Deutsche Bahn)
 
