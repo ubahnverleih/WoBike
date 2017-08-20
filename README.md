@@ -99,3 +99,5 @@ All APIs and Data are also listed on `https://www.motivateco.com/use-our-data/`
 
  * Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
  * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
+ * [Bikesharing World Map](https://www.google.com/maps/d/u/0/viewer?mid=1UxYw9YrwT_R3SGsktJU3D-2GpMU&ll=50.01042750703113%2C35.03132237929685&z=2)
+ * [Open Bike Share Data](https://bikeshare-research.org/)
