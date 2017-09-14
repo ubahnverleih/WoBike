@@ -34,7 +34,7 @@ There is also a [Documentation PDF](https://developer.deutschebahn.com/store/sit
 
 URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` gives you all available bikes in a 1km*1km bounding box around the requested point. Example: `https://mobile.o.bike/api/v1/bike/list?latitude=48.1481&longitude=11.5755`
 
-## ofo bike (China, UK, US)
+## ofo bike (China, UK, US, Austria, Thailand, Singapore)
 
 For ofo bike you can only get the bike-locations if you have registered an account with a phone number. 
 
@@ -45,7 +45,7 @@ POST Request: `http://one.ofo.so/nearbyofoCar` with form parameters:
  * `source`: `1`
  * `token`: You need to register an account via phone number to get a token
 
-## mobike (China, Italy, UK)
+## mobike (China, Italy, UK, Japan)
 
 POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with form parameters:
 
