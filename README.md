@@ -105,6 +105,10 @@ tbd
 
 All APIs and Data are also listed on `https://www.motivateco.com/use-our-data/`
 
+## BYKE (Germany)
+
+Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.55001&longitude=13.40902&order=nearby`
+
 ## More...
 
  * Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
