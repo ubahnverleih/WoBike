@@ -109,6 +109,14 @@ All APIs and Data are also listed on `https://www.motivateco.com/use-our-data/`
 
 Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.55001&longitude=13.40902&order=nearby`
 
+## dropbike (Canada)
+
+* `POST`-Request: `https://dropbikeadminapi.herokuapp.com/v1/bikes_nearby`
+* (Header `Content-Type` to `application/json`)
+* Requst Payload example: `{"lat":43.659415191015498,"lng":-79.395512826740742}`
+
+* You can also get there Regions with a simple `POST`-Request (without payload) to `https://dropbikeadminapi.herokuapp.com/v1/region_polygons`
+
 ## More...
 
  * Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
