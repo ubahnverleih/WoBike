@@ -53,6 +53,7 @@ POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with
  * `longitude`: `114.0577`
 
  Also you need to set the `Referer` header to `https://servicewechat.com/`.
+ Maybe you need to set `user-agent` header to `MicroMessenger/6.5.4.1000 NetType/WIFI Language/zh_CN`
 
  The requested radius looks very small.
 
