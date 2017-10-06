@@ -90,6 +90,8 @@ tbd
 
 Simple GET-Request example: `https://web-production.lime.bike/api/public/v1/views/bikes?map_center_latitude=37.7604&map_center_longitude=-122.4398&user_latitude=37.7604&user_longitude=-122.4398`
 
+Returns 50 nearest bikes.
+
 ## Motivate (US)
 
 [Motivate](https://www.motivateco.com/) builds Bikeshring Systems. They Publish there [Data and APIs](https://www.motivateco.com/use-our-data/). This includes the Following Systems (Cities) in the US:
