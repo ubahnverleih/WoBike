@@ -128,3 +128,11 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
  * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
  * [Bikesharing World Map](https://www.google.com/maps/d/u/0/viewer?mid=1UxYw9YrwT_R3SGsktJU3D-2GpMU&ll=50.01042750703113%2C35.03132237929685&z=2)
  * [Open Bike Share Data](https://bikeshare-research.org/)
+
+## Todo
+
+ * [Spin](https://www.spin.pm/) (uses certificate pinning)
+ * [Jump](https://jumpmobility.com/)
+ * [Pony Bikes](http://getapony.com/) (uses certificate pinning)
+ * [Donkey Republic](http://www.donkey.bike/) (uses certificate pinning)
+ 
