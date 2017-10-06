@@ -88,7 +88,7 @@ tbd
 
 ## LimeBike (US)
 
-tbd
+Simple GET-Request example: `https://web-production.lime.bike/api/public/v1/views/bikes?map_center_latitude=37.7604&map_center_longitude=-122.4398&user_latitude=37.7604&user_longitude=-122.4398`
 
 ## Motivate (US)
 
