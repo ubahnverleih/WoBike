@@ -123,12 +123,12 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 * You can also get there Regions with a simple `POST`-Request (without payload) to `https://dropbikeadminapi.herokuapp.com/v1/region_polygons`
 
 ## SocialBicycles (USA, Canada, Czech Republic, Poland)
-[SocialBicycles](http://socialbicycles.com/) builds Bikeshring Systems. They Publish there [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the Following Systems (Cities) around the world:
+[SocialBicycles](http://socialbicycles.com/) builds Bikeshring Systems. They Publish their [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the Following Systems (Cities) around the world:
 
  * Jump (San Franscisco, CA, USA)
  * Jump (Washington, DC, USA)
  * SoBi Hamilton (Hamilton, ON, CA)
- * Velonet (Czech Republic),
+ * Velonet (Czech Republic)
  * Wavelo (Warsaw, Poland)
  * many more..
 
