@@ -1,13 +1,13 @@
 # WoBike
 Documentation of Bike Sharing APIs
 
-It is userfull to show nearby bikesharing bikes in public transport apps. So i try to list the APIs from different bike sharing platforms. Also it could be interesting for multimodal routing apps.
+Public transport and multimodal routing apps could benefit from showing nearby bikes from bikesharing services. So here's a list showing the APIs of a few of these platforms.
 
 ## Nextbike (Worldwide)
 
 URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. You also can filter by city, with the GET-Parameter `city`. Eg `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
 
-For some citys nextbike has flexzones (free floating in this zones). At the moment these are:
+For some cities nextbike has flexzones (free floating in these zones). At the moment these are:
  
  * Köln `https://api.nextbike.net/reservation/geojson/flexzone_kg.json`
  * Berlin `https://api.nextbike.net/reservation/geojson/flexzone_bn.json`
@@ -70,7 +70,7 @@ POST-Request to `https://en.api.ohbike.com/v1/vehicle/` with form-paramters:
  * `zoom`: `11.000000`
  * `sign`: `58f66c2424cb6d410e9277a8f6cc81b4` md5 sum
 
-The sign parameter is a md5 sum of all paramters. You need to build it, by:
+The sign parameter is a md5 sum of all paramters. You need to build it by:
  * get all POST *values* (excl. sign)
  * sort the values
  * concat the sorted values (ignoring empty values) to string
@@ -86,7 +86,7 @@ Simple GET-Request example: `http://aws.gobee.bike/GobeeBike/bikes/near_bikes?ac
 
 POST-Request to `https://api-us.bluegogo.com/nearbyBikes?data={"token":"","version":1,"data":{"latitude":22.5526,"longitude":114.1029,"billingModelIds":"1,2,3"}}`
 
-(The JSON should be URLencoded.) – If the token is empty, the bikelist will also be empty. I guess you get a token, when signing in.
+(The JSON should be URLencoded.) – If the token is empty, the bikelist will also be empty. I guess you get a token when signing in.
 
 ## LimeBike (US)
 
@@ -96,7 +96,7 @@ Returns 50 nearest bikes.
 
 ## Motivate (US)
 
-[Motivate](https://www.motivateco.com/) builds Bikeshring Systems. They Publish there [Data and APIs](https://www.motivateco.com/use-our-data/). This includes the Following Systems (Cities) in the US:
+[Motivate](https://www.motivateco.com/) builds Bikesharing Systems. They publish their [Data and APIs](https://www.motivateco.com/use-our-data/). This includes the following systems (cities) in the US:
 
  * Ford GoBike (Bay Area, CA)
  	* GBFS: `https://gbfs.fordgobike.com/gbfs/gbfs.json`
@@ -108,7 +108,7 @@ Returns 50 nearest bikes.
  * Divvy (Chicago, IL)
  * Hubway (Boston, MA)
 
-All APIs and Data are also listed on `https://www.motivateco.com/use-our-data/`
+All APIs and data are also listed on `https://www.motivateco.com/use-our-data/`
 
 ## BYKE (Germany)
 
@@ -118,12 +118,13 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 
 * `POST`-Request: `https://dropbikeadminapi.herokuapp.com/v1/bikes_nearby`
 * (Header `Content-Type` to `application/json`)
-* Requst Payload example: `{"lat":43.659415191015498,"lng":-79.395512826740742}`
+* Request Payload example: `{"lat":43.659415191015498,"lng":-79.395512826740742}`
 
-* You can also get there Regions with a simple `POST`-Request (without payload) to `https://dropbikeadminapi.herokuapp.com/v1/region_polygons`
+* You can also get their regions with a simple `POST`-Request (without payload) to `https://dropbikeadminapi.herokuapp.com/v1/region_polygons`
 
 ## SocialBicycles (USA, Canada, Czech Republic, Poland)
-[SocialBicycles](http://socialbicycles.com/) builds Bikeshring Systems. They Publish their [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the Following Systems (Cities) around the world:
+
+[SocialBicycles](http://socialbicycles.com/) builds Bikesharing Systems. They publish their [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the following systems (cities) around the world:
 
  * Jump (San Franscisco, CA, USA)
  * Jump (Washington, DC, USA)
@@ -135,7 +136,7 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 
 ## More...
 
- * Also have a look at [this Project](https://github.com/eskerda/pybikes/tree/master/pybikes)
+ * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
  * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
  * [Bikesharing World Map](https://www.google.com/maps/d/u/0/viewer?mid=1UxYw9YrwT_R3SGsktJU3D-2GpMU&ll=50.01042750703113%2C35.03132237929685&z=2)
  * [Open Bike Share Data](https://bikeshare-research.org/)
