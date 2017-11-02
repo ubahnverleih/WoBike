@@ -57,7 +57,7 @@ POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with
 
  The requested radius looks very small.
 
-## yobike/ohbike
+## yobike/ohbike (UK)
 
 POST-Request to `https://en.api.ohbike.com/v1/vehicle/` with form-paramters:
  
