@@ -78,7 +78,7 @@ The sign parameter is a md5 sum of all paramters. You need to build it by:
  * md5 sum the string and add as sign paramter
  * string of this example would be `-2.606720111.00000051.319838,-2.735466;51.605178,-2.47797451.462731700WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18geonear@ohbile` and the md5: `58f66c2424cb6d410e9277a8f6cc81b4`
 
-## Gobee bike (Hong Kong, Italy)
+## Gobee bike (Hong Kong, France, Belgium, Italy)
 
 Simple GET-Request example: `http://aws.gobee.bike/GobeeBike/bikes/near_bikes?accuracy=20&lat=22.38&lng=114.198`
 
