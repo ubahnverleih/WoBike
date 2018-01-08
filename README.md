@@ -93,7 +93,8 @@ Returns 50 nearest bikes.
 
 [Motivate](https://www.motivateco.com/) builds Bikesharing Systems. They publish their [Data and APIs](https://www.motivateco.com/use-our-data/). This includes the following systems (cities) in the US:
 
-* Ford GoBike (Bay Area, CA) \* GBFS: `https://gbfs.fordgobike.com/gbfs/gbfs.json`
+* Ford GoBike (Bay Area, CA)
+  * GBFS: `https://gbfs.fordgobike.com/gbfs/gbfs.json`
 * Biketown (Portland, OR)
 * Capital Bikeshare (Washington, DC)
 * Bike Chattanooga (Chattanooga, TN)
