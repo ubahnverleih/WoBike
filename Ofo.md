@@ -26,7 +26,7 @@ Login is in two step: + Request code with your phone number, you ll receive an s
 | ---------- | ------------------------ | :-------: |
 | tel        | phone number intl format |     X     |
 | type       | Value at 1               |     X     |
-| ccc        | Country code (like `FR`) |     X     |
+| ccc        | Country calling codes (like `33`) |     X     |
 | lat        | latitude                 |     X     |
 | lng        | Longitude                |     X     |
 
@@ -38,14 +38,14 @@ will send an sms to `06 12 34 56 78` phone with an OTP code.
 curl --request POST \
   --url https://one.ofo.com/verifyCode_v2 \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'tel=612345678&type=1&ccc=FR&lng=2.37&lat=48.85'
+  --data 'tel=612345678&type=1&ccc=33&lng=2.37&lat=48.85'
 ```
 
 #### Send back OTP code
 
 **Method**: `POST`
 
-**Path**: `/login_v2`
+**Path**: `/api/login_v2`
 
 **Header**:
 
@@ -59,7 +59,7 @@ curl --request POST \
 | ---------- | ------------------------ | :-------: |
 | tel        | phone number intl format |     X     |
 | code       | OTP code (length of 4)   |     X     |
-| ccc        | Country code (like `FR`) |     X     |
+| ccc        | Country calling codes (like `33`) |     X     |
 | lat        | latitude                 |     X     |
 | lng        | Longitude                |     X     |
 
