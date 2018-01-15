@@ -53,25 +53,7 @@ The requested radius looks very small.
 
 ## yobike/ohbike (UK)
 
-POST-Request to `https://en.api.ohbike.com/v1/vehicle/` with form-paramters:
-
-* `bounds`: `51.319838,-2.735466;51.605178,-2.477974` (boundingbox)
-* `coord_type`: `1`
-* `distance`: `700`
-* `ak`: `WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18` (Application Key)
-* `lat`: `51.462731`
-* `lng`: `-2.606720`
-* `zoom`: `11.000000`
-* `sign`: `58f66c2424cb6d410e9277a8f6cc81b4` md5 sum
-
-The sign parameter is a md5 sum of all paramters. You need to build it by:
-
-* get all POST _values_ (excl. sign)
-* sort the values
-* concat the sorted values (ignoring empty values) to string
-* add `@ohbile` on the end of the string
-* md5 sum the string and add as sign paramter
-* string of this example would be `-2.606720111.00000051.319838,-2.735466;51.605178,-2.47797451.462731700WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18geonear@ohbile` and the md5: `58f66c2424cb6d410e9277a8f6cc81b4`
+[Detailed documentation](Yobike.md)
 
 ## Gobee bike (Hong Kong, France, Belgium, Italy)
 
