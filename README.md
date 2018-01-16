@@ -99,16 +99,11 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 
 * You can also get their regions with a simple `POST`-Request (without payload) to `https://dropbikeadminapi.herokuapp.com/v1/region_polygons`
 
-## SocialBicycles (USA, Canada, Czech Republic, Poland)
+## JUMP (USA)
 
-[SocialBicycles](http://socialbicycles.com/) builds Bikesharing Systems. They publish their [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the following systems (cities) around the world:
-
-* Jump (San Franscisco, CA, USA)
-* Jump (Washington, DC, USA)
-* SoBi Hamilton (Hamilton, ON, CA)
-* Velonet (Czech Republic)
-* Wavelo (Warsaw, Poland)
-* many more..
+[JUMP](http://jumpbikes.com/) operates electric dockless bikeshares in Washington, DC & San
+Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
+and https://sf.jumpmobility.com/opendata respectively.
 
 ## More...
 
