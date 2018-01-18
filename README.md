@@ -105,6 +105,15 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
 and https://sf.jumpmobility.com/opendata respectively.
 
+## SocialBicycles (USA, Canada, Czech Republic, Poland)
+
+[SocialBicycles](http://socialbicycles.com/) is JUMP's partership-based bikeshare program. They publish their [Data and APIs](https://app.socialbicycles.com/developer/#!/networks). This includes the following systems (cities) around the world:
+
+* SoBi Hamilton (Hamilton, ON, CA)
+* Velonet (Czech Republic)
+* Wavelo (Warsaw, Poland)
+* many more..
+
 ## More...
 
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
