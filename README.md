@@ -33,7 +33,9 @@ There is also a [Documentation PDF](https://developer.deutschebahn.com/store/sit
 
 ## oBike (Worldwide)
 
-URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` gives you all available bikes in a 1km\*1km bounding box around the requested point. Example: `https://mobile.o.bike/api/v1/bike/list?latitude=48.1481&longitude=11.5755`
+~~URL: `https://mobile.o.bike/api/v1/bike/list?latitude=<LAT>&longitude=<LON>` gives you all available bikes in a 1km\*1km bounding box around the requested point. Example: `https://mobile.o.bike/api/v1/bike/list?latitude=48.1481&longitude=11.5755`~~
+
+⚠️ They killed this API. If you like to help and for more info look at [issue #8](https://github.com/ubahnverleih/WoBike/issues/8).
 
 ## ofo bike (China, UK, US, Austria, Thailand, Singapore, France)
 
