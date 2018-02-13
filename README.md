@@ -119,6 +119,10 @@ and https://sf.jumpmobility.com/opendata respectively.
 * Wavelo (Warsaw, Poland)
 * many more..
 
+## OnzO (New Zealand)
+
+Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
+
 ## More...
 
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
