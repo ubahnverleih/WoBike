@@ -37,7 +37,7 @@ There is also a [Documentation PDF](https://developer.deutschebahn.com/store/sit
 
 ⚠️ They killed this API. If you like to help and for more info look at [issue #8](https://github.com/ubahnverleih/WoBike/issues/8).
 
-## ofo bike (China, UK, US, Austria, Thailand, Singapore, France)
+## ofo bike (China, UK, US, Austria, Thailand, Singapore, France, India)
 
 [Detailed documentation](Ofo.md)
 
