@@ -43,7 +43,7 @@ In this documentation we use the `3.2.4` (or `324`) version.
 3.  concat the result of 1 and the sha hash of 2
 4.  encode the result of 3 in AES128 with `oBiOSMYFUzLed324` as key and `1234567890123456` as IV and return it in hex
 
-**Exemple**
+**Example**
 
 with simple data
 
