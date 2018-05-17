@@ -12,9 +12,10 @@
 
 **Header**:
 
-| Header       | Value                             | Mandatory |
-| ------------ | --------------------------------- | :-------: |
-| content-type | application/x-www-form-urlencoded |     X     |
+| Header       | Value                                                                                                                                                                  | Mandatory |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
+| content-type | application/x-www-form-urlencoded                                                                                                                                      |     X     |
+| user-agent   | Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36 (or whatever) |     X     |
 
 **Parameters**:
 
@@ -29,6 +30,7 @@
 curl --request POST \
   --url https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do \
   --header 'content-type: application/x-www-form-urlencoded' \
+  --header 'user-agent: Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36' \
   --data 'latitude=31.230390&longitude=121.473702'
 ```
 
