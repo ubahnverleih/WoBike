@@ -1,6 +1,14 @@
-# Yobike (ex ohbike)
+# Yobike and yobike-based provider
 
 **Base url**: `https://en.api.ohbike.com`
+
+Yobike (ex ohbike) sell their systems under white label.
+Only the Application key differ
+
+| Brand        | Application key                                                  |
+| ------------ | ---------------------------------------------------------------- |
+| Yobike       | WWTaJQrg-NHe_Zl0iwghHyYypYw6g-6GEZHPGBBF6TI7OzZWo9VVLXWRs2ngQJ18 |
+| Indigo Wheel | NaDl8eR81njaT7FRMNn2oqH020bAfUG7d7Iqa2kMvZm8qCga5cg_QIlk_XZVZvWI |
 
 ## Methods
 

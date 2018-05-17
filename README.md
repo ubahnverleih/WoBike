@@ -51,7 +51,10 @@ Maybe you need to set `user-agent` header to `MicroMessenger/6.5.4.1000 NetType/
 
 The requested radius looks very small.
 
-## yobike/ohbike (UK)
+## yobike/ohbike/indigo wheel
+
+Yobike (ex ohbike) sell their systems under white label.
+Only the Application key differ
 
 [Detailed documentation](Yobike.md)
 
