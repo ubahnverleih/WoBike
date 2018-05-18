@@ -126,6 +126,8 @@ curl --request POST \
 	"values": {
 		"cars": [
 			{
+				"carno": "PzeDlM",
+				"bomNum": "5CA",
 				"userIdLast": "1",
 				"lng": 2.3796870561551,
 				"lat": 48.839922829334
