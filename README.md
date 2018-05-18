@@ -39,17 +39,9 @@ There is also a [Documentation PDF](https://developer.deutschebahn.com/store/sit
 
 [Detailed documentation](Ofo.md)
 
-## mobike (China, Italy, UK, Japan)
+## mobike
 
-POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with form parameters:
-
-* `latitude`: `22.5376`
-* `longitude`: `114.0577`
-
-Also you need to set the `Referer` header to `https://servicewechat.com/`.
-Maybe you need to set `user-agent` header to `MicroMessenger/6.5.4.1000 NetType/WIFI Language/zh_CN`
-
-The requested radius looks very small.
+[Detailed documentation](Mobike.md)
 
 ## yobike/ohbike/indigo wheel
 
