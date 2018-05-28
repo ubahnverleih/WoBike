@@ -61,13 +61,9 @@ POST-Request to `https://api-us.bluegogo.com/nearbyBikes?data={"token":"","versi
 
 (The JSON should be URLencoded.) – If the token is empty, the bikelist will also be empty. I guess you get a token when signing in.
 
-## LimeBike (US)
+## LimeBike
 
-~~Simple GET-Request example: `https://web-production.lime.bike/api/public/v1/views/bikes?map_center_latitude=37.7604&map_center_longitude=-122.4398&user_latitude=37.7604&user_longitude=-122.4398`~~
-
-~~Returns 50 nearest bikes.~~
-
-⚠️ They killed this public API. If you like to help and for more info look at [issue #9](https://github.com/ubahnverleih/WoBike/issues/9).
+[Detailed documentation](Lime.md)
 
 ## Motivate (US)
 
