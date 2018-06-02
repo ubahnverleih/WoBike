@@ -39,19 +39,14 @@ There is also a [Documentation PDF](https://developer.deutschebahn.com/store/sit
 
 [Detailed documentation](Ofo.md)
 
-## mobike (China, Italy, UK, Japan)
+## mobike
 
-POST-Request to `https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do` with form parameters:
+[Detailed documentation](Mobike.md)
 
-* `latitude`: `22.5376`
-* `longitude`: `114.0577`
+## yobike/ohbike/indigo wheel
 
-Also you need to set the `Referer` header to `https://servicewechat.com/`.
-Maybe you need to set `user-agent` header to `MicroMessenger/6.5.4.1000 NetType/WIFI Language/zh_CN`
-
-The requested radius looks very small.
-
-## yobike/ohbike (UK)
+Yobike (ex ohbike) sell their systems under white label.
+Only the Application key differ
 
 [Detailed documentation](Yobike.md)
 
@@ -66,13 +61,9 @@ POST-Request to `https://api-us.bluegogo.com/nearbyBikes?data={"token":"","versi
 
 (The JSON should be URLencoded.) – If the token is empty, the bikelist will also be empty. I guess you get a token when signing in.
 
-## LimeBike (US)
+## LimeBike
 
-~~Simple GET-Request example: `https://web-production.lime.bike/api/public/v1/views/bikes?map_center_latitude=37.7604&map_center_longitude=-122.4398&user_latitude=37.7604&user_longitude=-122.4398`~~
-
-~~Returns 50 nearest bikes.~~
-
-⚠️ They killed this public API. If you like to help and for more info look at [issue #9](https://github.com/ubahnverleih/WoBike/issues/9).
+[Detailed documentation](Lime.md)
 
 ## Motivate (US)
 
