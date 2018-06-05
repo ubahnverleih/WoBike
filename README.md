@@ -112,6 +112,13 @@ and https://sf.jumpmobility.com/opendata respectively.
 
 Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
 
+## Spin (Bikes and Scooter)
+
+[Spin](https://www.spin.pm/) is an Bike and E-Scotter sharing service in the US.
+
+[Detailed documentation](Spin.md)
+
+
 ## More...
 
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
@@ -121,6 +128,5 @@ Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
 
 ## Todo
 
-* [Spin](https://www.spin.pm/) (uses certificate pinning)
 * [Pony Bikes](http://getapony.com/) (uses certificate pinning)
 * [Donkey Republic](http://www.donkey.bike/) (uses certificate pinning)
