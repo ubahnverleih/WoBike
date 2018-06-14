@@ -114,9 +114,15 @@ Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
 
 ## Spin (Bikes and Scooter)
 
-[Spin](https://www.spin.pm/) is an Bike and E-Scotter sharing service in the US.
+[Spin](https://www.spin.pm/) is a Bike and E-Scotter sharing service in the US.
 
 [Detailed documentation](Spin.md)
+
+## Bird (Scooter)
+
+[Bird](https://www.bird.co/) is a E-Scotter sharing service in the US.
+
+[Detailed documentation](Bird.md)
 
 
 ## More...
