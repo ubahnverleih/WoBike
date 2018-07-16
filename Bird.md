@@ -12,7 +12,7 @@ We need the `token` for our location requests. This tokens invalidate after some
 
 Now you can request the locations of the Scooters:
 
-GET-Request to `https://api.bird.co/bird/nearby?latitude=37.77184&longitude=-122.40910&raduis=1000`
+GET-Request to `https://api.bird.co/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`
 And set the following headers:
 
  * `Authorization`: `Bird <TOKEN>` – Use the token you got from Auth-Request.
