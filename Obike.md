@@ -38,9 +38,9 @@ In this documentation we use the `3.2.4` (or `324`) version.
 
 **Encoding**
 
-1.  JSON stringify data, remove all spaces
-2.  concat the result of 1 and `&oBiOSX4buhBMG324`
-3.  concat the result of 1 and the sha hash of 2
+1.  JSON stringify data, remove all spaces and line breaks
+2.  concat (<result of 1>,`&oBiOSX4buhBMG324`)
+3.  concat (<result of 1>,'&',SHA1(<result of 2>))
 4.  encode the result of 3 in AES128 with `oBiOSMYFUzLed324` as key and `1234567890123456` as IV and return it in hex
 
 **Example**
