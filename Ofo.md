@@ -141,3 +141,4 @@ curl --request POST \
 
 * https://www.npmjs.com/package/@multicycles/ofo (JavaScript)
 * https://github.com/qxzzxq/pyofo (Python3)
+* https://npmjs.org/ofo (JavaScript)
