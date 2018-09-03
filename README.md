@@ -174,6 +174,16 @@ yields a response looking like:
 
 The array of "Features" contains status on each Bixi bike sharing station in Montréal.
 
+## Zagster
+
+List of all cities: https://zapi.zagster.com/api/v1/bikeshares/
+
+For more information about bikes in a specific city, you'll need the city ID (found in `metadata["data"]["_id"]` from the above link)
+
+List of stations in a city and station metadata: `https://zapi.zagster.com/api/v1/bikeshares/[City ID]/stations`
+
+List of bikes in a city and bike metadata: `https://zapi.zagster.com/api/v1/bikeshares/[City ID]/bikes`
+
 ## More...
 
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
