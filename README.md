@@ -72,9 +72,9 @@ POST-Request to `https://api-us.bluegogo.com/nearbyBikes?data={"token":"","versi
 * Ford GoBike (Bay Area, CA)
   * GBFS: `https://gbfs.fordgobike.com/gbfs/gbfs.json`
 * Biketown (Portland, OR)
-* Capital Bikeshare (Washington, DC)
+* [Capital Bikeshare](https://gbfs.capitalbikeshare.com/gbfs/gbfs.json) (Washington, DC), 
 * Bike Chattanooga (Chattanooga, TN)
-* Citi Bike (New York)
+* [Citi Bike](http://gbfs.citibikenyc.com/gbfs/gbfs.json) (New York)
 * CoGo (Columbus, OH)
 * Divvy (Chicago, IL)
 * Hubway (Boston, MA)
