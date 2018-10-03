@@ -97,7 +97,7 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 
 [JUMP](http://jumpbikes.com/) operates electric dockless bikeshares in Washington, DC & San
 Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
-and https://sf.jumpmobility.com/opendata respectively.
+and https://sf.jumpbikes.com/opendata respectively.
 
 ## SocialBicycles (USA, Canada, Czech Republic, Poland)
 
