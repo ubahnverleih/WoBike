@@ -81,6 +81,10 @@ POST-Request to `https://api-us.bluegogo.com/nearbyBikes?data={"token":"","versi
 
 All APIs and data are also listed on `https://www.motivateco.com/use-our-data/`
 
+Motivate also has undocumented APIs in the GeoJSON format. URLs might be tricky to divine for other cities, but Washington DC & NYC are:
+ * https://layer.bicyclesharing.net/map/v1/wdc/map-inventory
+ * https://layer.bicyclesharing.net/map/v1/nyc/map-inventory
+
 ## BYKE (Germany)
 
 Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.55001&longitude=13.40902&order=nearby`
