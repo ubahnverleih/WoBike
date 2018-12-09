@@ -119,6 +119,8 @@ Also see https://github.com/Leschonander/Jump-Bike-D.C-Python-API-Wrapper
 
 Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
 
+[Detailed documentation](Onzo.md)
+
 ## Spin (Bikes and Scooter)
 
 [Spin](https://www.spin.pm/) is a Bike and E-Scotter sharing service in the US.
