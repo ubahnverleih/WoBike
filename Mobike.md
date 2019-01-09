@@ -1,6 +1,6 @@
 # Mobike
 
-**Base url**: `https://mwx.mobike.com/mobike-api`
+**Base url**: `http://app.mobike.com/api`
 
 ## Methods
 
@@ -8,14 +8,15 @@
 
 **Method**: `POST`
 
-**Path**: `/rent/nearbyBikesInfo.do`
+**Path**: `/nearby/v4/nearbyBikeInfo`
 
 **Header**:
 
 | Header       | Value                                                                                                                                                                  | Mandatory |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
 | content-type | application/x-www-form-urlencoded                                                                                                                                      |     X     |
-| user-agent   | Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36 (or whatever) |     X     |
+| platform     | 1                                                                                                                                                                      |     X     |
+| user-agent   | Mozilla/5.0 (Android 7.1.2; Pixel Build/NHG47Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.9 NTENTBrowser/3.7.0.496 (IWireless-US) Mobile Safari/537.36 (or whatever) |     X     |
 
 **Parameters**:
 
@@ -24,36 +25,39 @@
 | latitude   | latitude     |     X     |
 | Longitude  | Longitude    |     X     |
 
-**Exemple**
+**Example**
 
 ```bash
 curl --request POST \
-  --url https://mwx.mobike.com/mobike-api/rent/nearbyBikesInfo.do \
-  --header 'content-type: application/x-www-form-urlencoded' \
-  --header 'user-agent: Mozilla/5.0 (Linux; Android 7.0; SM-G892A Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36' \
-  --data 'latitude=31.230390&longitude=121.473702'
-```
+     --url http://app.mobike.com/api/nearby/v4/nearbyBikeInfo \
+     --header 'platform: 1' \
+     --header 'Content-Type: application/x-www-form-urlencoded' \
+     --header 'User-Agent: Mozilla/5.0 (Android 7.1.2; Pixel Build/NHG47Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.9 NTENTBrowser/3.7.0.496 (IWireless-US) Mobile Safari/537.36' \
+     --data 'latitude=52.53&longitude=13.38'```
 
 ```JSON
 {
-	"code": 0,
-	"message": "",
-	"biketype": 0,
-	"autoZoom": true,
-	"radius": 150,
-	"object": [
-		{
-			"distId": "0216695456",
-			"distX": 121.4741274074122,
-			"distY": 31.229705282933747,
-			"distNum": 1,
-			"distance": "86",
-			"bikeIds": "0216695456#",
-			"biketype": 1,
-			"type": 0,
-			"boundary": null
-		}
-	]
+  "code": 0,
+  "message": "",
+  "bike": [
+    {
+      "distId": "A816046038",
+      "distX": 13.379844,
+      "distY": 52.529358,
+      "distNum": 1,
+      "distance": "72",
+      "bikeIds": "A816046038#",
+      "biketype": 2,
+      "type": 0,
+      "boundary": null,
+      "operateType": 2
+    }
+  ],
+  "mpl": [],
+  "biketype": 0,
+  "radius": 500,
+  "autoZoom": false,
+  "hasRedPacket": 0
 }
 ```
 
