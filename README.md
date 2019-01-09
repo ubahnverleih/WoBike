@@ -194,7 +194,7 @@ List of bikes in a city and bike metadata: `https://zapi.zagster.com/api/v1/bike
 
 ## EUBIKE (Sweden)
 
-[http://eubike.se](EUBIKE) is a Swedish bike rental company with dock-less rentals. The user scans a QR-code located on the bike´s lock to unlock it. To perform a simply search for bikes, you can send a POST request to this URL:
+[EUBIKE](http://eubike.se) is a Swedish bike rental company with dock-less rentals. The user scans a QR-code located on the bike´s lock to unlock it. To perform a simply search for bikes, you can send a POST request to this URL:
 `http://47.91.87.181:8080/UserApi/AppUser?lng=18.0668918788433075&lat=59.3109666242335791&cmd=areabike&dist=0.5`
 The IP address is an Alibaba Cloud Server located in Germany used by the EUBIKE mobile app itself.
 A sample response for the request above is:
