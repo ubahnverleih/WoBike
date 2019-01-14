@@ -33,7 +33,8 @@ curl --request POST \
      --header 'platform: 1' \
      --header 'Content-Type: application/x-www-form-urlencoded' \
      --header 'User-Agent: Mozilla/5.0 (Android 7.1.2; Pixel Build/NHG47Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.9 NTENTBrowser/3.7.0.496 (IWireless-US) Mobile Safari/537.36' \
-     --data 'latitude=52.53&longitude=13.38'```
+     --data 'latitude=52.53&longitude=13.38'
+```
 
 ```JSON
 {
