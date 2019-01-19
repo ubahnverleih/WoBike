@@ -203,7 +203,7 @@ A sample response for the request above is:
 This endpoint is more well-documented in the file 
 [EUBike.md](EUBike.md).
 
-## Voi (Europe)
+## VOI (Europe)
 [VOI](https://voiscooters.com) is a scooter sharing company founded in Sweden. They have electric scooters available at several locations in Europe, including cities in Sweden, Spain, Italy, France and others. A simple GET request to get scooters available for rental nearby a location (specified with latitude/longtitude parameters) looks like this:
 
 `https://api.voiapp.io/v1/vehicle/status/ready?la=59.329323&lo=18.068581`
