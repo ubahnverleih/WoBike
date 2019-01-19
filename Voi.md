@@ -1,6 +1,6 @@
 # Introduction:
 
-VOI (https://voiscooters.com) is a Swedish ride sharing company. They have scooters placed in several cities and countries around the world, including Sweden, Spain, Italy, France and more.
+[VOI](https://voiscooters.com) is a Swedish ride sharing company focused on electric scooters. They have scooters placed in several cities and countries around the world, including Sweden, Spain, Italy, France and more.
 
 The company has an API that you can access without any authentication needed.
 
@@ -11,6 +11,8 @@ The main endpoint for the VOI API is `https://api.voiapp.io/v1`.
 To get a list of available scooters nearby a location, you can use this endpoint:
 
 `https://api.voiapp.io/v1/vehicle/status/ready?la=[LATITUDE HERE]&lo=[LONGTITUDE HERE]`
+
+The request above should be sent as a GET request. As stated earlier, no special authentication or API keys are needed.
 
 These are the known accepted request parameters:
 
