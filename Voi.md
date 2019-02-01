@@ -53,3 +53,5 @@ The response is a list with information about each scooter, in a JSON format. He
 `updated`: A time object that most likely refers to when the scooter was latest updated. I don´t know if it refers to the time when the scooter was most recently used or when the time when the scooter most recently connected/uploaded data to the VOI severs.
 
 **Small notice about API usage: This is an inoffical API documentation. Please don´t overuse the VOI API or any other unoffical APIs in this list. When I checked the request frequency, I noticed that the offical VOI app does a request to the API about every time that you move the map. Even if that is the case, use the API responsibly. No one of the contributors or owners of this repository will take responsibility for bad actions using this information ;)**
+
+Also look at this [Blogpost](https://medium.com/@h_martos/remote-live-tracking-of-voi-scooters-351689ba3bb9).
