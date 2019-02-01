@@ -6,6 +6,8 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 
 ## Nextbike (Worldwide)
 
+### API
+
 URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. You also can filter by city, with the GET-Parameter `city`. Eg `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
 
 For some cities nextbike has flexzones (free floating in these zones). At the moment these are:
@@ -16,6 +18,11 @@ For some cities nextbike has flexzones (free floating in these zones). At the mo
 * Karlsruhe `https://api.nextbike.net/reservation/geojson/flexzone_fg.json`
 * Nürnberg `https://api.nextbike.net/reservation/geojson/flexzone_nb.json`
 * For all zones: `https://api.nextbike.net/reservation/geojson/flexzone_all.json`
+
+### GBFS
+
+Nextbike provides different GBFS endpoints for their different networks/brands/countries:
+`https://api.nextbike.net/maps/gbfs/v1/nextbike_<NETWORK-ID>/en/gbfs.json`. You can find the Network-ID in the `https://api.nextbike.net/maps/nextbike-live.json`, just search for the `"domain"` JSON Key in country root object. So GBFS endpoint for Germany would be `https://api.nextbike.net/maps/gbfs/v1/nextbike_de/en/gbfs.json`. Warning: Not all german citys are in the `de` endpoint, e.g. in Berlin nextbike partnered with Deezer and uses Network-ID/country code `bn`.
 
 ## Call-a-Bike (Germany / Deutsche Bahn)
 
