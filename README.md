@@ -38,6 +38,8 @@ Example Request: `https://api.deutschebahn.com/flinkster-api-ng/v1/bookingpropos
 
 There is also a [Documentation PDF](https://developer.deutschebahn.com/store/site/themes/responsive/templates/api/documentation/download.jag?tenant=carbon.super&resourceUrl=/registry/resource/_system/governance/apimgt/applicationdata/provider/DBOpenData/Flinkster_API_NG/v1/documentation/files/Schnittstellenspezifikation_FlinksterApiNG.pdf) (german only), and you can use the [API-console (3rd tab)](https://developer.deutschebahn.com/store/apis/info?name=Flinkster_API_NG&version=v1&provider=DBOpenData)
 
+If you need GBFS, maybe this [flinkster2gbfs](https://github.com/mfdz/flinkster2gbfs) adapter can help.
+
 ## oBike (Worldwide)
 
 [Detailed documentation](Obike.md)
