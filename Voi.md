@@ -22,6 +22,8 @@ These are the known accepted request parameters:
 
 **A request with invalid la/lo parameters will still be accepted. You can even leave out the parameters and still get a list of available scooters.**
 
+There are also other `status` available. Change the `ready` in the url to one of these: `'ready', 'bounty', 'riding', 'home', 'collected', 'lost'`
+
 An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?la=59.329323&lo=18.068581`.
 
 **The server will return a response formatted like this:**
