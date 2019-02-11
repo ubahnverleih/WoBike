@@ -151,6 +151,29 @@ X-access-token: eyJ...kE
 
 Response:
 ```
-[]
+[
+    {
+        "id": "5bf7d74930212164763155af",
+        "lat": 45.46080583333333,
+        "lon": 9.202304333333334,
+        "batteryLevelInMiles": 8.1,
+        "pricing": {
+            "hourly": 15
+        },
+        "geofence": "milano1"
+    },
+    {
+        "id": "5bf7db6030212164763155c3",
+        "lat": 45.4560585,
+        "lon": 9.195604333333334,
+        "batteryLevelInMiles": 15,
+        "pricing": {
+            "hourly": 15
+        },
+        "geofence": "milano1"
+    },
+    ...
+]
 ```
-[**TODO**](https://github.com/ubahnverleih/WoBike/issues/80): empty response. because of service hours?
+
+The API returns `[]` when the scooters are not in service, remember to look at the `message` of the region to find out why (eg. hours)
