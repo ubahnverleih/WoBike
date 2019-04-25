@@ -24,7 +24,7 @@ These are the known accepted request parameters:
 
 There are also other `status` available. Change the `ready` in the url to one of these: `'ready', 'bounty', 'riding', 'home', 'collected', 'lost'`
 
-An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?la=59.329323&lo=18.068581`.
+An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329323&lng=18.068581`.
 
 **The server will return a response formatted like this:**
 
