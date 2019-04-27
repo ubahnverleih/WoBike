@@ -10,21 +10,21 @@ The main endpoint for the VOI API is `https://api.voiapp.io/v1`.
 
 To get a list of available scooters nearby a location, you can use this endpoint:
 
-`https://api.voiapp.io/v1/vehicle/status/ready?la=[LATITUDE HERE]&lo=[LONGTITUDE HERE]`
+`https://api.voiapp.io/v1/vehicle/status/ready?lat=[LATITUDE HERE]&lng=[LONGTITUDE HERE]`
 
 The request above should be sent as a GET request. As stated earlier, no special authentication or API keys are needed.
 
 These are the known accepted request parameters:
 
-`la` - The latitude to perform the search query from.
+`lat` - The latitude to perform the search query from.
 
-`lo` - The longtiude to perform the search query from.
+`lng` - The longtiude to perform the search query from.
 
 **A request with invalid la/lo parameters will still be accepted. You can even leave out the parameters and still get a list of available scooters.**
 
 There are also other `status` available. Change the `ready` in the url to one of these: `'ready', 'bounty', 'riding', 'home', 'collected', 'lost'`
 
-An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?la=59.329323&lo=18.068581`.
+An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329323&lng=18.068581`.
 
 **The server will return a response formatted like this:**
 
