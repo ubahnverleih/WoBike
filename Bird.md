@@ -5,7 +5,8 @@
 To access the API, you have to generate an Auth Token. No worries, you don’t need an Account for this, just an POST-Request to `https://api.bird.co/user/login`. The POST Request-Body is the following JSON:
 `{"email": "<EMAIL-ADDRESS>"}`.
 And the Headers should include `Device-id`: `<GUID>`, `Platform`: `ios`, and `Content-type`: `application/json`
-The E-Mail-Address can be everything that looks like an E-Mail-Address. You don't need to be able to receive Mails on this address.
+You don't need to be able to receive Mails on the address, but it needs to be unique. If you use an email address that was previously used by you or anyone else, you won't receive a `token`, only an `id`.
+
 For the Device-Id you need to generate an random 16 Byte [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) like `123E4567-E89B-12D3-A456-426655440000`
 
 As a result you get something like this: `{"id":"2b932653-b9e9-4bbe-a7e2-3d231b9877ba","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBVVRIIiwidXNlcl9pZCI6IjAzNjg0ODU2LTkwNmItNDY4OC04ODM3LTY1NTRkYzViOGVhMyIsImRldmljZV9pZCI6IjhCMUYwN0I0LTU5OEMtNDI0NS04REMxLTUzMTJFNjY4ODQyOSIsImV4cCI6MTU1OTQ2OTkxMH0.-UpZHkI9VMolxvvhjJc6qvQXkriynVQNm2PVZf63EQM"}`
