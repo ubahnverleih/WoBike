@@ -212,7 +212,7 @@ A sample response for the request above is:
 This endpoint is more well-documented in the file 
 [EUBike.md](EUBike.md).
 
-## VOI (Europe)
+## VOI (Scooter, Europe)
 [VOI](https://voiscooters.com) is a scooter sharing company founded in Sweden. They have electric scooters available at several locations in Europe, including cities in Sweden, Spain, Italy, France and others. A simple GET request to get scooters available for rental nearby a location (specified with latitude/longtitude parameters) looks like this:
 
 `https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329323&lng=18.068581`
@@ -220,6 +220,15 @@ This endpoint is more well-documented in the file
 (**no authentication is needed**)
 
 The request will return data about scooters in a list with JSON objects. More detailed documentation as well as an explaination of most of the request and response parameters can be found in the file [Voi.md](Voi.md).
+
+## Hive (Scooter, Europe)
+[hive](https://www.ridehive.com) is s scootersharing company based in Europe.
+
+There is *no* authentication or special headers and only `GET`-Requests required for the API-Endpoint `https://hive.frontend.fleetbird.eu/api/prod/v1.06/`. You can request all(?) vehicles with `https://hive.frontend.fleetbird.eu/api/prod/v1.06/map/cars/` or filter them by bbox like `https://hive.frontend.fleetbird.eu/api/prod/v1.06/map/cars/?lat1=46.8339&lat2=55.829&lon1=4.205&lon2=27.653` or show the 20 nearest vehicles around a location with `https://hive.frontend.fleetbird.eu/api/prod/v1.06/cars/?lat=53.4374&lon=9.9955`.
+
+Polygons with regions and parking restrictions are available on `https://hive.frontend.fleetbird.eu/api/prod/v1.06/territories/all/` (`type: 0` looks like free floating region and `type: 1` are no parking zones).
+
+Vehicle types with images are available on `https://hive.frontend.fleetbird.eu/api/prod/v1.06/cars/types/`
 
 ## More...
 
