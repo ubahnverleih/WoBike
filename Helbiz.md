@@ -1,4 +1,4 @@
-# Helbiz
+# Helbiz (Scooter)
 [Helbiz Go](https://helbiz.com/go) provides scooter sharing in Italy, Spain and France: https://helbiz.com/cities
 
 The API for getting scooter positions needs full authentication. Therefore, the User Creation Flow is described here:

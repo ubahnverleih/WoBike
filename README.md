@@ -221,6 +221,14 @@ This endpoint is more well-documented in the file
 
 The request will return data about scooters in a list with JSON objects. More detailed documentation as well as an explaination of most of the request and response parameters can be found in the file [Voi.md](Voi.md).
 
+## Flash / Circ (Scooter)
+
+[Detailed documentation](Flash.md) 
+
+## Helbiz (Scooter)
+
+[Detailed documentation](Helbiz.md) 
+
 ## Hive (Scooter, Europe)
 [hive](https://www.ridehive.com) is a scootersharing company based in Europe.
 
