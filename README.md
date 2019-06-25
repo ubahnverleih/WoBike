@@ -241,7 +241,7 @@ Vehicle types with images are available on `https://hive.frontend.fleetbird.eu/a
 ## TIER (Scooter, Europe, UAE)
 [tier](https://www.tier.app/) is a scootersharing company based in Europe.
 
-There is *no* authentication or special headers and only `GET`-Requests required for the API-Endpoint `https://tier.frontend.fleetbird.eu/api/prod/v1.06/`. You can request all(?) vehicles with `https://tier.frontend.fleetbird.eu/api/prod/v1.06/map/cars/` or filter them by bbox like `https://tier.frontend.fleetbird.eu/api/prod/v1.06/map/cars/?lat1=46.8339&lat2=55.829&lon1=4.205&lon2=27.653` or show the 20 nearest vehicles around a location with `https://tier.frontend.fleetbird.eu/api/prod/v1.06/cars/?lat=53.4374&lon=9.9955`.
+To authenticate you need to add `X-Api-Key: bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2` in your header of the API-Endpoint `https://platform.tier-services.io`. You can request all(?) vehicles with `https://platform.tier-services.io/vehicle?` or filter them by zoneID like `https://platform.tier-services.io/vehicle?zoneId=BERLIN` or show all the vehicles around a location with a given radius (meters) `https://platform.tier-services.io/vehicle?lat=0&lng=0&radius=500`.
 
 Polygons with regions and parking restrictions are available on `https://tier.frontend.fleetbird.eu/api/prod/v1.06/territories/all/` (`type: 0` looks like free floating region and `type: 1` are no parking zones).
 
@@ -252,9 +252,7 @@ Vehicle types with images are available on `https://tier.frontend.fleetbird.eu/a
 
 There is *no* authentication or special headers and only `GET`-Requests required for the API-Endpoint `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/`. You can request all(?) vehicles with `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/map/cars/` or filter them by bbox like `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/map/cars/?lat1=35.0&lat2=44.0&lon1=-35.0&lon2=4.0` or show the 20 nearest vehicles around a location with `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/cars/?lat=40.4021&lon=-3.6857`.
 
-Polygons with regions and parking restrictions are available on `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/territories/all/` (`type: 0` looks like free floating region and `type: 1` are no parking zones).
-
-Vehicle types with images are available on `https://ufo.frontend.fleetbird.eu/api/prod/v1.06/cars/types/`
+Polygons with regions and parking restrictions are available on `https://platform.tier-services.io/zone?lat=55.605&lng=13.0038`.
 
 ## Zero (Scooter, Germany)
 [Zero](https://gozero.eco/de/) is a scootersharing company based in Germany.
