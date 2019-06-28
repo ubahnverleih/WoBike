@@ -2,9 +2,18 @@
 
 ## Get Auth Token
 
-To access the API, you have to generate an Auth Token. No worries, you don’t need an Account for this, just an POST-Request to `https://api.bird.co/user/login`. The POST Request-Body is the following JSON:
+To access the API, you have to generate an Auth Token. No worries, you don’t need an Account for this, just an POST-Request to `https://api.birdapp.com/user/login`. The POST Request-Body is the following JSON:
 `{"email": "<EMAIL-ADDRESS>"}`.
-And the Headers should include `Device-id`: `<GUID>`, `Platform`: `ios`, and `Content-type`: `application/json`
+
+And the Headers should include
+```
+User-Agent: Bird/4.41.0 (co.bird.Ride; build:37; iOS 12.3.1) Alamofire/4.41.0
+Device-Id: <GUID>
+Platform: ios
+App-Version: 4.41.0
+Content-Type: application/json
+```
+
 You don't need to be able to receive Mails on the address, but it needs to be unique. If you use an email address that was previously used by you or anyone else, you won't receive a `token`, only an `id`.
 
 For the Device-Id you need to generate an random 16 Byte [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) like `123E4567-E89B-12D3-A456-426655440000`
@@ -17,20 +26,20 @@ We need the `token` for our location requests. This tokens invalidate after some
 
 Now you can request the locations of the Scooters:
 
-Send a GET request to `https://api.bird.co/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`  
+Send a GET request to `https://api.birdapp.com/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`  
 Set the following headers:
 
  * `Authorization`: `Bird <TOKEN>` – Use the token you got from Auth-Request.
  * `Device-id`: `<GUID>` – You can reuse the GUID from Auth-Request, but don't have to
- * `App-Version`: `3.0.5`
+ * `App-Version`: `4.41.0`
  * `Location`: `{"latitude":37.77249,"longitude":-122.40910,"altitude":500,"accuracy":100,"speed":-1,"heading":-1}` – Yes this is JSON in a header ;) – You should use the same data like from the GET request params.
 
  The Result looks like this: `{"birds":[{"id":"1486a00c-fd73-4370-9250-782f5c60ee2d","code":"6JLE","location":{"latitude":37.77216,"longitude":-122.409485},"battery_level":89}, ... ]}`
  
 ## Request Configuration
 
-Send a GET request to `https://api.bird.co/config/location?latitude=42.3140089&longitude=-71.2490943`.  
-The only needed header is `App-Version: 3.0.5`.
+Send a GET request to `https://api.birdapp.com/config/location?latitude=42.3140089&longitude=-71.2490943`.  
+The only needed header is `App-Version: 4.41.0`.
 
 The result contains the configuration for the app in this specific location, including stuff like `weather_alert` and service periods and `current_service_status`.
 
