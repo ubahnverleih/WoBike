@@ -22,7 +22,7 @@ For some cities nextbike has flexzones (free floating in these zones). At the mo
 ### GBFS
 
 Nextbike provides different GBFS endpoints for their different networks/brands/countries:
-`https://api.nextbike.net/maps/gbfs/v1/nextbike_<NETWORK-ID>/en/gbfs.json`. You can find the Network-ID in the `https://api.nextbike.net/maps/nextbike-live.json`, just search for the `"domain"` JSON Key in country root object. So GBFS endpoint for Germany would be `https://api.nextbike.net/maps/gbfs/v1/nextbike_de/en/gbfs.json`. Warning: Not all german citys are in the `de` endpoint, e.g. in Berlin nextbike partnered with Deezer and uses Network-ID/country code `bn`.
+`https://api.nextbike.net/maps/gbfs/v1/nextbike_<NETWORK-ID>/gbfs.json`. You can find the Network-ID in the `https://api.nextbike.net/maps/nextbike-live.json`, just search for the `"domain"` JSON Key in country root object. So GBFS endpoint for Germany would be `https://api.nextbike.net/maps/gbfs/v1/nextbike_de/gbfs.json`. Warning: Not all german citys are in the `de` endpoint, e.g. in Berlin nextbike partnered with Deezer and uses Network-ID/country code `bn`.
 
 ## Call-a-Bike (Germany / Deutsche Bahn)
 
