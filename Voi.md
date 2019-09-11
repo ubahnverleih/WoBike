@@ -28,7 +28,37 @@ An example request is: `https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329
 
 **The server will return a response formatted like this:**
 
-```[{"id":"b12a8bcd-d024-4b70-9565-b5d295fe93c0","short":"anbc","name":"VOI","zone":2,"type":"btv1","status":"ready","bounty":0,"location":[48.858737,2.33287],"battery":100,"locked":true,"updated":"2019-01-19T05:50:33.319335Z"},{"id":"d0ddebea-7bd9-47f0-846a-b33184fdd158","short":"c96a","name":"VOI","zone":9,"type":"btv1","status":"ready","bounty":0,"location":[48.862964444444444,2.304696111111111],"battery":93,"locked":true,"updated":"2019-01-19T15:00:23.908909Z"},...]```
+```json
+[
+  {
+    "id":"b12a8bcd-d024-4b70-9565-b5d295fe93c0",
+    "short":"anbc",
+    "name":"VOI",
+    "zone":2,
+    "type":"btv1",
+    "status":"ready",
+    "bounty":0,
+    "location":[48.858737,2.33287],
+    "battery":100,
+    "locked":true,
+    "updated":"2019-01-19T05:50:33.319335Z"
+  },
+  {
+    "id":"d0ddebea-7bd9-47f0-846a-b33184fdd158",
+    "short":"c96a",
+    "name":"VOI",
+    "zone":9,
+    "type":"btv1",
+    "status":"ready",
+    "bounty":0,
+    "location":[48.862964444444444,2.304696111111111],
+    "battery":93,
+    "locked":true,
+    "updated":"2019-01-19T15:00:23.908909Z"
+  },
+  ...
+]
+```
 
 The response is a list with information about each scooter, in a JSON format. Here is a list of the parameters in each scooter object and information about what they (most likely) do:
 
