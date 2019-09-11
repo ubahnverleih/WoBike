@@ -112,7 +112,11 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
 and https://sf.jumpbikes.com/opendata respectively.
 
-Also see https://github.com/Leschonander/Jump-Bike-D.C-Python-API-Wrapper
+Also see: 
+
+* https://github.com/Leschonander/Jump-Bike-D.C-Python-API-Wrapper
+* https://github.com/salanza/node-jump
+
 
 ## SocialBicycles (USA, Canada, Czech Republic, Poland)
 
