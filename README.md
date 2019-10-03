@@ -8,7 +8,14 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 
 ### API
 
-URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. You also can filter by city, with the GET-Parameter `city`. Eg `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
+URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. 
+
+#### Filtering
+
+You also can filter by city, with the GET-Parameter `city`. Eg. `https://api.nextbike.net/maps/nextbike-live.json?city=362` for Berlin.
+In some cities there's an artificial split into separate systems (while the bikes are interchangeable) - you can provide multiple city ids separated by commas - e.g. `https://nextbike.net/maps/nextbike-official.xml?city=372,210,475` lists all Warsaw bikes.
+
+#### Flexzones
 
 For some cities nextbike has flexzones (free floating in these zones). At the moment these are:
 
