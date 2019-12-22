@@ -16,6 +16,7 @@ See here example of python implementation of the session authentication (once th
 
 ## 1 - Get OTP
 `POST` request to `https://api.voiapp.io/v1/auth/verify/phone`
+
 Body: raw/JSON
 ```json
 {
@@ -35,6 +36,7 @@ In the body of the answer, you get a UUID in a param `token`, and of course an S
 This request gets nothing in the answer, but is necessary so that the token works. The `code` should be the value received by SMS. 
 
 `POST` request to `https://api.voiapp.io/v1/auth/verify/code`
+
 Body: raw/JSON
 ```json
 {
@@ -46,6 +48,7 @@ Answer is 204 with no content.
 
 ## 3 - Get first authToken
 `POST` request to `https://api.voiapp.io/v1/auth/verify/presence`
+
 Body: raw/JSON:
 ```json
 {
@@ -64,6 +67,7 @@ Answer will be:
 
 ## 4 - Open Session
 `POST` request to `https://api.voiapp.io/v1/auth/session`
+
 Body: raw/JSON
 ```json
 {
