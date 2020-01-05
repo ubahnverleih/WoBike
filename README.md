@@ -19,10 +19,11 @@ In some cities there's an artificial split into separate systems (while the bike
 
 For some cities nextbike has flexzones (free floating in these zones). At the moment these are:
 
-* Köln `https://api.nextbike.net/reservation/geojson/flexzone_kg.json`
 * Berlin `https://api.nextbike.net/reservation/geojson/flexzone_bn.json`
 * Dresden `https://api.nextbike.net/reservation/geojson/flexzone_sz.json`
 * Karlsruhe `https://api.nextbike.net/reservation/geojson/flexzone_fg.json`
+* Köln `https://api.nextbike.net/reservation/geojson/flexzone_kg.json`
+* Leipzig `https://api.nextbike.net/reservation/geojson/flexzone_le.json`
 * Nürnberg `https://api.nextbike.net/reservation/geojson/flexzone_nb.json`
 * For all zones: `https://api.nextbike.net/reservation/geojson/flexzone_all.json`
 
