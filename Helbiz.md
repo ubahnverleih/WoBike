@@ -60,6 +60,15 @@ Body:
 {"email": "helbiz@example.com","password": "..."}
 ```
 
+As value for the password field you have to provide the md5 hash of the password sent into the create request.
+
+In order to obtain the hash, supposing you're using a *nix system, you could execute the following command:
+```
+$ echo -n "password_string" | md5sum | tr --delete '-'
+5f4dcc3b5aa765d61d8327deb882cf99
+```
+then copy and paste the string obtained as result.
+
 Response:
 ```
 {
