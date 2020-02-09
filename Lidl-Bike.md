@@ -35,5 +35,5 @@ Param      | Value(s)      | Description
 ```
 curl --request POST \
     --url https://www.lidl-bike.de/de/rpc \
-    --data '{"method":"Map.listBikes","params":[{"lat":52.52581526868782,"long":13.433961158935514,"maxItems":100,"radius":10000000000,"name":"drag"}]}'
+    --data '{"method":"Map.listBikes","params":[{"lat":52.52581526868782,"long":13.433961158935514,"maxItems":100,"radius":400,"name":"drag"}]}'
 ```
