@@ -8,7 +8,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 
 ### API
 
-URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML. 
+URL: `https://api.nextbike.net/maps/nextbike-live.json` as JSON or `https://api.nextbike.net/maps/nextbike-live.xml` as XML.
 
 #### Filtering
 
@@ -120,7 +120,7 @@ Simple GET-Request example: `https://api-prod.ibyke.io/v1/bikes?latitude=52.5500
 Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
 and https://sf.jumpbikes.com/opendata respectively.
 
-Also see: 
+Also see:
 
 * https://github.com/Leschonander/Jump-Bike-D.C-Python-API-Wrapper
 * https://github.com/salanza/node-jump
@@ -221,7 +221,7 @@ The IP address is an Alibaba Cloud Server located in Germany used by the EUBIKE 
 A sample response for the request above is:
 `{"success":true,"data":[{"devid":"10002165","shebeistatus":0,"devlat":59.31163,"devlng":18.06885,"devpower":0,"dist":0.133420259},{"devid":"10000991","shebeistatus":0,"devlat":59.30986,"devlng":18.06548,"devpower":0,"dist":0.147037461},{"devid":"10001231","shebeistatus":0,"devlat":59.3098221,"devlng":18.0654163,"devpower":0,"dist":0.15217796},{"devid":"10001958","shebeistatus":0,"devlat":59.3130035,"devlng":18.0675964,"devpower":0,"dist":0.230080515},{"devid":"10001357","shebeistatus":0,"devlat":59.31213,"devlng":18.0620575,"devpower":0,"dist":0.303918362},{"devid":"10002477","shebeistatus":0,"devlat":59.3123932,"devlng":18.0622749,"devpower":0,"dist":0.306723356}...],"maparea" : []`
 
-This endpoint is more well-documented in the file 
+This endpoint is more well-documented in the file
 [EUBike.md](EUBike.md).
 
 ## VOI (Scooter, Europe)
@@ -235,11 +235,11 @@ The request will return data about scooters in a list with JSON objects. More de
 
 ## Flash / Circ (Scooter)
 
-[Detailed documentation](Flash.md) 
+[Detailed documentation](Flash.md)
 
 ## Helbiz (Scooter)
 
-[Detailed documentation](Helbiz.md) 
+[Detailed documentation](Helbiz.md)
 
 ## Hive (Scooter, Europe)
 [hive](https://www.ridehive.com) is a scootersharing company based in Europe.
@@ -299,7 +299,10 @@ Vehicle types with images are available on `https://emmy.frontend.fleetbird.eu/a
 First request the cities with `GET` request `https://app.joincoup.com/api/v3/markets`. Get the `id` for your city and request all vehicles with a `GET` request `https://app.joincoup.com/api/v3/markets/{id}/scooters` for example for Berlin: `https://app.joincoup.com/api/v3/markets/fb7aadac-bded-4321-9223-e3c30c5e3ba5/scooters`. A `GET` request to
 `https://app.joincoup.com/api/v3/markets/{id}/business_areas` will give you business areas for that city.
 
+## Lidl-Bike
+[Lidl-Bike](https://www.lidl-bike.de) is a german bike rental service, which is part of the Call-A-Bike family.
 
+[Detailed documentation](Lidl-Bike.md)
 
 ## More...
 
