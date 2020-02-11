@@ -304,6 +304,11 @@ First request the cities with `GET` request `https://app.joincoup.com/api/v3/mar
 
 [Detailed documentation](Lidl-Bike.md)
 
+## Donkey Republic
+[Donkey Republic](https://www.donkey.bike) is a bike rental service offering bikes, e-bikes, scooters and trailers.
+
+[Detailed documentation](Donkey.md)
+
 ## More...
 
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
@@ -314,4 +319,3 @@ First request the cities with `GET` request `https://app.joincoup.com/api/v3/mar
 ## Todo
 
 * [Pony Bikes](http://getapony.com/) (uses certificate pinning)
-* [Donkey Republic](http://www.donkey.bike/) (uses certificate pinning)
