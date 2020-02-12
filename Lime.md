@@ -8,7 +8,7 @@
 
 Login is in two step:
 
-+ Request code with your phone number, you ll receive an sms
++ Request code with your phone number, you'll receive an sms
 + Send back this code
 
 #### Request sms code
@@ -33,6 +33,21 @@ will send an sms to `06 12 34 56 78` phone with an OTP code.
 ```bash
 curl --request GET \
   --url 'https://web-production.lime.bike/api/rider/v1/login?phone=%2B33612345678'
+```
+
+Below is a example request done in Python with the `Requests` library.
+
+```python
+headers = {
+    'Authorization': 'Bearer limebike-PMc3qGEtAAXqJa',
+}
+
+params = (
+    ('region', 'Washington DC Proper'),
+)
+
+response = re.get('https://lime.bike/api/partners/v1/bikes', headers=headers, params=params)
+data = json.loads(response.text)
 ```
 
 #### Send back OTP code
