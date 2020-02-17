@@ -1,4 +1,5 @@
 # Spin (Bikes and Scooters)
+[Spin](https://www.spin.pm/) is a Bike and E-Scotter sharing service in the US.
 
 To Access the API, you need to generate an Auth token. This requires only a verifiable email address. Make a POST request to `https://web.spin.pm/api/v1/magic_links` with the body:
 ```

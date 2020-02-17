@@ -1,8 +1,9 @@
 # Bird (Scooters)
+[Bird](https://www.bird.co/) is a E-Scotter sharing service in the US.
 
 ## Get Auth Token
 
-First, you need to get authorization. This requires a verifiable email and a GUID. Send a POST request to `https://api-auth.prod.birdapp.com/api/v1/auth/email` with the body: 
+First, you need to get authorization. This requires a verifiable email and a GUID. Send a POST request to `https://api-auth.prod.birdapp.com/api/v1/auth/email` with the body:
 ```
 {"email":"<EMAIL>"}
 ```
@@ -25,7 +26,7 @@ The body:
 {"token":"<TOKEN>"}
 ```
 
-As a result you get something like this: 
+As a result you get something like this:
 ```
 {
     "access": "<LONG STRING>",
@@ -37,7 +38,7 @@ As a result you get something like this:
 
 Now you can request the locations of the Scooters:
 
-Send a GET request to `https://api.birdapp.com/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`  
+Send a GET request to `https://api.birdapp.com/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`
 Set the following headers:
 
  * `Authorization`: `Bird <TOKEN>` – Use the token you got from Auth-Request.
@@ -46,10 +47,10 @@ Set the following headers:
  * `Location`: `{"latitude":37.77249,"longitude":-122.40910,"altitude":500,"accuracy":100,"speed":-1,"heading":-1}` – Yes this is JSON in a header ;) – You should use the same data like from the GET request params.
 
  The Result looks like this: `{"birds":[{"id":"1486a00c-fd73-4370-9250-782f5c60ee2d","code":"6JLE","location":{"latitude":37.77216,"longitude":-122.409485},"battery_level":89}, ... ]}`
- 
+
 ## Request Configuration
 
-Send a GET request to `https://api.birdapp.com/config/location?latitude=42.3140089&longitude=-71.2490943`.  
+Send a GET request to `https://api.birdapp.com/config/location?latitude=42.3140089&longitude=-71.2490943`.
 The only needed header is `App-Version: 4.41.0`.
 
 The result contains the configuration for the app in this specific location, including stuff like `weather_alert` and service periods and `current_service_status`.
