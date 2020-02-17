@@ -44,7 +44,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Zagster](Zagster.md)
 
 ## Scooters (🛵, that you sit on)
-- [Emmy](Germany)(Emmy.md)
+- [Emmy (Germany)](Emmy.md)
 - [Coup (Germany, Spain, France)](Coup.md)
 
 ## More...
