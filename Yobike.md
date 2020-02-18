@@ -1,5 +1,8 @@
 # Yobike and yobike-based provider
 
+Yobike (ex ohbike) sell their systems under white label.
+Only the Application key differ
+
 **Base url**: `https://en.api.ohbike.com`
 
 Yobike (ex ohbike) sell their systems under white label.
@@ -136,7 +139,7 @@ def prep_query(lat_sw, long_sw, lat_ne, long_ne):
   }
   return query_data
 
-# all of grenoble 
+# all of grenoble
 query_data = prep_query(45.140106, 5.668827, 45.211247, 5.794435)
 
 # just around prefecture verdun
@@ -163,7 +166,7 @@ print('RESPONSE:')
 print('='*80)
 try:
   from pygments import highlight, lexers, formatters
-  colorful_json = highlight(response_json, lexers.JsonLexer(), formatters.TerminalFormatter()) 
+  colorful_json = highlight(response_json, lexers.JsonLexer(), formatters.TerminalFormatter())
   print(colorful_json)
 except:
   print(response_json)

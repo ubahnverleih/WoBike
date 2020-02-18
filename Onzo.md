@@ -1,5 +1,7 @@
 # Onzo (bikes, Location: New Zealand)
 
+Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
+
 **Method:** GET
 
 **Base url:** `https://app.onzo.co.nz/nearby/<Latitude>/<Longitude>/<search-radius>`
@@ -14,7 +16,7 @@
 
 ---
 
-**Example request** (Auckland City): 
+**Example request** (Auckland City):
 
 `curl https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0`
 
