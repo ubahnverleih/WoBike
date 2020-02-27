@@ -23,14 +23,6 @@ Therefore, I write this little guide to make the process easier in the future.
 * [Burp Suite Community Edition](https://portswigger.net/burp) for the actual MitM attack. You can use other tools, but again, as I used burp, the guide also relies on burp.
 * A [Google Cloud Platform](https://console.cloud.google.com) API key, registered for Android Map SDK.
 
-## Downloading the App
-First, open the Play Store on your device, search for Jump and download the app.
-After the download, do not open the app, but start SAI and export the Jump app.
-On your computer, run `adb pull <PATH_TO_EXPORTED_JUMP_APP>`.
-This will download the APK from the device to your computer.
-As the Jump app is an app bundle, the file is a APKS rather than APK.
-The next step is to unpack the APKS simply by running `unzip <PATH_TO.APKS>`.
-
 ## Preparation
 ### Burp Suite Proxy Preparation
 First, we have to setup Burp Suite's proxy.
@@ -43,13 +35,13 @@ Confirm with OK.
 Cool, Burp is now waiting for your traffic.
 
 ### Burp Suite Proxy on Android
-Ofcourse we need to tell Android to reroute all traffic to the proxy.
+Of course we need to tell Android to reroute all traffic to the proxy.
 To do so, open the Settings on Android, go to Wi-Fi and long-press on the Wi-Fi network you are connected to.
 A dialog will pop up.
 Chose Edit Network.
 Scroll down and you will see the proxy settings (which are set to none).
 Change this to manual.
-Now you can add you computers IP and the proxy's port to the respective field.
+Now you can add your computers IP and the proxy's port to the respective field.
 Apply these changes.
 Now, all HTTP traffic is proxy'd through Burp, but HTTPS not yet.
 
@@ -57,7 +49,7 @@ To enable HTTPS, open a browser on the Android device and go to `http://burp`.
 In the top right corner, you can download Burp's certificate.
 Download it and rename it to `cert.cer`.
 Now, go to Security in the Android Settings.
-Here, you will find a option to install certificates from storage.
+Here, you will find an option to install certificates from storage.
 Open this option and select the downloaded `cert.cer` (not `cert.der`!).
 Simply follow the instructions (you can choose what ever name you want).
 To confirm that everything works well, open a browser on Android and visit any HTTPS page.
@@ -81,7 +73,10 @@ This will be hashed and then base64 encoded.
 Thanks to Unix' Pipes, this can be done in one command:
 
 ```
-openssl x509 -in <PATH_TO_PEM_CERTIFICATE> -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+openssl x509 -in <PATH_TO_PEM_CERTIFICATE> -pubkey -noout \
+    | openssl rsa -pubin -outform der \
+    | openssl dgst -sha256 -binary \
+    | openssl enc -base64
 ```
 
 There you have your base64 encoded certificate fingerprint.
@@ -93,7 +88,12 @@ Java and Android ship everythin required to do this.
 Let's create a signing key:
 
 ```
-keytool -genkey -v -keystore <PATH_TO_KEYSTORE>.keystore -alias <KEYNAME> -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey \
+    -v -keystore <PATH_TO_KEYSTORE>.keystore \
+    -alias <KEYNAME> \
+    -keyalg RSA \
+    -keysize 2048 \
+    -validity 10000
 ```
 
 Please remember the `KEYNAME`, as we need it later on.
@@ -101,6 +101,14 @@ You can chose what ever you want during the creation.
 During the last question you have to type `yes`, otherwise, the process will start again.
 
 This key will be used later to sign the APKs.
+
+## Downloading the App
+First, open the Play Store on your device, search for Jump and download the app.
+After the download, do not open the app, but start SAI and export the Jump app.
+On your computer, run `adb pull <PATH_TO_EXPORTED_JUMP_APP>`.
+This will download the APK from the device to your computer.
+As the Jump app is an app bundle, the file is a APKS rather than APK.
+The next step is to unpack the APKS simply by running `unzip <PATH_TO.APKS>`.
 
 ## Decompiling
 Now it's time to decompile the app.
@@ -115,8 +123,8 @@ Run this command on all `split_config*` APK files.
 The `-r` option hinders `apktool` to decompile resources, which would cause errors during repackaging.
 
 Now comes the tricky part.
-We have to decompile the `base.apk` twice
-First, we have to path the `AndroidManifest.xml`.
+We have to decompile the `base.apk` twice.
+First, we have to patch the `AndroidManifest.xml`.
 Since the `-r` option also hinders `apktool` to decompile the manifest, we have to do this in a separate step.
 Let's get started.
 Decompile the `base.apk` including all resource files and rename the resulting folder into something meaningful:
@@ -195,10 +203,16 @@ As you may notice, the APKs have this `unaligned` in their names.
 This will be used later, as we have to align the files.
 But first, let's sign the APKs.
 
-This is obviously done with the signing key and `jarsigner` from the [preparations](## Preparation) part:
+This is obviously done with the signing key and `jarsigner`:
 
 ```
-jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore <PATH_TO_THE_KEYSTORE> -storepass <KEY_PASSWORD> <PATH_TO_UNALIGNED_APK> <NAME_OF_SIGNING_KEY>
+jarsigner -verbose \
+    -sigalg MD5withRSA \
+    -digestalg SHA1 \
+    -keystore <PATH_TO_THE_KEYSTORE> \
+    -storepass <KEY_PASSWORD> \
+    <PATH_TO_UNALIGNED_APK> \
+    <NAME_OF_SIGNING_KEY>
 ```
 
 Repeat this process for all the compiled APKs.
@@ -209,7 +223,7 @@ The final step before deployment is now to align the APKs with `zipalign`:
 zipalign -v 4 <PATH_TO_UNALIGNED_APK> <OUTPUT_PATH_FOR_ALIGNED_APK>
 ```
 
-Again, repeat this process for all unaligned and signed APKs.
+Again, repeat this process for all unaligned but signed APKs.
 
 ### Deploy
 Now, use `adb` and push all aligned and signed APKs to your device:
