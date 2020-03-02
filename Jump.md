@@ -246,7 +246,7 @@ You have to specifiy an absolute path, otherwise the certificate won't be saved.
 The next step is to convert the DEM certifcate to the PEM format.
 This is done with the OpenSSL CLI, which should be available on all Linux and macOS systems anyways.
 
-```
+```sh
 openssl x509 -inform der -in <PATH_TO_CERTIFICATE> -out <PATH_TO_NEW_CERTIFICATE>
 ```
 
@@ -256,7 +256,7 @@ First, we want to get the public part from the certificate and extract the publi
 This will be hashed and then base64 encoded.
 Thanks to Unix' Pipes, this can be done in one command:
 
-```
+```sh
 openssl x509 -in <PATH_TO_PEM_CERTIFICATE> -pubkey -noout \
     | openssl rsa -pubin -outform der \
     | openssl dgst -sha256 -binary \
@@ -271,7 +271,7 @@ Luckily, we can do this without any hasle ourself.
 Java and Android ship everythin required to do this.
 Let's create a signing key:
 
-```
+```sh
 keytool -genkey \
     -v -keystore <PATH_TO_KEYSTORE>.keystore \
     -alias <KEYNAME> \
@@ -299,7 +299,7 @@ Now it's time to decompile the app.
 This requires multiple steps.
 First, decompile all APK files that are not called `base.apk` using `apktool`:
 
-```
+```sh
 apktool d -r <SPLIT_CONFIG_APK>
 ```
 
@@ -313,13 +313,13 @@ Since the `-r` option also hinders `apktool` to decompile the manifest, we have 
 Let's get started.
 Decompile the `base.apk` including all resource files and rename the resulting folder into something meaningful:
 
-```
+```sh
 apktool d base.apk -o base.complete/
 ```
 
 Now, decompile the `base.apk`, but leave the resource files intact:
 
-```
+```sh
 apktool d -r base.apk
 ```
 
@@ -342,7 +342,7 @@ Therefore, we first recompile `base.complete/`, decompile it again but leave the
 Unfortunately, this is not that straight forward as it should be.
 First, try to recompile the `base.complete/` folder with
 
-```
+```sh
 apktool b base.complete/ -o base.tmp.apk
 ```
 
@@ -353,7 +353,7 @@ Now, retry the compilation.
 You should now have a `base.tmp.apk` file.
 As we need the compiled `AndroidManifest.xml`, we have to decompile the `base.tmp.apk` again, but leave the manifest untouched:
 
-```
+```sh
 apktool d -r base.tmp.apk -o base.tmp/
 ```
 
@@ -375,7 +375,7 @@ Let' recompile everything and install the app.
 ### Build
 To recompile the APKs, we just use `apktool` again:
 
-```
+```sh
 apktool b -f base/ -o base.unaligned.apk
 apktool b -f split_config<1>/ -o split_config<1>.unaligned.apk
 apktool b -f split_config<2>/ -o split_config<2>.unaligned.apk
@@ -389,7 +389,7 @@ But first, let's sign the APKs.
 
 This is obviously done with the signing key and `jarsigner`:
 
-```
+```sh
 jarsigner -verbose \
     -sigalg MD5withRSA \
     -digestalg SHA1 \
@@ -403,7 +403,7 @@ Repeat this process for all the compiled APKs.
 
 The final step before deployment is now to align the APKs with `zipalign`:
 
-```
+```sh
 zipalign -v 4 <PATH_TO_UNALIGNED_APK> <OUTPUT_PATH_FOR_ALIGNED_APK>
 ```
 
@@ -412,7 +412,7 @@ Again, repeat this process for all unaligned but signed APKs.
 ### Deploy
 Now, use `adb` and push all aligned and signed APKs to your device:
 
-```
+```sh
 adb push <PATH_TO_BASE_APK> <PATH_TO_SPLIT_1_APK> <PATH_TO_SPLIT_2_APK> ... /sdcard
 ```
 
