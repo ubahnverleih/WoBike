@@ -1,17 +1,201 @@
 # JUMP (USA)
 
-[JUMP](http://jumpbikes.com/) operates electric dockless bikeshares in Washington, DC & San
-Francisco. They operate open data APIs at https://dc.jumpmobility.com/opendata
-and https://sf.jumpbikes.com/opendata respectively.
+[JUMP](http://jumpbikes.com/) operates electric dockless bikeshares and scooter is various cities around the globe.
+To get bike and scooter date, you need to authenticate yourself.
+Unfortunately, this is a) rather tedious and requires 5 (yes, five) steps and b) you have to register using the Jump app.
+I assume, that you already have an account, as I don't know how to do this programmatically.
 
-Also see:
+## Getting an API token
+This task is quite heavy and requires 5 steps and parsing HTML and JavaScript source code.
 
-* https://github.com/Leschonander/Jump-Bike-D.C-Python-API-Wrapper
-* https://github.com/salanza/node-jump
+### 0: Helper
+During the process, Uber sends some HTML and JavaScript files, which you need to parse.
+I wrote a little Python helper to do this.
+Give it the `index.html` file as a parameter, it will store all tokens required from the file in `tokens.txt`.
+Basically, this is a [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)-[token](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Cookie-to-header_token) and a session ID.
+Both change after each step, therefore, you have to run the Python script after every step (as stated later).
+
+```Python
+#! /usr/bin/env python3
+
+import sys
+from html.parser import HTMLParser
+
+token_path = "tokens.txt"
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        if tag != 'input':
+            return
+
+        if len(attrs) != 3:
+            return
+
+        if attrs[1][1] == 'sess':
+            with open(token_path, 'a') as token_file:
+                token_file.write(f"sess={attrs[2][1]}\n")
+
+        if attrs[1][1] == 'x-csrf-token':
+            with open(token_path, 'a') as token_file:
+                token_file.write(f"csrf={attrs[2][1]}\n")
+
+        if attrs[1][1] == 'inAuthSessionID':
+            with open(token_path, 'a') as token_file:
+                token_file.write(f"auth={attrs[2][1]}\n")
 
 
+tmp = open(token_path, 'w')
+tmp.close()
 
-# How to get the Information
+parser = MyHTMLParser()
+with open(sys.argv[1], 'r') as html_file:
+    parser.feed(html_file.read())
+
+```
+
+### 1: Request Authentication
+The first request will ask the Uber backend for authentication and start the process.
+This will also create a cookie jar file `cookie.jar`, which is required during the next steps.
+
+```sh
+curl -X GET \
+    -H "Accept-Encoding: gzip, deflate" \
+    --cookie-jar "cookie.jar" \
+    --url "https://auth.uber.com/login/?uber_client_name=jump" \
+    | gzip -dc \
+    | tee index.html \
+    && python3 parse.py index.html
+```
+
+Again, you should have three files now available, `cookie.jar` with the cookie, `tokens.txt` with a CSRF token and a session ID and `index.html`, where this information is from.
+
+## 2: Submitting Phone Number
+If you have a look in the `index.html` from the previous step, you will see, that Uber is requesting a phone number.
+This is what we are gonna do now.
+
+```sh
+CSRF=$(grep csrf tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+SESS=$(grep sess tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+
+COUNTRY_CODE="49"   # two digit ISO country code without + or 0
+PHONE="1234567"     # Phone number without leading 0 or country code.
+
+curl -X POST \
+    -H "Accept-Encoding: gzip, deflate" \
+    --data "countryCode=$COUNTRY_CODE" \
+    --data "phoneNumber=$PHONE" \
+    --data "autoSMSVerificationSupported=false" \
+    --data "uberClientName=jump" \
+    --data "type=INPUT_MOBILE" \
+    --data "x-csrf-token=$CSRF" \
+    --data "sess=$SESS" \
+    -b "cookie.jar" \
+    --cookie-jar "cookie.jar" \
+    --url "https://auth.uber.com/login/session" \
+    | gzip -dc \
+    | tee index.html \
+    && python3 parse.py index.html
+```
+
+This will a) update the three files (`index.html`, `tokens.txt`, `cookie.jar`) and b) request a 4-digit 2FA code, which is sent to your phone number, which you will need in the next step.
+
+### 3: Confirm 2FA Code
+Now we want to sent the 2FA code to uber.
+
+```sh
+CSRF=$(grep csrf tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+SESS=$(grep sess tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+AUTH=$(grep auth tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+
+CODE="1234" # 4-digit 2FA code
+
+curl -X POST \
+    -H "Accept-Encoding: gzip, deflate" \
+    --data "type=SMS_OTP" \
+    --data "autoSMSVerificationSupported=false" \
+    --data "uberClientName=jump" \
+    --data "smsOTP=$CODE" \
+    --data "x-csrf-token=$CSRF" \
+    --data "sess=$SESS" \
+    --data "inAuthSessionID=$AUTH" \
+    -b "cookie.jar" \
+    --cookie-jar "cookie.jar" \
+    --url "https://auth.uber.com/login/session" \
+    | gzip -dc \
+    | tee index.html \
+    && python3 parse.py index.html
+```
+
+Alright, almost done.
+Again, the three files are updated again.
+
+### 4: Password
+For this step, you have to provide your password.
+
+```sh
+CSRF=$(grep csrf tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+SESS=$(grep sess tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+AUTH=$(grep auth tokens.txt | cut -d '=' -f2 | sed 's/ *$//')
+
+PW="YOUR_PW_HERE"
+
+curl -X POST \
+    -H "Accept-Encoding: gzip, deflate" \
+    --data "type=VERIFY_PASSWORD" \
+    --data "autoSMSVerificationSupported=false" \
+    --data "uberClientName=jump" \
+    --data "password=$PW" \
+    --data "x-csrf-token=$CSRF" \
+    --data "sess=$SESS" \
+    --data "inAuthSessionID=$AUTH" \
+    -b "cookie.jar" \
+    --url "https://auth.uber.com/login/session" \
+    | sed -nE 's/.*#code=(.*)&in_auth_session_id=.*/\1/p'
+```
+
+We are getting close.
+The last `sed` command will strip everything away except a UUID with the usual `123abcde-abcd-01234-abcd-123456789abc` format.
+You will need this for the last step.
+
+### 5: Confirmation
+Basically, you will need the UUID from the previous step to confirm you login:
+
+```sh
+UUID="123abcde-abcd-01234-abcd-123456789abc"
+
+curl -X POST \
+    -H "Accept-Encoding: gzip, deflate" \
+    -H "Connection: close" \
+    -H "Content-Type: application/json; charset=UTF-8" \
+    --data "{\"formContainerAnswer\":{\"inAuthSessionID\":\"$UUID\",\"formAnswer\":{\"flowType\":\"SIGN_IN\",\"screenAnswers\":[{\"screenType\":\"SESSION_VERIFICATION\",\"fieldAnswers\":[{\"fieldType\":\"SESSION_VERIFICATION_CODE\",\"sessionVerificationCode\":\"$UUID\"}]}]}}}" \
+    --url "https://cn-geo1.uber.com/rt/silk-screen/submit-form" \
+    | gzip -dc
+```
+
+Now, you will get a JSON response including various IDs and tokens.
+What you need is the `apiToken`, again, looking a regular UUID `abcde123-abcd-01234-abcd-123456789abc`.
+Congratulations.
+You did it.
+This `apiToken` is what you need to get scooters and bikes.
+
+## Requesting vehicles
+To request vehicles, there is one known endpoint so far.
+
+```sh
+curl -X POST \
+    -H "x-uber-token: abcde123-abcd-01234-abcd-123456789abc" \   # API Token from authentication
+    -H "Content-Type: application/json; charset=UTF-8" \
+    -H "Accept-Encoding: gzip, deflate" \
+    --data '{"latitude":52.528038680440716,"longitude":13.401972334831953,"radius":1000000}' \
+    --url "https://cn-geo1.uber.com/rt/emobility/search-assets" | gzip -dc
+```
+
+There are only three parameters: `latitude`, `longitude` of a center point and `radius` around this point.
+You can set the radius as you wish, but there seems to be a maximum at about 500 meters, if I see correctly.
+You will get a JSON response including all information about vehicles.
+
+
+# How to get the Information (a.k.a. Reverse Engineering an Android App)
 Other than for example Lime, Jump uses a series of reverse-engineering mitigations like certificate pinning.
 Therefore, I write this little guide to make the process easier in the future.
 
