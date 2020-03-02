@@ -1,8 +1,8 @@
 # JUMP (USA)
 
 [JUMP](http://jumpbikes.com/) operates electric dockless bikeshares and scooter is various cities around the globe.
-To get bike and scooter date, you need to authenticate yourself.
-Unfortunately, this is a) rather tedious and requires 5 (yes, five) steps and b) you have to register using the Jump app.
+To get bike and scooter data, you need to authenticate yourself.
+Unfortunately, this is a) rather tedious that requires 5 (yes, five) steps and b) you have to register a phone number using the Jump app.
 I assume, that you already have an account, as I don't know how to do this programmatically.
 
 ## Getting an API token
@@ -14,6 +14,7 @@ I wrote a little Python helper to do this.
 Give it the `index.html` file as a parameter, it will store all tokens required from the file in `tokens.txt`.
 Basically, this is a [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)-[token](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Cookie-to-header_token) and a session ID.
 Both change after each step, therefore, you have to run the Python script after every step (as stated later).
+For simplicity, save the Python helper in a file called `parse.py`.
 
 ```Python
 #! /usr/bin/env python3
@@ -69,7 +70,7 @@ curl -X GET \
 
 Again, you should have three files now available, `cookie.jar` with the cookie, `tokens.txt` with a CSRF token and a session ID and `index.html`, where this information is from.
 
-## 2: Submitting Phone Number
+### 2: Submitting Phone Number
 If you have a look in the `index.html` from the previous step, you will see, that Uber is requesting a phone number.
 This is what we are gonna do now.
 
@@ -97,7 +98,7 @@ curl -X POST \
     && python3 parse.py index.html
 ```
 
-This will a) update the three files (`index.html`, `tokens.txt`, `cookie.jar`) and b) request a 4-digit 2FA code, which is sent to your phone number, which you will need in the next step.
+This will a) update the three files (`index.html`, `tokens.txt`, `cookie.jar`) and b) request a 4-digit 2FA code that is sent to your phone number and that you will need in the next step.
 
 ### 3: Confirm 2FA Code
 Now we want to sent the 2FA code to uber.
@@ -182,8 +183,10 @@ This `apiToken` is what you need to get scooters and bikes.
 To request vehicles, there is one known endpoint so far.
 
 ```sh
+API_TOKEN="abcde123-abcd-01234-abcd-123456789abc"   # API Token from authentication
+
 curl -X POST \
-    -H "x-uber-token: abcde123-abcd-01234-abcd-123456789abc" \   # API Token from authentication
+    -H "x-uber-token: $API_TOKEN" \
     -H "Content-Type: application/json; charset=UTF-8" \
     -H "Accept-Encoding: gzip, deflate" \
     --data '{"latitude":52.528038680440716,"longitude":13.401972334831953,"radius":1000000}' \
@@ -206,6 +209,7 @@ Therefore, I write this little guide to make the process easier in the future.
 * [Android SDK Platform Tools](https://developer.android.com/studio/command-line/adb) or at least `adb` and `zipalign`.
 * [Burp Suite Community Edition](https://portswigger.net/burp) for the actual MitM attack. You can use other tools, but again, as I used burp, the guide also relies on burp.
 * A [Google Cloud Platform](https://console.cloud.google.com) API key, registered for Android Map SDK.
+* I used version `2.39.10000` for this. Chances are, that things change over time. I will try to keep this guide up-to-date, but you know. Upkeep is always hard.
 
 ## Preparation
 ### Burp Suite Proxy Preparation
