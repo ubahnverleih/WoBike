@@ -33,6 +33,19 @@ As a result you get something like this:
     "refresh": "<LONG STRING>"
 }
 ```
+## Refresh Auth Token
+
+By default bird tokens expire after one day. They can be easily refreshed without having to get another magic link. Send a POST request to `https://api-auth.prod.birdapp.com/api/v1/auth/refresh/token` with the following headers:
+```
+User-Agent: Bird/4.53.0 (co.bird.Ride; build:24; iOS 12.4.1) Alamofire/4.53.0
+Device-Id: <GUID>
+Platform: ios
+App-Version: 4.53.0
+Content-Type: application/json
+Authorization: Bearer <REFRESH TOKEN YOU ALREADY HAVE>
+```
+Note, authorization header is Bearer and not Bird
+As a result youll get two new tokens: access and refresh
 
 ## Request Location
 
