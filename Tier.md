@@ -1,7 +1,46 @@
+
 # Tier
 
-[tier](https://www.tier.app/) is a scootersharing company based in Europe.
+[Tier](https://www.tier.app/) is a scootersharing company based in Europe.
 
-To authenticate you need to add `X-Api-Key: bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2` in your header of the API-Endpoint `https://platform.tier-services.io`. You can request all(?) vehicles with `https://platform.tier-services.io/vehicle?` or filter them by zoneID like `https://platform.tier-services.io/vehicle?zoneId=BERLIN` or show all the vehicles around a location with a given radius (meters) `https://platform.tier-services.io/vehicle?lat=0&lng=0&radius=500`.
+To authenticate you need to add `X-Api-Key: bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2` in your header of the API-Endpoint `https://platform.tier-services.io`.  
 
-Polygons with regions and parking restrictions are available on `https://platform.tier-services.io/zone?lat=55.605&lng=13.0038`.
+## v1
+
+### Get Vehicles
+Vehicles within a range: `GET https://platform.tier-services.io/v1/vehicle?lat=48.1&lng=16.3&radius=5000`
+Vehicles within a zone: `GET https://platform.tier-services.io/v1/vehicle?zoneId=BERLIN`
+Vehicles by Code (encoded in the vehicle QR-code): `GET https://platform.tier-services.io/v1/vehicle/code/12345`
+Vehicles by UUID: `GET https://platform.tier-services.io/v1/vehicle/<UUID>`
+
+### Make vehicle flash
+`POST https://platform.tier-services.io/v1/vehicle/<vehicle-id>/flash`
+
+### Zones
+Get zones by type: `GET https://platform.tier-services.io/v1/zone?type=<zone-type>`
+Get subzones by type: `GET https://platform.tier-services.io/v1/zone/BERLIN/subzone?type=constrained`
+
+Zone Types:
+|Parameter| Description |
+|--|--|
+| `root` | The zone to which all other zone types are attached, e.g. BERLIN |
+| `business` | An area in which customers can rent a vehicle |
+| `warehouse` | An area in which scooters are in MAINTENANCE |
+| `constrained` | An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone) |An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone)
+
+Get zones near location: `GET https://platform.tier-services.io/v1/zone?lat=<latitude>&lng=<longitude>`
+Validate zone for parking: `GET https://platform.tier-services.io/v1/zone/validate-constraint?lat=<latitude>&lng=<longitude>`
+
+
+### Pricing
+`GET https://platform.tier-services.io/v2/pricing?vehicleId=52911ecb-60a4-2535-2875-fb443eb5409f`
+
+[Full Documentation](https://www.notion.so/TIER-API-Version-1-0a9bfc571e8f41859d994e736a51315b)
+
+
+## v2
+
+Only difference seems to be `emoped` as an additional vehicle type.
+Get all vehicles within a zone: `GET https://platform.tier-services.io/v2/vehicle?zoneId=BERLIN`
+
+[Full Documentation](https://www.notion.so/Vehicles-b09c4ae1b88d447eb64b7f7cdb0d18e0)
