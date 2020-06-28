@@ -61,6 +61,12 @@ Set the following headers:
 
  The Result looks like this: `{"birds":[{"id":"1486a00c-fd73-4370-9250-782f5c60ee2d","code":"6JLE","location":{"latitude":37.77216,"longitude":-122.409485},"battery_level":89}, ... ]}`
 
+## Request Areas
+
+You can request no-parking zones or operational service areas by sending a GET request to `https://api.birdapp.com/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`
+
+This endpoint requires the same headers as the `Request Location` endpoint above.
+
 ## Request Configuration
 
 Send a GET request to `https://api.birdapp.com/config/location?latitude=42.3140089&longitude=-71.2490943`.
