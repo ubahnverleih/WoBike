@@ -54,7 +54,7 @@ Now you can request the locations of the Scooters:
 Send a GET request to `https://api.birdapp.com/bird/nearby?latitude=37.77184&longitude=-122.40910&radius=1000`
 Set the following headers:
 
- * `Authorization`: `Bird <TOKEN>` – Use the token you got from Auth-Request.
+ * `Authorization`: `Bird <TOKEN>` – Use the Access token you got from Auth-Request.
  * `Device-id`: `<GUID>` – You can reuse the GUID from Auth-Request, but don't have to
  * `App-Version`: `4.41.0`
  * `Location`: `{"latitude":37.77249,"longitude":-122.40910,"altitude":500,"accuracy":100,"speed":-1,"heading":-1}` – Yes this is JSON in a header ;) – You should use the same data like from the GET request params.
