@@ -8,7 +8,7 @@
 + Request OTP code
 + Use the OTP code to authenticate
 
-Make sure to change the `latest-app-version` to the latest Beam app version (e.g. `1.36.0`)
+Make sure to change the `latest-app-version` to the latest Beam app version (e.g. `1.38.0`)
 
 After a few updates the API can't pick up any scooters if the `User-Agent` header has an old version in it.
 
@@ -68,7 +68,7 @@ As a result, you should end up with something like this:
 | Headers       | Value                                 | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
 | User-Agent    | escooterapp/latest-app-version; ios   | X         |
-| Authorization | < jwtAccessToken >                    | X         |
+| Authorization | jwtAccessToken                        | X         |
 | Latitude      | latitude                              |           |
 | Longitude     | longitude                             |           |
 
