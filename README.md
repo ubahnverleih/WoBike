@@ -15,7 +15,6 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [BYKE/WIND (Germany)](Wind.md)
 - [Dropbike (Canada)](Dropbike.md)
 - [SocialBicycles (USA, Canada, Czech Republic, Poland)](SocialBicycles.md)
-- [OnzO (New Zealand)](Onzo.md)
 - [Bixi (Montreal)](Bixi.md)
 - [EUBIKE (Sweden)](EUBike.md)
 - [Lidl-Bike](Lidl-Bike.md)
@@ -25,6 +24,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [oBike (Worldwide)](Obike.md)
 - [ofo bike (China, UK, US, Austria, Thailand, Singapore, France, India)](Ofo.md)
 - [Bluegogo (China, US)](Bluegogo.md)
+- [OnzO (New Zealand)](Onzo.md)
 
 ## E-Scooters (that you stand on)
 - [Bird](Bird.md)
