@@ -26,7 +26,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Bluegogo (China, US)](Bluegogo.md)
 - [OnzO (New Zealand)](Onzo.md)
 
-## E-Scooters (that you stand on)
+## E-Scooters (🛴, that you stand on)
 - [Bird](Bird.md)
 - [VOI (Europe)](Voi.md)
 - [Circ](Circ.md)
@@ -36,6 +36,8 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Ufo (Europe)](Ufo.md)
 - [Zero (Germany)](Zero.md)
 - [Scoota (Austria)](Scoota.md)
+- [Beam (Singapore, Australia, Maylasia and New Zealand)](Beam.md)
+- [Flamingo (New Zealand)](Flamingo.md)
 
 ## Bikes/E-Scooters
 - [LimeBike](Lime.md)
