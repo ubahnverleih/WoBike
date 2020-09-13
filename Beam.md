@@ -12,6 +12,8 @@ Make sure to change the `latest-app-version` to the latest Beam app version (e.g
 
 After a few updates the API can't pick up any scooters if the `User-Agent` header has an old version in it.
 
+The latest version can be found with the endpoint: `/versions`
+
 ### Request OTP Code
 
 An OTP code is another term for a Verification Code.
@@ -116,7 +118,7 @@ The output should be something like this:
 
 `code`: The code that lets riders identify the scooter and unlock it
 
-`lastPhoneLocationTime`: Last time that the scooter sent a GPS Ping
+`lastPhoneLocationTime`: Last time the app connected with the scooter (usually last ride)
 
 `coordinates`: Latitude and Longitude
 
