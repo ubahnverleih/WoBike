@@ -7,11 +7,13 @@ Replace the `<city>` in the URL with either: `Auckland`, `Christchurch` or `Well
 
 The output should be something like this:
 
-```{
-                "bike_id": "1039",
-                "lat": -43.509427,
-                "lon": 172.647294,
-                "current_range_meters": 14936
+```
+{
+                "bike_id": "1339",
+                "lat": -43.532093,
+                "lon": 172.628018,
+                "current_range_meters": 11900,
+                "last_reported": 1599977150
             },
 ```
 
@@ -24,3 +26,5 @@ The output should be something like this:
 `lon`: Longitude location of scooter
 
 `current_range_meters`: Battery level of scooter in meters
+
+`last_reported`: The date and time for when the scooter last sent a GPS Ping, this would need to be decoded
