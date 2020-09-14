@@ -245,23 +245,22 @@ curl --request GET \
             "bike_clusters": null,
             "bikes": [
                 {
-                    "id": "S36SM4A4WIDBP",
+                    "id": "ET-WV3XMHM77S52V3OAGHJTBFEQSYLPXUMMBPV4GJI",
                     "type": "bikes",
                     "attributes": {
                         "status": "locked",
-                        "plate_number": null,
-                        "latitude": 52.49821,
-                        "longitude": 13.398783,
-                        "last_activity_at": "2019-01-08T09:47:00.000Z",
-                        "bike_icon": null,
-                        "type_name": "electric",
-                        "battery_level": "high",
-                        "meter_range": 54400,
-                        "rate_plan": "\u20ac1 to unlock +\n\u20ac0.15 / 1 min",
-                        "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>\u20ac1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>\u20ac0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
-                        "bike_icon_id": 5,
-                        "last_three": "046",
-                        "license_plate_number": null
+                        "plate_number": "XXX-957",
+                        "latitude": -43.531524,
+                        "longitude": 172.636697,
+                        "last_activity_at": "2020-09-14T06:07:14.000Z",
+                        "type_name": "scooter",
+                        "battery_level": "medium",
+                        "meter_range": 2628,
+                        "rate_plan": "NZD $1 to unlock +\nNZD $0.38 / 1 min",
+                        "bike_icon_id": 49,
+                        "last_three": "957",
+                        "license_plate_number": null,
+                        "brand": "lime"
                     }
                 },
 
