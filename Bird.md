@@ -1,5 +1,5 @@
 # Bird (Scooters)
-[Bird](https://www.bird.co/) is a E-Scotter sharing service in the US.
+[Bird](https://www.bird.co/) is a E-Scooter sharing service in the US.
 
 ## Get Auth Token
 
