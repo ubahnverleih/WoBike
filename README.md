@@ -43,6 +43,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [LimeBike](Lime.md)
 - [JUMP (USA)](Jump.md)
 - [Spin](Spin.md)
+- [Pony](Pony.md)
 - [Zagster](Zagster.md)
 
 ## Scooters (🛵, that you sit on)
