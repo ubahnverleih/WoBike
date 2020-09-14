@@ -8,12 +8,12 @@
 
 Login is in two step:
 
-+ Request code with your phone number, you ll receive an sms
-+ Send back this code
++ Request code with your phone number, you'll receive an sms
++ Send back this code to get a Auth token
 
 #### Request sms code
 
-:warning: Account must exist
+:warning:  Account must exist  :warning:
 
 **Method**: `GET`
 
@@ -28,7 +28,7 @@ Login is in two step:
 
 **Example**
 
-will send an sms to `06 12 34 56 78` phone with an OTP code.
+When entering a phone number, make sure to include the `%2B` before the number instead of the `+` (Example: %2B12222222222 is +1 (222) 222-2222)
 
 ```bash
 curl --request GET \
