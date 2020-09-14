@@ -5,6 +5,10 @@ To get bike and scooter data, you need to authenticate yourself.
 Unfortunately, this is a) rather tedious that requires 5 (yes, five) steps and b) you have to register a phone number using the Jump app.
 I assume, that you already have an account, as I don't know how to do this programmatically.
 
+## UPDATE
+
+**JUMP Scooters are now found under the [Lime](Lime.md) API as `"brand": "jump"`**
+
 ## Getting an API token
 This task is quite heavy and requires 5 steps and parsing HTML and JavaScript source code.
 
