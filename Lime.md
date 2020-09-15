@@ -8,8 +8,8 @@
 
 Login is in two step:
 
-+ Request OTP code with your phone number to receive the OTP code via SMS
-+ Send back the OTP code to get a Auth token
++ Request an OTP code that is sent to you by SMS
++ Send back the OTP code to get an Auth token
 
 #### Request sms code
 
@@ -26,9 +26,10 @@ Login is in two step:
 | phone      | phone number intl format | X         |
 
 
-**Example**
-
 When entering a phone number, make sure to include the `%2B` before the number instead of the `+` (Example: %2B12222222222 is +1 (222) 222-2222)
+
+
+**Example**
 
 ```bash
 curl --request GET \
