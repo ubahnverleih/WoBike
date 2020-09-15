@@ -5,8 +5,8 @@
 
 ## Login
 
-+ Request OTP code
-+ Use the OTP code to authenticate
++ Request an OTP code to be texted to you
++ Use the OTP code to get an Auth token
 
 Make sure to change the `latest-app-version` to the latest Beam app version (e.g. `1.38.0`). After a few updates the API can't pick up any scooters if the `User-Agent` header has an old version in it. The latest version can be found with the endpoint: `/versions`
 
@@ -34,7 +34,7 @@ As a result an OTP code should have been texted to and the JSON output should re
     "success": true,
     "message": "Text message sent to +XX XX-XXX-XXXX.",
     "response": {
-        "carrier": "<Your Carrier",
+        "carrier": "<your-carrier>",
         "is_cellphone": true,
         "message": "Text message sent to +XX XX-XXX-XXXX.",
         "seconds_to_expire": 599,
@@ -99,9 +99,7 @@ Use the `jwtAccessToken` as your Auth Token
 | Headers       | Value                                 | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
 | User-Agent    | escooterapp/latest-app-version; ios   | X         |
-| Authorization | jwtAccessToken                        | X         |
-| Latitude      | latitude                              |           |
-| Longitude     | longitude                             |           |
+| Authorization | jwtAccessToken                        |           |
 
 **Parameters**:
 
