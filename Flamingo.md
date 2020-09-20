@@ -71,6 +71,32 @@ This should verify the code and grant you a Refresh Token that we can use to get
 }
 ```
 
+### Add User Info
+
+:warning: This only applies to accounts that haven't already been created, but it is recommended that you sign up through the Flamingo App and not through their API directly. :warning:
+
+**Method**: `POST`
+
+**URL**: `https://api.flamingoscooters.com/sign-up`
+
+**Headers**:
+
+| Headers                  | Value                                 | Mandatory |
+| ------------------------ | ------------------------------------- | :-------: |
+| X-Ios-Bundle-Identifier  | com.flamingoscooters.ios              | X         |
+| Authorization            | USER-ID                               | X         |
+
+**Params**:
+
+| Params        | Value                                  | Mandatory |
+| ------------- | -------------------------------------- | :-------: |
+| Key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
+
+**The Body**:
+
+`{"lastName":"<YOUR-LAST-NAME>","email":"<YOUR-EMAIL>","firstName":"<YOUR-FIRST-NAME>","dateOfBirth":"1990-09-20T19:32:00+12:00"}`
+
+
 ### Refresh Token
 
 This will renew your access token since they expire after an hour. Reuse your Refresh token from the output that we made just before when sending back the OTP Code.
@@ -264,7 +290,7 @@ The output should be something like this:
             },
 ```
 
-## Meanings from output
+### Meanings from output
 
 `bike_id`: The code that lets riders identify the scooter and unlock it
 
