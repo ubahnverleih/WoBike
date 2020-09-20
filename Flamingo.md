@@ -52,17 +52,17 @@ As a result an OTP code should have been texted to and the response should inclu
 
 | Params        | Value                                  | Mandatory |
 | ------------- | -------------------------------------- | :-------: |
-| Key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
+| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
 
 **The Body**:
 
 `{"code":"<OTP-CODE>","operation":"SIGN_UP_OR_IN","sessionInfo":"<SESSION-ID>"}`
 
-This should verify the code and grant you a Refresh Token that we can use to get the Access Token. Here's the output:
+This should use the OTP Code and grant you an Access and Refresh Token
 
 ```
 {
-    "idToken": "<ID-TOKEN>", --- This is NOT an Access Token
+    "idToken": "<ID-TOKEN>", --- Your temporary Access Token
     "refreshToken": "<REFRESH-TOKEN>",
     "expiresIn": "3600",
     "localId": "<LOCAL-ID>",
@@ -73,7 +73,7 @@ This should verify the code and grant you a Refresh Token that we can use to get
 
 ### Add User Info
 
-:warning: This only applies to accounts that haven't already been created, but it is recommended that you sign up through the Flamingo App and not through their API directly. :warning:
+:warning: This only applies to accounts that haven't already been created, but it is recommended that you setup your account in the Flamingo app and not sign up through their API. :warning:
 
 **Method**: `POST`
 
@@ -90,7 +90,7 @@ This should verify the code and grant you a Refresh Token that we can use to get
 
 | Params        | Value                                  | Mandatory |
 | ------------- | -------------------------------------- | :-------: |
-| Key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
+| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
 
 **The Body**:
 
@@ -103,7 +103,7 @@ This will renew your access token since they expire after an hour. Reuse your Re
 
 **Method**: `POST`
 
-**URL**: `https://securetoken.googleapis.com/v1/token?key=AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik`
+**URL**: `https://securetoken.googleapis.com/v1/token`
 
 **Headers**:
 
@@ -115,7 +115,7 @@ This will renew your access token since they expire after an hour. Reuse your Re
 
 | Params        | Value                                  | Mandatory |
 | ------------- | -------------------------------------- | :-------: |
-| Key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
+| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
 
 **The Body**:
 
@@ -167,16 +167,16 @@ The output should be something like this:
     "success": true,
     "data": [
         {
-            "id": 110,
+            "id": 110, --- ID to send commands to the scooter
             "type": "SCOOTER",
             "powerPercent": 86,
-            "remainingRange": 1608,
+            "remainingRange": 1608, --- Meter Range
             "latitude": -43.524343,
             "longitude": 172.579243,
-            "registration": "1961",
+            "registration": "1961", --- Scooter ID that you can use to find the scooter on the street
             "regionId": 4,
-            "updatedAt": "2020-09-20T07:53:38.000Z",
-            "lastActivity": "2020-09-19T03:45:52.000Z"
+            "updatedAt": "2020-09-20T07:53:38.000Z", --- Last Signal
+            "lastActivity": "2020-09-19T03:45:52.000Z" --- Last Ride
         },
         ...
 ```
