@@ -246,6 +246,8 @@ The output should be something like this:
 
 ## GBFS
 
+Use Flamingo's GBFS URL to get their scooter locations instead of having to authenticate in their main API.
+
 **URL**: `https://api.flamingoscooters.com/gbfs/<city>/free_bike_status.json`
 
 Replace the `<city>` in the URL with either: `Auckland`, `Christchurch` or `Wellington`.
