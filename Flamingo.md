@@ -1,12 +1,7 @@
 # Flamingo
 [Flamingo](https://www.flamingoscooters.com/) is a E-Scooter sharing service that operates in New Zealand.
 
-## Login
-
-+ Request an OTP code to be texted to you
-+ Use the OTP code to get an Auth token
-
-### Request OTP Code
+## Request OTP Code
 
 **Method**: `POST`
 
@@ -36,7 +31,7 @@ As a result an OTP code should have been texted to and the response should inclu
 }
 ```
 
-### Send back OTP code
+## Send back OTP code
 
 **Method**: `POST`
 
@@ -97,9 +92,9 @@ This should use the OTP Code and grant you an Access and Refresh Token
 `{"lastName":"<YOUR-LAST-NAME>","email":"<YOUR-EMAIL>","firstName":"<YOUR-FIRST-NAME>","dateOfBirth":"1990-09-20T19:32:00+12:00"}`
 
 
-### Refresh Token
+## Refresh Token
 
-This will renew your access token since they expire after an hour. Reuse your Refresh token from the output that we made just before when sending back the OTP Code.
+This will renew your access token since it will expire after an hour. The refresh token is basically an account password, anyone with your Refresh Token can request an access token and login with it. So if you want to intergrate the Flamingo API into a public app, use a burner account and not your personal one.
 
 **Method**: `POST`
 
@@ -135,7 +130,7 @@ This should verify the code and grant you a Access and Refresh Token. Here's the
 }
 ```
 
-### Get Scooter Locations
+## Get Scooter Locations
 
 After finally logging in, we can now retreive locations of scooters and zones
 
@@ -181,7 +176,7 @@ The output should be something like this:
         ...
 ```
 
-### Get Zones
+## Get Zones and area info
 
 **URL**: `https://api.flamingoscooters.com/region/all`
 
@@ -259,7 +254,7 @@ Use the `id` from the scooter output and not the `registration` id.
 | ------------  | ------------------------------------- | :-------: |
 | Authorization | YOUR-ACCESS-TOKEN                     | X         |
 
-The output should be something like this:
+This should output the URL for the Parking Photo. Some scooters may not have one, here's an example from a scooter that does have one:
 
 ```
 {
@@ -272,11 +267,11 @@ The output should be something like this:
 
 ## GBFS
 
-Use Flamingo's GBFS URL to get their scooter locations instead of having to authenticate in their main API.
+Use Flamingo's GBFS API to get scooter locations instead of having to authenticate with their main API.
 
 **URL**: `https://api.flamingoscooters.com/gbfs/<city>/free_bike_status.json`
 
-Replace the `<city>` in the URL with either: `Auckland`, `Christchurch` or `Wellington`.
+Replace the `<city>` in the URL with either: `auckland`, `christchurch` or `wellington`, depending on which city.
 
 The output should be something like this:
 
