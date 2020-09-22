@@ -1,6 +1,8 @@
 # Flamingo
 [Flamingo](https://www.flamingoscooters.com/) is a E-Scooter sharing service that operates in New Zealand.
 
+Here's a published Postman collection that has all the request in it: https://documenter.getpostman.com/view/11220018/TVKD2xdh
+
 ## Request OTP Code
 
 **Method**: `POST`
@@ -296,3 +298,7 @@ The output should be something like this:
 `current_range_meters`: Battery level of scooter in meters
 
 `last_reported`: The date and time for when the scooter last sent a GPS Ping, this would need to be decoded
+
+## Implementations
+
+https://openscootermap.netlify.app/
