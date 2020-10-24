@@ -263,6 +263,7 @@ curl --request GET \
                         "last_three": "683",
                         "license_plate_number": null,
                         "brand": "lime"
+			"generation": "2.5"
                     }
                 },
                 
