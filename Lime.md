@@ -127,7 +127,7 @@ _limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVG
 ```
 curl --location --request POST 'https://web-production.lime.bike/api/rider/v1/login' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data 'email=mcmurrandavid@gmail.com&name=Lime%20Rider&password=31frobisher&platform=iOS'
+--data 'email=<YOUR-EMAIL>&name=Lime%20Rider&password=<YOUR-PASSWORD>&platform=iOS'
 ```
 
 ```JSON
