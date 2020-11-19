@@ -49,6 +49,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 ## Scooters (🛵, that you sit on)
 - [Emmy (Germany)](Emmy.md)
 - [Coup (Germany, Spain, France)](Coup.md)
+- [Stella (Germany (Stuttgart))](Stella.md)
 
 ## More...
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
