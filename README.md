@@ -51,6 +51,10 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Coup (Germany, Spain, France)](Coup.md)
 - [Stella (Germany (Stuttgart))](Stella.md)
 
+## Cars
+- [Cambio (Germany, Belgium)](Cambio.md)
+
+
 ## More...
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
 * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
