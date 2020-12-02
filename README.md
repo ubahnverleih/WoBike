@@ -38,6 +38,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Scoota (Austria)](Scoota.md)
 - [Beam (Singapore, Australia, Maylasia and New Zealand)](Beam.md)
 - [Flamingo (New Zealand)](Flamingo.md)
+- [Blip](Blip.md)
 
 ## Bikes/E-Scooters
 - [LimeBike](Lime.md)
