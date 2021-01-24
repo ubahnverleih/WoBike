@@ -1,5 +1,5 @@
 # Felyx
-[Felyx](https://felyx.com/) is a scooter sharing service that operates in New Zealand.
+[Felyx](https://felyx.com/) is a scooter sharing service that operates in Europe.
 
 ## Get Vehicle Locations
 
