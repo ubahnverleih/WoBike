@@ -121,10 +121,10 @@ The output should be something like this:
         "isRideableTime": true,
         "scooters": [
             {
-                "id": 4792,
+                "id": 4792, --- Internal Vehicle ID
                 "status": 0,
                 "lastReportedBattery": 71,
-                "code": "80863",
+                "code": "80863", --- ID written on the scooter
                 "lastOysterHeartbeatReportTime": null,
                 "lastPhoneLocationTime": "2020-09-12T22:46:13.996Z",
                 "lastReportedTimeTrackerMotion": null,
@@ -133,8 +133,8 @@ The output should be something like this:
                 "bestLocation": {
                     "type": "Point",
                     "coordinates": [
-                        172.57569866666665,
-                        -43.538005
+                        172.57569866666665, --- Long
+                        -43.538005 --- Lat
                     ]
                 },
                 "serialNumber": "N4ZMA2002C0195",
@@ -152,24 +152,171 @@ The output should be something like this:
 }
 ```
 
-## Meanings from output
+## Get Zones
 
-`id`: Some kind of ID used internally - **This is NOT the vehicle ID**
+**Path**: `/geoRegion/location`
 
-`lastReportedBattery`: Battery level of scooter
+**Method**: `GET`
 
-`code`: The code that lets riders identify the scooter and unlock it
+**Headers**:
 
-`lastPhoneLocationTime`: Last time the app connected with the scooter (usually last ride)
+| Headers       | Value                                 | Mandatory |
+| ------------  | ------------------------------------- | :-------: |
+| User-Agent    | escooterapp/latest-app-version; ios   | X         |
+| Authorization | jwtAccessToken                        |           |
 
-`coordinates`: Scooter Latitude and Longitude location
+**Parameters**:
 
-`serialNumber`: Scooter serial number
+| Parameters | Value                    | Mandatory |
+| ---------- | ------------------------ | :-------: |
+| latitude   | latitude                 | X         |
+| longitude  | longitude                | X         |
+| userMode   | 0                        | X         |
 
-`bleMacAddress`: Bluetooth address
 
-`omniIotImei`: Scooter IMEI
+The output should be something like this:
 
-`Tasks`: From what I've seen, it says if the scooter is worth an incentive (e.g. Unlock to get $1 credit)
+```
+"response": {
+        "polygon": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        171.578979492188,
+                        -44.0026935032532
+                    ],
+                    [
+                        173.309326171875,
+                        -44.0026935032532
+                    ],
+                    [
+                        173.309326171875,
+                        -43.0588546064345
+                    ],
+                    [
+                        171.578979492188,
+                        -43.0588546064345
+                    ],
+                    [
+                        171.578979492188,
+                        -44.0026935032532
+                    ]
+                ]
+            ],
+            "crs": {
+                "type": "name",
+                "properties": {
+                    "name": "urn:ogc:def:crs:EPSG::4326"
+                }
+            }
+        },
+```
 
-`formFactor`: To tell if it's a bike, escooter, etc
+## Find specific scooter info / Last Parking Photo
+
+**Path**: `/vehicles/<internal-ID>/rider`
+
+**Method**: `GET`
+
+**Headers**:
+
+| Headers       | Value                                 | Mandatory |
+| ------------  | ------------------------------------- | :-------: |
+| User-Agent    | escooterapp/latest-app-version; ios   | X         |
+| Authorization | jwtAccessToken                        |           |
+
+The output should be something like this:
+
+```
+{
+    "id": 5124,
+    "vehicleType": 1,
+    "vehicleModel": "NINEBOT_MODEL_MAX_SWAPPABLE",
+    "batteryStateOfChargePercentage": 74,
+    "code": "20224",
+    "status": 6,
+    "estimatedBattery": 74,
+    "lastReportedBattery": 74,
+    "batteryUpdated": "2020-10-27T21:20:40.138Z",
+    "totalLifeTimeRides": 120,
+    "lastPhoneLocation": {
+        "type": "Point",
+        "coordinates": [
+            172.6391947,
+            -43.5451468
+        ]
+    },
+    "lastPhoneLocationTime": "2020-10-27T06:11:30.750Z",
+    "lastOysterAfterMotionSingleReport": null,
+    "lastOysterAfterMotionSingleReportTime": null,
+    "lastPhoneLocationWasBLEConnected": true,
+    "lastPhoneLocationBLERSSI": -67,
+    "locationUpdated": "2020-10-27T04:57:26.777Z",
+    "lastOysterHeartbeatReport": null,
+    "lastOysterHeartbeatReportTime": null,
+    "lastReportedLocationTrackerMotion": null,
+    "lastReportedTimeTrackerMotion": null,
+    "lastCollectedTime": "2020-10-27T04:57:26.777Z",
+    "lastRideStartTime": "2020-10-25T04:18:52.170Z",
+    "lastActiveTime": "2020-10-25T04:22:06.143Z",
+    ...
+}
+```
+
+## Find Parking Spots
+
+**Path**: `/idealLocation/latlng`
+
+**Method**: `GET`
+
+**Headers**:
+
+| Headers       | Value                                 | Mandatory |
+| ------------  | ------------------------------------- | :-------: |
+| User-Agent    | escooterapp/latest-app-version; ios   | X         |
+| Authorization | jwtAccessToken                        |           |
+
+**Parameters**:
+
+| Parameters | Value                    | Mandatory |
+| ---------- | ------------------------ | :-------: |
+| latitude   | latitude                 | X         |
+| longitude  | longitude                | X         |
+
+
+The output should be something like this:
+
+```
+{
+        "id": 3436,
+        "pinLocation": {
+            "type": "Point",
+            "coordinates": [
+                172.6087478011045,
+                -43.49812043502988
+            ]
+        },
+        "currentNumber": 0,
+        "idealNumber": 3,
+        "radius": 50,
+        "deleted": false,
+        "createdAt": "2020-08-04T10:21:34.242Z",
+        "updatedAt": "2020-08-04T12:14:59.498Z",
+        "locationName": "481 Papanui Road, Papanui, Christchurch 8053, New Zealand",
+        "message": "A BOOSTER OFFER IS AVAILABLE NEAR HERE",
+        "title": "Papanui Road",
+        "imageUrl": "https://pin-location-images.s3-ap-southeast-1.amazonaws.com/images/BurgerFuel_Papanui.jpg.jpeg",
+        "qrCode": "",
+        "isHiddenFromCharger": false,
+        "isHiddenFromRider": false,
+        "isHiddenFromAdmin": false,
+        "subtitle": "470-466 Papanui Road",
+        "characteristics": [
+            "operation_booster"
+        ],
+        "properties": {},
+        "cityId": 14,
+        "geofenceId": 136
+    },
+```
