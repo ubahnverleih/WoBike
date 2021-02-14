@@ -81,6 +81,12 @@ those that are currently not available for rental.
 curl --location --request GET 'https://api.emmy.ninja/vehicles/$VEHICLE_ID'
 ```
 
+### List Vehicle Types
+
+```bash
+curl --location --request GET 'https://api.emmy.ninja/vehicles/types'
+```
+
 ### Send damage report
 
 When you notice a damage on a vehicle before you go on a ride, you can send a 
