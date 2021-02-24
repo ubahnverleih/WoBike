@@ -165,7 +165,7 @@ Cookie
 _limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVGtZd2VXN20yMjhJczhlR21nUkVHczlEREUweGNpYmtEWVFvQXBoQVNuRWdZWkVBajJPaHhDeStuUmttYVdYYWVsRDJEMUZvNE5YNU4xc1FlcjlDMi8xOVNMcDM3M3JhQWd0TDF2OWphMGR3PT0tLTBDYUtNeUJLcXRmNVd4YnorSEhlTWc9PQ%3D%3D--c8889db210d22bb4a96307b74d39c4b64d48777f
 ```
 
-### Get bicycles by lat/lng
+### Get Vehicles and Zones
 
 :warning: Auth (bearer AND cookie) are mandatory for this endpoint
 
@@ -177,7 +177,7 @@ _limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVG
 
 | Header        | Value        | Mandatory |
 | ------------- | ------------ | :-------: |
-| authorization | Bearer TOKEN | X         |
+| Authorization | Bearer TOKEN | X         |
 
 **Cookie**:
 
@@ -212,83 +212,6 @@ curl --request GET \
         "id": "views::mapview",
         "type": "map_view",
         "attributes": {
-            "user": {
-                "id": "PSEALP4T4YYZX",
-                "type": "users",
-                "attributes": {
-                    "token": "PSEALP4T4YYZX",
-                    "phone_number": "18135196038",
-                    "email_address": null,
-                    "has_verified_email_address": false,
-                    "name": "Lime Rider",
-                    "given_name": "Lime",
-                    "surname": "Rider",
-                    "default_payment_method": null,
-                    "referral_code": "R4Y6MQC",
-                    "num_trips": 0,
-                    "edu": false,
-                    "subscription_item_states": [],
-                    "promotion_notification": true,
-                    "donation_profile": {
-                        "id": "F7O24UILJM2E7",
-                        "type": "donation_profiles",
-                        "attributes": {
-                            "donation_type": "none",
-                            "donation_organizations": [],
-                            "total_donation_amount": {
-                                "currency_code": "USD",
-                                "amount": 0.0,
-                                "amount_str": "0.0",
-                                "currency_symbol": "$",
-                                "display_string": "$0"
-                            },
-                            "total_donation_amount_cents": null,
-                            "currency": null
-                        }
-                    },
-                    "pod_vehicle_banner_status": null,
-                    "juicer_profile_status": null,
-                    "juicer_profile_initial_activated_at": null,
-                    "accepted_user_agreement_version": 2,
-                    "accepted_compliance_version": null,
-                    "balance": {
-                        "currency_code": "USD",
-                        "amount": 0.0,
-                        "amount_str": "0.0",
-                        "currency_symbol": "$",
-                        "display_string": "$0"
-                    },
-                    "pending_balance": {
-                        "currency_code": "USD",
-                        "amount": 0.0,
-                        "amount_str": "0.0",
-                        "currency_symbol": "$",
-                        "display_string": "$0"
-                    },
-                    "new_juicer_earnings_amount": {
-                        "currency_code": "USD",
-                        "amount": 150.0,
-                        "amount_str": "150.0",
-                        "currency_symbol": "$",
-                        "display_string": "$150"
-                    },
-                    "new_juicer_earnings_promo_amount": "150",
-                    "new_juicer_earnings_promo_amount_cents": 15000,
-                    "new_juicer_earnings_promo_amount_cent": 15000,
-                    "new_juicer_earnings_promo_currency": "USD",
-                    "juicer_referral_type": null,
-                    "juicer_referral_code": null,
-                    "juicer_referral_amount": null,
-                    "juicer_referral_amount_cents": null,
-                    "juicer_referral_currency": null,
-                    "balance_cents": 0,
-                    "pending_balance_cents": 0,
-                    "currency": "USD",
-                    "show_group_ride": false,
-                    "id_verification_pending": false,
-                    "current_rental_id": null
-                }
-            },
             "regions": null,
             "zones": [
                 {
@@ -346,29 +269,146 @@ curl --request GET \
                         "description_link_url": null,
                         "description": "translation missing: en.scooter_high_battery"
                     }
-                },
-                
-		...
-            ],
-            "current_level": "city",
-            "levels": {
-                "region": 7.0,
-                "subregion": 11.0,
-                "city": 14.0
-            },
-            "most_recent_trip": null,
-            "banner": null,
-            "donation_organization": null,
-            "parking_spots_radius_meters": 20,
-            "map_pins": [],
-            "group_ride_id": null,
-            "group_ride_participants": null
-        }
-    },
-    "meta": {
-        ...
+                }
 }
 ```
+
+### Ring Vehicle
+
+If you run this command, it won't work. It will say the vehicle is too far away. Use the `/v1/views/map` path above and set the User Location to where the bike is. You need to also get the ET-ID from a bike, you can acquire it from the same endpoint that I just mentioned. Ring from anywhere!
+
+**Method**: `GET`
+
+**Path**: `/v1/actions/ring_bike`
+
+**Header**:
+
+| Header        | Value        | Mandatory |
+| ------------- | ------------ | :-------: |
+| Authorization | Bearer TOKEN | X         |
+
+**Body**:
+
+`id=<vehicle_ET-ID>`
+
+### View Vehicle info banner
+
+The ET-ID can be found on the 'Get Vehicles and Zones' endpoint.
+
+**Method**: `GET`
+
+**Path**: `/v1/bikes/<ET-ID>/banner`
+
+**Header**:
+
+| Header        | Value        | Mandatory |
+| ------------- | ------------ | :-------: |
+| Authorization | Bearer TOKEN | X         |
+
+**Response**
+
+```
+{
+    "id": "ET-UM7V7RYMPDPCUYMTKOTCYMEAFPCJ7NN4NZ2T3CA",
+    "title": "Available e-bike",
+    "header": {
+        "image_url": "https://limebike-web-public-assets.s3-us-west-1.amazonaws.com/image_files/JumpBike.png",
+        "title": {
+            "type": "text",
+            "icon": null,
+            "value": "Jump IIC262",
+            "action": null
+        },
+        "subtitle": {
+            "type": "text",
+            "icon": 65,
+            "value": "72 km range",
+            "action": null
+        },
+        "action": {
+            "icon": 67,
+            "type": "ui_flow",
+            "value": "expand",
+            "text": null,
+            "subtext": null
+        },
+        "expansion": {
+            "title": {
+                "type": "text",
+                "icon": null,
+                "value": "Jump IIC262",
+                "action": null
+            },
+            "action": null
+        }
+    },
+    "items": [
+        {
+            "type": "html",
+            "icon": 389,
+            "value": "<font color='#000000' size='4'><b>Add payment</b></font><br/><font color='#666666' size='4'>NZD $1 to start, then NZD $0.38/min</font>",
+            "action": {
+                "icon": 391,
+                "type": "deeplink",
+                "value": "limebike://payment_methods",
+                "text": null,
+                "subtext": null
+            }
+        }
+    ],
+    "banner_action": {
+        "icon": null,
+        "type": "ui_flow",
+        "value": "reserve",
+        "text": "Reserve",
+        "subtext": "Free for 10 minutes"
+    },
+    "icons": [
+        {
+            "id": 65,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_battery3_40@3x.png?fingerprint=b3a6d67b61b38995d4d0ef2ff7ae3aca"
+        },
+        {
+            "id": 69,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_time_40@3x.png?fingerprint=66542356edfa1d5a6b26551a4f2dc1df"
+        },
+        {
+            "id": 389,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_add_payment_40%403x.png?fingerprint=aba1ad9584d90a6bf7118ea1ed0e7be6"
+        },
+        {
+            "id": 67,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_carrot_down_40@3x.png?fingerprint=2458978c3bade75743b1c7c768b15f45"
+        },
+        {
+            "id": 296,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_ring_40@3x.png?fingerprint=3d17ce060e2f3b5dd1afb5038c6ee94c"
+        },
+        {
+            "id": 391,
+            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_carrot_up_40@3x.png?fingerprint=19b7ee91068c326bda0c8216bf9b8b40"
+        }
+    ]
+}
+```
+
+### View your ride history
+
+**Method**: `GET`
+
+**Path**: `/v1/views/ride_history?page_limit=10`
+
+**Header**:
+
+| Header        | Value        | Mandatory |
+| ------------- | ------------ | :-------: |
+| Authorization | Bearer TOKEN | X         |
+
+### GBFS
+
+In select cities, a GBFS feed is also available. Louisville is one for example.
+
+**URL** `https://data.lime.bike/api/partners/v1/gbfs/<city>/gbfs.json`
 
 ## Implementations
 
