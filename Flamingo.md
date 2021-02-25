@@ -1,7 +1,7 @@
 # Flamingo
 [Flamingo](https://www.flamingoscooters.com/) is a E-Scooter sharing service that operates in New Zealand.
 
-Here's a published Postman collection that has all the request in it: https://documenter.getpostman.com/view/11220018/TVKD2xdh
+Here's a published Postman collection that has all the requests in it: https://documenter.getpostman.com/view/11220018/TVKD2xdh
 
 ## Request OTP Code
 
@@ -136,7 +136,7 @@ This should verify the code and grant you a Access and Refresh Token. Here's the
 
 After finally logging in, we can now retreive locations of scooters and zones
 
-**URL**: `https://api.flamingoscooters.com/vehicle/area`
+**URL**: `https://production.api.flamingoscooters.com/vehicle/area`
 
 **Method**: `GET`
 
@@ -164,23 +164,34 @@ The output should be something like this:
     "success": true,
     "data": [
         {
-            "id": 110, --- ID to send commands to the scooter
+            "id": 23, --- ID to send commands to the scooter
+            "object": "vehicle",
             "type": "SCOOTER",
-            "powerPercent": 86,
-            "remainingRange": 1608, --- Meter Range
-            "latitude": -43.524343,
-            "longitude": 172.579243,
-            "registration": "1961", --- Scooter ID that you can use to find the scooter on the street
-            "regionId": 4,
-            "updatedAt": "2020-09-20T07:53:38.000Z", --- Last Signal
-            "lastActivity": "2020-09-19T03:45:52.000Z" --- Last Ride
+            "model": "SEGWAY_ES",
+            "registration": "1038", --- ID to find scooter on the street
+            "status": "AVAILABLE",
+            "batteryPercent": 0.97,
+            "latitude": -43.532892,
+            "longitude": 172.633852,
+            "statusTime": "2021-02-25T03:50:29.000Z", --- Last Signal with the scooter
+            "gpsTime": "2021-02-25T03:41:28.000Z", --- Last GPS Ping
+            "remainingRange": 1856, --- KM Range (18km remaining)
+            "pricing": {
+                "id": 13,
+                "object": "pricingPlan",
+                "plan": "STANDARD",
+                "unlock": 100,
+                "perMin": 38,
+                "currency": "NZD",
+                "description": "$1 NZD to unlock, 38c per min"
+            }
         },
         ...
 ```
 
 ## Get Zones and area info
 
-**URL**: `https://api.flamingoscooters.com/region/all`
+**URL**: `https://production.api.flamingoscooters.com/region/all`
 
 **Method**: `GET`
 
@@ -197,48 +208,119 @@ The output should be something like this:
     "success": true,
     "data": [
         {
-            "id": 2,
-            "name": "Auckland",
+            "id": 4,
+            "object": "region",
+            "name": "Christchurch",
             "country": "NZ",
-            "centreLatitude": -36.848619,
-            "centreLongitude": 174.76429,
-            "message": "Flamingo Auckland - Tap to Learn More",
-            "messageUrl": "https://support.flamingoscooters.com/webview/auckland",
+            "centreLatitude": -43.532038,
+            "centreLongitude": 172.636572,
+            "message": null,
+            "messageUrl": null,
             "timezone": "Pacific/Auckland",
-            "startTime": "03:00",
-            "endTime": "03:01",
-            "serviceArea": [
+            "startTime": "00:00",
+            "endTime": "24:00",
+            "zones": [
                 {
-                    "latitude": -36.724571,
-                    "longitude": 174.819065
+                    "id": 90,
+                    "object": "zone",
+                    "name": "Botanic Gardens",
+                    "message": "The Botanic Gardens are a no riding or parking zone.",
+                    "type": "NORIDING",
+                    "polygon": [
+                        {
+                            "latitude": -43.529044,
+                            "longitude": 172.627315
+                        },
+                        {
+                            "latitude": -43.529519,
+                            "longitude": 172.625196
+                        },
+                        {
+                            "latitude": -43.529666,
+                            "longitude": 172.623678
+                        },
+                        {
+                            "latitude": -43.529184,
+                            "longitude": 172.622128
+                        },
+                        {
+                            "latitude": -43.528274,
+                            "longitude": 172.620159
+                        },
+                        {
+                            "latitude": -43.527943,
+                            "longitude": 172.620261
+                        },
+                        {
+                            "latitude": -43.527554,
+                            "longitude": 172.620068
+                        },
+                        {
+                            "latitude": -43.527329,
+                            "longitude": 172.619607
+                        },
+                        {
+                            "latitude": -43.527484,
+                            "longitude": 172.618995
+                        },
+                        {
+                            "latitude": -43.52778,
+                            "longitude": 172.618539
+                        },
+                        {
+                            "latitude": -43.528609,
+                            "longitude": 172.618153
+                        },
+                        {
+                            "latitude": -43.52969,
+                            "longitude": 172.617927
+                        },
+                        {
+                            "latitude": -43.530398,
+                            "longitude": 172.61819
+                        },
+                        {
+                            "latitude": -43.532035,
+                            "longitude": 172.618603
+                        },
+                        {
+                            "latitude": -43.532385,
+                            "longitude": 172.619006
+                        },
+                        {
+                            "latitude": -43.532389,
+                            "longitude": 172.619725
+                        },
+                        {
+                            "latitude": -43.532233,
+                            "longitude": 172.620309
+                        },
+                        {
+                            "latitude": -43.531568,
+                            "longitude": 172.623474
+                        },
+                        {
+                            "latitude": -43.531724,
+                            "longitude": 172.625084
+                        },
+                        {
+                            "latitude": -43.532179,
+                            "longitude": 172.626012
+                        },
+                        {
+                            "latitude": -43.532999,
+                            "longitude": 172.62716
+                        },
+                        {
+                            "latitude": -43.533005,
+                            "longitude": 172.627323
+                        },
+                        {
+                            "latitude": -43.529044,
+                            "longitude": 172.627315
+                        }
+                    ]
                 },
-                {
-                    "latitude": -36.872732,
-                    "longitude": 174.896842
-                },
-                {
-                    "latitude": -36.922322,
-                    "longitude": 174.844494
-                },
-                {
-                    "latitude": -36.932023,
-                    "longitude": 174.79019
-                },
-                {
-                    "latitude": -36.930775,
-                    "longitude": 174.706669
-                },
-                {
-                    "latitude": -36.789123,
-                    "longitude": 174.666784
-                }
-            ],
-            "fare": {
-                "unlock": 1,
-                "perMin": 0.38,
-                "currency": "NZD",
-                "wording": "$1 NZD to unlock, 38c per min"
-            },
         ...
 ```
 
@@ -287,18 +369,10 @@ The output should be something like this:
             },
 ```
 
-### Meanings from output
-
-`bike_id`: The code that lets riders identify the scooter and unlock it
-
-`lat`: Latitude location of scooter
-
-`lon`: Longitude location of scooter
-
-`current_range_meters`: Battery level of scooter in meters
-
-`last_reported`: The date and time for when the scooter last sent a GPS Ping, this would need to be decoded
-
 ## Implementations
 
 https://openscootermap.netlify.app/
+
+https://moovitapp.com/
+
+https://transitapp.com
