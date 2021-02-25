@@ -410,6 +410,8 @@ In select cities, a GBFS feed is also available. Louisville is one for example.
 
 **URL** `https://data.lime.bike/api/partners/v1/gbfs/<city>/gbfs.json`
 
+The Juicer API can be found here: https://github.com/davidwim/lime-juicer/
+
 ## Implementations
 
 * https://www.npmjs.com/package/@multicycles/lime (JavaScript)
