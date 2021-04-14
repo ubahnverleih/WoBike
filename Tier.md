@@ -26,7 +26,8 @@ Zone Types:
 | `root` | The zone to which all other zone types are attached, e.g. BERLIN |
 | `business` | An area in which customers can rent a vehicle |
 | `warehouse` | An area in which scooters are in MAINTENANCE |
-| `constrained` | An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone) |An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone)
+| `constrained` | An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone) |An area which may not allow parking or only allow reduced speed or both (may overlap with the business zone)|
+| `parking` | An area where customers may park their vehicle only in designated areas.
 
 Get zones near location: `GET https://platform.tier-services.io/v1/zone?lat=<latitude>&lng=<longitude>`
 Validate zone for parking: `GET https://platform.tier-services.io/v1/zone/validate-constraint?lat=<latitude>&lng=<longitude>`
