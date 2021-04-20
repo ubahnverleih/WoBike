@@ -1,16 +1,16 @@
-# Felyx
-[Felyx](https://felyx.com/) is a scooter sharing service that operates in Europe.
+# eddy
+[eddy](https://www.swd-ag.de/mobilitaet/elektromobilitaet/e-roller-mieten/) is a scooter (e-moped) sharing service that operates in Düsseldorf.
 
 ## Get Vehicle Locations
 
-**URL**: `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/cars/`
+**URL**: `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/cars/`
 
-**Map URL**: `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/map/cars/`
+**Map URL**: `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/map/cars/`
 
-**City Locations**: `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/locations/`
+**City Locations**: `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/locations/`
 
-**Zones** `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/territories/all/`
+**Zones** `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/territories/all/`
 
-**Vehicle Types** `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/cars/types/`
+**Vehicle Types** `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/cars/types/`
 
-**All Endpoints**: `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/`
+**All Endpoints**: `https://eddy-sharing.frontend.fleetbird.eu/api/prod/v1.06/`
