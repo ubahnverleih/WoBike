@@ -11,4 +11,6 @@
 
 **Zones** `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/territories/all/`
 
+**Vehicle Types** `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/cars/types/`
+
 **All Endpoints**: `https://felyx.frontend.fleetbird.eu/api/prod/v1.06/`
