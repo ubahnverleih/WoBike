@@ -55,6 +55,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Coup (Germany, Spain & France)](Coup.md)
 - [Stella (Germany (Stuttgart))](Stella.md)
 - [Felyx (Europe)](Felyx.md)
+- [Eddy (Düsseldorf, Germany)](Eddy.md)
 
 ## Cars
 - [Cambio (Germany & Belgium)](Cambio.md)
