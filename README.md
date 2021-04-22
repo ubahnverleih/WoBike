@@ -69,3 +69,5 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 * For more documentation and some updates on the APIs, a look into the issues section could be helpful. Also feel free to add APIs from the issues into the documentation by creating a Pull Request.
 
 ## Todo
+
+Some new providers are listed in [issues with the new provider tag](https://github.com/ubahnverleih/WoBike/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+provider%22). Some of them are already documented there and just need to be put in an own file in this repo.
