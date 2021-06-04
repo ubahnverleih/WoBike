@@ -16,6 +16,10 @@ Vehicles by UUID: `GET https://platform.tier-services.io/v1/vehicle/<UUID>`
 ### Make vehicle flash
 `POST https://platform.tier-services.io/v1/vehicle/<vehicle-id>/flash`
 
+### Get vehicles with battery swap option
+This endpoint needs an X-Firebase-Auth: Bearer instead of X-Api-Key
+`GET https://platform.tier-services.io/v1/user-battery-swap/config?lat=<lat>&lng=<lng>&radius=<radius>`
+
 ### Zones
 Get zones by type: `GET https://platform.tier-services.io/v1/zone?type=<zone-type>`
 Get subzones by type: `GET https://platform.tier-services.io/v1/zone/BERLIN/subzone?type=constrained`
@@ -45,3 +49,11 @@ Only difference seems to be `emoped` as an additional vehicle type.
 Get all vehicles within a zone: `GET https://platform.tier-services.io/v2/vehicle?zoneId=BERLIN`
 
 [Full Documentation](https://www.notion.so/Vehicles-b09c4ae1b88d447eb64b7f7cdb0d18e0)
+
+### Get current subscription
+This endpoint needs an X-Firebase-Auth: Bearer instead of X-Api-Key
+`GET https://platform.tier-services.io/v2/subscription`
+
+## v3
+Passes and flatrate offers are provided at a v3 API endpoint but not at the /v2/pricing endpoint. All offers available in a zone are at /article. For this endpoint you need to provide a X-Firebase-Auth: Bearer header instead of a X-Api-Key.
+`GET https://platform.tier-services.io/v3/article?zoneId=<zone>`
