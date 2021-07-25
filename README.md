@@ -42,6 +42,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Blip (New Zealand)](Blip.md)
 - [Vaimoo (Denmark, Italy & Netherlands)](Vaimoo.md)
 - [Go Sharing](Go-Sharing.md)
+- [Bolt (Europe)](Bolt.md)
 
 ## Bikes/E-Scooters
 - [Lime & JUMP](Lime.md)
