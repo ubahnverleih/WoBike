@@ -1,7 +1,5 @@
 # Flamingo
-[Flamingo](https://www.flamingoscooters.com/) is a E-Scooter sharing service that operates in New Zealand.
-
-Here's a published Postman collection that has all the requests in it: https://documenter.getpostman.com/view/11220018/TVKD2xdh
+[Flamingo](https://www.flamingoscooters.com/) is an E-Scooter sharing service that operates in New Zealand.
 
 ## Request OTP Code
 
@@ -33,23 +31,23 @@ As a result an OTP code should have been texted to and the response should inclu
 }
 ```
 
-## Send back OTP code
+## Verify OTP code
 
 **Method**: `POST`
 
 **URL**: `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhoneNumber`
+
+**Params**:
+
+| Params        | Value                                   | Mandatory |
+| ------------- | --------------------------------------- | :-------: |
+| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik | X         |
 
 **Headers**:
 
 | Headers                  | Value                                 | Mandatory |
 | ------------------------ | ------------------------------------- | :-------: |
 | X-Ios-Bundle-Identifier  | com.flamingoscooters.ios              | X         |
-
-**Params**:
-
-| Params        | Value                                  | Mandatory |
-| ------------- | -------------------------------------- | :-------: |
-| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
 
 **The Body**:
 
@@ -59,7 +57,7 @@ This should use the OTP Code and grant you an Access and Refresh Token
 
 ```
 {
-    "idToken": "<ID-TOKEN>", --- Your temporary Access Token
+    "idToken": "<ID-TOKEN>", --- Access token
     "refreshToken": "<REFRESH-TOKEN>",
     "expiresIn": "3600",
     "localId": "<LOCAL-ID>",
@@ -96,7 +94,7 @@ This should use the OTP Code and grant you an Access and Refresh Token
 
 ## Refresh Token
 
-This will renew your access token since it will expire after an hour. The refresh token is basically an account password, anyone with your Refresh Token can request an access token and login with it. So if you want to intergrate the Flamingo API into a public app, use a burner account and not your personal one.
+A token is valid for 1 hour. Use this endpoint to get a new token after the old one expires.
 
 **Method**: `POST`
 
@@ -110,9 +108,9 @@ This will renew your access token since it will expire after an hour. The refres
 
 **Params**:
 
-| Params        | Value                                  | Mandatory |
-| ------------- | -------------------------------------- | :-------: |
-| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik| X         |
+| Params        | Value                                   | Mandatory |
+| ------------- | --------------------------------------- | :-------: |
+| key           | AIzaSyCrkmrEuGrn9tgWfCY2rcpd-LRAnsE84ik | X         |
 
 **The Body**:
 
@@ -134,7 +132,7 @@ This should verify the code and grant you a Access and Refresh Token. Here's the
 
 ## Get Scooter Locations
 
-After finally logging in, we can now retreive locations of scooters and zones
+After authenticating you can now retreive locations of scooters and zones
 
 **URL**: `https://production.api.flamingoscooters.com/vehicle/area`
 
@@ -142,9 +140,9 @@ After finally logging in, we can now retreive locations of scooters and zones
 
 **Headers**:
 
-| Headers       | Value                                 | Mandatory |
+| Headers       | Description                           | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
-| Authorization | YOUR-ACCESS-TOKEN                     | X         |
+| Authorization | Your access token                     | X         |
 
 **Parameters**:
 
@@ -197,9 +195,9 @@ The output should be something like this:
 
 **Headers**:
 
-| Headers       | Value                                 | Mandatory |
+| Headers       | Description                           | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
-| Authorization | YOUR-ACCESS-TOKEN                     | X         |
+| Authorization | Your access token                     | X         |
 
 The output should be something like this:
 
@@ -334,9 +332,9 @@ Use the `id` from the scooter output and not the `registration` id.
 
 **Headers**:
 
-| Headers       | Value                                 | Mandatory |
+| Headers       | Description                           | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
-| Authorization | YOUR-ACCESS-TOKEN                     | X         |
+| Authorization | Your access token                     | X         |
 
 This should output the URL for the Parking Photo. Some scooters may not have one, here's an example from a scooter that does have one:
 
@@ -351,23 +349,33 @@ This should output the URL for the Parking Photo. Some scooters may not have one
 
 ## GBFS
 
-Use Flamingo's GBFS API to get scooter locations instead of having to authenticate with their main API.
+Flamingo also supports the [GBFS](https://github.com/NABSA/gbfs) system.
 
-**URL**: `https://api.flamingoscooters.com/gbfs/<city>/free_bike_status.json`
-
-Replace the `<city>` in the URL with either: `auckland`, `christchurch` or `wellington`, depending on which city.
+**URL**: `https://api.flamingoscooters.com/gbfs/<city>/gbfs.json`
 
 The output should be something like this:
 
 ```
 {
-                "bike_id": "1339",
-                "lat": -43.532093,
-                "lon": 172.628018,
-                "current_range_meters": 11900,
-                "last_reported": 1599977150
+    "success": true,
+    "data": {
+        "bikes": [
+            {
+                "bike_id": "4130",
+                "lat": -43.528927,
+                "lon": 172.639989,
+                "current_range_meters": 21420,
+                "last_reported": 1629880900
             },
+            ...
+            ]
+    },
+    "last_updated": 1629880939,
+    "ttl": 60
+}
 ```
+
+**Postman Collection**: https://documenter.getpostman.com/view/11220018/TVKD2xdh
 
 ## Implementations
 
