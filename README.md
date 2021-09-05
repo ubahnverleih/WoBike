@@ -42,6 +42,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Blip (New Zealand)](Blip.md)
 - [Vaimoo (Denmark, Italy & Netherlands)](Vaimoo.md)
 - [Go Sharing](Go-Sharing.md)
+- [Bolt (Europe)](Bolt.md)
 
 ## Bikes/E-Scooters
 - [Lime & JUMP](Lime.md)
@@ -55,6 +56,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Coup (Germany, Spain & France)](Coup.md)
 - [Stella (Germany (Stuttgart))](Stella.md)
 - [Felyx (Europe)](Felyx.md)
+- [Eddy (Düsseldorf, Germany)](Eddy.md)
 
 ## Cars
 - [Cambio (Germany & Belgium)](Cambio.md)
@@ -68,3 +70,5 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 * For more documentation and some updates on the APIs, a look into the issues section could be helpful. Also feel free to add APIs from the issues into the documentation by creating a Pull Request.
 
 ## Todo
+
+Some new providers are listed in [issues with the new provider tag](https://github.com/ubahnverleih/WoBike/issues?q=is%3Aissue+is%3Aopen+label%3A%22new+provider%22). Some of them are already documented there and just need to be put in an own file in this repo.

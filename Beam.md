@@ -27,7 +27,7 @@ Make sure to change the `latest-app-version` to the latest Beam app version (e.g
 
 `{"phoneNumber":"<phone-number>","countryCode":"+<country-code>"}`
 
-As a result an OTP code should have been texted to and the JSON output should return something like this:
+An OTP code should have been texted to you and this should be the response:
 
 ```
 {
@@ -63,15 +63,15 @@ As a result an OTP code should have been texted to and the JSON output should re
 
 `{"phoneNumber":"<phone-number>","countryCode":"+<country-code>","code":"<OTP-code>","deviceName":"iPhone8,1(iPhone 6S)"}`
 
-As a result, you should end up with something like this:
+Repsonse:
 
 ```
      {
     "success": true,
     "message": "verify successfully",
     "data": {
-        "jwtAccessToken": "JWT <long-string>",
-        "refreshToken": "<long-string>",
+        "jwtAccessToken": "JWT <access-token>",
+        "refreshToken": "<refresh-token>",
         "userType": null,
         "userId": <user-ID>,
         "id": <ID>,
@@ -81,16 +81,44 @@ As a result, you should end up with something like this:
         "phoneNumber": "<your-phone-number",
         "countryCode": "+<country-code>",
         "dateAcceptedConvenienceFeeTerms": null,
-        "isNewUser": true,
+        "isNewUser": false,
         "isAgeVerified": null
     }
 }
 ```
 Use the `jwtAccessToken` as your Auth Token
 
+### Refresh Token
+
+**Method**: `POST`
+
+**Path**: `/auth/refreshaccesstoken`
+
+**Headers**:
+
+| Headers       | Value                                 | Mandatory |
+| ------------- | ------------------------------------- | :-------: |
+| Content-Type  | application/json                      | X         |
+| User-Agent    | escooterapp/latest-app-version; ios   | X         |
+
+**The Body**:
+
+`{"userId":<your-user-id>,"refreshToken":"<your-refresh-token>"}`
+
+Response:
+
+```
+     {
+    "success": true,
+    "response": {
+        "accessToken": "<your-new-access-token>"
+    }
+}
+```
+
 ## Get Scooter Locations
 
-**Path**: `/vehicles/scooter/latlong`
+**Path**: `/vehicles/getForH3/rider/detail`
 
 **Method**: `GET`
 
@@ -99,7 +127,7 @@ Use the `jwtAccessToken` as your Auth Token
 | Headers       | Value                                 | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
 | User-Agent    | escooterapp/latest-app-version; ios   | X         |
-| Authorization | jwtAccessToken                        |           |
+| Authorization | access-token                          |           |
 
 **Parameters**:
 
@@ -109,7 +137,7 @@ Use the `jwtAccessToken` as your Auth Token
 | longitude  | longitude                | X         |
 
 
-The output should be something like this:
+Response:
 
 ```
 {
@@ -118,33 +146,32 @@ The output should be something like this:
     "response": {},
     "error": "",
     "data": {
-        "isRideableTime": true,
-        "scooters": [
+        "vehicles": [
             {
-                "id": 4792, --- Internal Vehicle ID
+                "code": "81004", --- Vehicle ID written on the scooter
+                "formFactor": "escooter",
+                "latitude": -41.295956,
+                "longitude": 174.778755,
+                "batteryLevel": 49,
+                "id": 29463, --- Internal ID used for sending commands to the scooter
                 "status": 0,
-                "lastReportedBattery": 71,
-                "code": "80863", --- ID written on the scooter
-                "lastOysterHeartbeatReportTime": null,
-                "lastPhoneLocationTime": "2020-09-12T22:46:13.996Z",
-                "lastReportedTimeTrackerMotion": null,
-                "lastOysterAfterMotionSingleReportTime": null,
-                "lastPhoneLocationBLERSSI": -88,
-                "bestLocation": {
-                    "type": "Point",
-                    "coordinates": [
-                        172.57569866666665, --- Long
-                        -43.538005 --- Lat
-                    ]
-                },
-                "serialNumber": "N4ZMA2002C0195",
-                "vehicleType": 1,
-                "bleMacAddress": "e3:28:17:be:93:dc",
-                "omniIotImei": "868020030598071",
-                "Tasks": [],
-                "formFactor": "escooter"
+                "lostAndHiddenFromMaps": false,
+                "undeployableDamaged": false,
+                "vehicleModel": "NINEBOT_MODEL_MAX_SWAPPABLE",
+                "lastPhoneLocationTime": "2021-06-04T07:50:30.419Z",
+                "lastPhoneLocation": [
+                    174.77869774531294,
+                    -41.29596706766972
+                ],
+                "latestOmniIotLocation": [
+                    174.778755,
+                    -41.295956
+                ],
+                "latestUserReportedLocation": [
+                    174.77597826176768,
+                    -41.289671394081324
+                ]
             },
-            
             ...
           ],
         "isPartialResponse": false
@@ -163,7 +190,7 @@ The output should be something like this:
 | Headers       | Value                                 | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
 | User-Agent    | escooterapp/latest-app-version; ios   | X         |
-| Authorization | jwtAccessToken                        |           |
+| Authorization | <access-token>                        |           |
 
 **Parameters**:
 
@@ -174,7 +201,7 @@ The output should be something like this:
 | userMode   | 0                        | X         |
 
 
-The output should be something like this:
+Response:
 
 ```
 "response": {
@@ -224,9 +251,9 @@ The output should be something like this:
 | Headers       | Value                                 | Mandatory |
 | ------------  | ------------------------------------- | :-------: |
 | User-Agent    | escooterapp/latest-app-version; ios   | X         |
-| Authorization | jwtAccessToken                        |           |
+| Authorization | <access-token>                        |           |
 
-The output should be something like this:
+Response:
 
 ```
 {
@@ -285,7 +312,7 @@ The output should be something like this:
 | longitude  | longitude                | X         |
 
 
-The output should be something like this:
+Response:
 
 ```
 {
