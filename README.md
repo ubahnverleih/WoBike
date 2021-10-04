@@ -20,6 +20,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Lidl-Bike](Lidl-Bike.md)
 - [Donkey Republic](Donkey.md)
 - [CityBike Wien (Vienna/Austria)](CityBikeWien.md)
+- [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
 
 ### Dead (e.g., bankrupt)
 - [oBike (Worldwide)](Obike.md) - Closed June 2018
