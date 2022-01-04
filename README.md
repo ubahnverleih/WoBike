@@ -61,7 +61,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 
 ## Cars
 - [Cambio (Germany & Belgium)](Cambio.md)
-
+- [WeShare (Germany)](WeShare.md)
 
 ## More...
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
