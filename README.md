@@ -53,11 +53,14 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Zagster](Zagster.md)
 
 ## Scooters/Mopeds (🛵, that you sit on)
+### Active
 - [Emmy (Germany)](Emmy.md)
-- [Coup (Germany, Spain & France)](Coup.md)
 - [Stella (Germany (Stuttgart))](Stella.md)
 - [Felyx (Europe)](Felyx.md)
 - [Eddy (Düsseldorf, Germany)](Eddy.md)
+
+### Dead (e.g., bankrupt)
+- [Coup (Germany, Spain & France)](Coup.md) - Closed December 2019
 
 ## Cars
 - [Cambio (Germany & Belgium)](Cambio.md)
