@@ -84,6 +84,7 @@ You will receive a response like this:
 }
 ```
 This seems to mark the used ```deviceId``` as authenticated internally. Reuse it for all future requests.
+You must include the header "Authorization" with the value "Basic <phone number>:<deviceId>" in Base64. source: [#255](https://github.com/ubahnverleih/WoBike/issues/225#issuecomment-979077419)
 
 ## Finding nearby scooters
 Send a ```GET``` request to ```https://rental-search.bolt.eu/categoriesOverview``` with the following parameters:
