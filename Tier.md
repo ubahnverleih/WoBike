@@ -5,6 +5,8 @@
 
 To authenticate you need to add `X-Api-Key: bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2` in your header of the API-Endpoint `https://platform.tier-services.io`.  
 
+Official docs: https://api-documentation.tier-services.io/
+
 ## v1
 
 ### Get Vehicles
