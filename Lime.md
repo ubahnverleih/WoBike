@@ -277,7 +277,7 @@ curl --request GET \
 
 If you run this command, it won't work. It will say the vehicle is too far away. Use the `/v1/views/map` path above and set the User Location to where the bike is. You need to also get the ET-ID from a bike, you can acquire it from the same endpoint that I just mentioned. Ring from anywhere!
 
-**Method**: `GET`
+**Method**: `POST`
 
 **Path**: `/v1/actions/ring_bike`
 
