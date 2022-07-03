@@ -1,19 +1,10 @@
 # Lime
 
-**Base url**: `https://web-production.lime.bike/api/rider`
+**Base URL**: `https://web-production.lime.bike/api/rider`
 
-## Methods
+## Methods to authenticate
 
-### Login
-
-There are two methods to Login
-
-1:
-+ Request an OTP code that is sent to you by SMS
-+ Send back the OTP code to get an Auth token
-
-2:
-Use Email to login
+### Login with phone number
 
 #### Request sms code
 
@@ -99,18 +90,13 @@ curl --request POST \
 }
 ```
 
-Cookie
+### Login with Email
 
-
-```
-_limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVGtZd2VXN20yMjhJczhlR21nUkVHczlEREUweGNpYmtEWVFvQXBoQVNuRWdZWkVBajJPaHhDeStuUmttYVdYYWVsRDJEMUZvNE5YNU4xc1FlcjlDMi8xOVNMcDM3M3JhQWd0TDF2OWphMGR3PT0tLTBDYUtNeUJLcXRmNVd4YnorSEhlTWc9PQ%3D%3D--c8889db210d22bb4a96307b74d39c4b64d48777f
-```
-
-#### Login with Email
+#### Send Magic Link
 
 **Method**: `POST`
 
-**Path**: `/v1/login`
+**Path**: `/v2/onboarding/magic-link`
 
 **Header**:
 
@@ -120,50 +106,43 @@ _limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVG
 
 **Body**:
 
-`email=<YOUR-EMAIL>&name=Lime%20Rider&password=<YOUR-PASSWORD>&platform=iOS`
+`email=<your-email>&user_agreement_country_code=US&user_agreement_version=4`
 
 **Example**
 
 ```
-curl --location --request POST 'https://web-production.lime.bike/api/rider/v1/login' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data 'email=<YOUR-EMAIL>&name=Lime%20Rider&password=<YOUR-PASSWORD>&platform=iOS'
+curl 'https://web-production.lime.bike/api/rider/v2/onboarding/magic-link' \
+-X POST \
+-H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+-d 'email=<your-email>&user_agreement_country_code=US&user_agreement_version=4'
 ```
 
-```JSON
-{
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3Rva2VuIjoiRk9PQkFSRUlSWkhBMiIsImxvZ2luX2NvdW50IjoyfQ.K5nmvUu92hYXQyeYG6O0rqo0ef2mkp7PMdtp9NrgwOE",
-    "user": {
-        "id": "FOOBAREIRZHA2",
-        "type": "users",
-        "attributes": {
-            "token": "FOOBAREIRZHA2",
-            "phone_number": "33612345678",
-            "email_address": null,
-            "has_verified_email_address": false,
-            "name": "Lime Rider",
-            "given_name": "Lime",
-            "surname": "Rider",
-            "default_payment_method": null,
-            "referral_code": "REZHETH",
-            "num_trips": 0,
-            "edu": false,
-            "subscription_item_states": [],
-            "juicer_profile_status": null,
-            "juicer_profile_initial_activated_at": null,
-            "balance_cents": 0,
-            "pending_balance_cents": 0,
-            "currency": "USD"
-        }
-    }
-}
-```
+#### Use Magic Link
 
-Cookie
+**Method**: `POST`
+
+**Path**: `/v2/onboarding/login`
+
+**Header**:
+
+| Header       | Value                             | Mandatory |
+| ------------ | --------------------------------- | :-------: |
+| Content-Type | application/x-www-form-urlencoded | X         |
+
+**Body**:
+
+`magic_link_token=<your-magic-link-token`
+
+**Example**
 
 ```
-_limebike-web_session	U0pwQlVjcVRwMXZUTWovcHh3U251MERYTGE2dWpMdFdmNW9sL0d4SHBRVGtZd2VXN20yMjhJczhlR21nUkVHczlEREUweGNpYmtEWVFvQXBoQVNuRWdZWkVBajJPaHhDeStuUmttYVdYYWVsRDJEMUZvNE5YNU4xc1FlcjlDMi8xOVNMcDM3M3JhQWd0TDF2OWphMGR3PT0tLTBDYUtNeUJLcXRmNVd4YnorSEhlTWc9PQ%3D%3D--c8889db210d22bb4a96307b74d39c4b64d48777f
+curl 'https://web-production.lime.bike/api/rider/v2/onboarding/login' \
+-X POST \
+-H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+-d 'magic_link_token=<your-magic-link-token>'
 ```
+
+## Use API
 
 ### Get Vehicles and Zones
 
@@ -277,9 +256,9 @@ curl --request GET \
 
 If you run this command, it won't work. It will say the vehicle is too far away. Use the `/v1/views/map` path above and set the User Location to where the bike is. You need to also get the ET-ID from a bike, you can acquire it from the same endpoint that I just mentioned. Ring from anywhere!
 
-**Method**: `GET`
+**Method**: `POST`
 
-**Path**: `/v1/actions/ring_bike`
+**Path**: `/v1/bikes/<ET-ID>/ring`
 
 **Header**:
 
@@ -290,6 +269,8 @@ If you run this command, it won't work. It will say the vehicle is too far away.
 **Body**:
 
 `id=<vehicle_ET-ID>`
+
+If you get a 404 "Resource not found" message, it's most likely because the ET-ID provided is invalid.
 
 ### View Vehicle info banner
 
@@ -391,6 +372,8 @@ The ET-ID can be found on the 'Get Vehicles and Zones' endpoint.
     ]
 }
 ```
+
+If you get a 404 "Resource not found" message, it's most likely because the ET-ID provided is invalid.
 
 ### View your ride history
 
