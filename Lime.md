@@ -16,9 +16,9 @@
 
 **Parameters**:
 
-| Parameters | Descriptions             | Mandatory |
-| ---------- | ------------------------ | :-------: |
-| phone      | phone number intl format | X         |
+| Parameters | Descriptions             |
+| ---------- | ------------------------ |
+| phone      | phone number intl format |
 
 
 When entering a phone number, make sure to include the `%2B` before the number instead of the `+` (Example: %2B12222222222 is +1 (222) 222-2222)
@@ -39,16 +39,16 @@ curl --request GET \
 
 **Header**:
 
-| Header       | Value            | Mandatory |
-| ------------ | ---------------- | :-------: |
-| content-type | application/json | X         |
+| Header       | Value            |
+| ------------ | ---------------- |
+| content-type | application/json |
 
 **Parameters**:
 
-| Parameters | Descriptions             | Mandatory |
-| ---------- | ------------------------ | :-------: |
-| phone      | phone number intl format | X         |
-| login_code | OTP code (length of 6)   | X         |
+| Parameters | Descriptions             |
+| ---------- | ------------------------ |
+| phone      | phone number intl format |
+| login_code | OTP code (length of 6)   |
 
 
 **Example**
@@ -98,22 +98,19 @@ curl --request POST \
 
 **Path**: `/v2/onboarding/magic-link`
 
-**Header**:
-
-| Header       | Value                             | Mandatory |
-| ------------ | --------------------------------- | :-------: |
-| Content-Type | application/x-www-form-urlencoded | X         |
-
 **Body**:
 
-`email=<your-email>&user_agreement_country_code=US&user_agreement_version=4`
+| Parameters                  | Descriptions             |
+| ----------                  | ------------------------ |
+| email                       | your email               |
+| user_agreement_version      | 4                        |
+| user_agreement_country_code | US                       |
 
 **Example**
 
 ```
 curl 'https://web-production.lime.bike/api/rider/v2/onboarding/magic-link' \
 -X POST \
--H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
 -d 'email=<your-email>&user_agreement_country_code=US&user_agreement_version=4'
 ```
 
@@ -125,9 +122,9 @@ curl 'https://web-production.lime.bike/api/rider/v2/onboarding/magic-link' \
 
 **Header**:
 
-| Header       | Value                             | Mandatory |
-| ------------ | --------------------------------- | :-------: |
-| Content-Type | application/x-www-form-urlencoded | X         |
+| Header         | Value         |
+| -------------- | ------------- |
+| X-Device-Token | random uuid |
 
 **Body**:
 
@@ -138,7 +135,7 @@ curl 'https://web-production.lime.bike/api/rider/v2/onboarding/magic-link' \
 ```
 curl 'https://web-production.lime.bike/api/rider/v2/onboarding/login' \
 -X POST \
--H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+-H 'X-Device-Token: 43fd2a25-56c5-4d1d-b6c0-a1dab08d8e1d' \
 -d 'magic_link_token=<your-magic-link-token>'
 ```
 
