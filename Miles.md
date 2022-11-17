@@ -9,12 +9,13 @@ There is *no* authentication or special headers and only `GET`-Requests required
 Miles public API allows querying vehicles via lat, lng, lat delta and lng delta. The API contains two main objects
 - list of vehicles
 - list of clusters
+- or both
 
-The API response will contain either vehicles or clusters depending upon the value of lat delta and lng delta. 
+The API response will contain either vehicles or clusters depending upon how large or small the values of latitude delta and longitude delta are 
 
+The following request will return vehicles only based the value of lat delta and lng delta is too small
 `https://api.app.miles-mobility.com/mobile/Vehicles?deviceKey=<YOUR_DEVICE_KEY>&latitude=52.46772&longitude=13.507673&latitudeDelta=0.021653345980664086&longitudeDelta=0.016843199729919434&userLatitude=25.11645255113832&userLongitude=55.39148236389842&lang=en&FuelLevelFilterMin=0&FuelLevelFilterMax=100&VehicleSizeFilter=S,M,L,P&vehicleEngineFilter=&VehicleSeatsFilter=3,5&VehicleTransmissionFilter=M,A&zoomLevel=10&showOnlyDiscountedVehicles=0&showFuelingStations=0&showChargingStations=0&showMilesPartners=0`
 
-The result contains an array with either vehicles or clusters or both depending upon the value of lat and lng deltas in the following format. 
 ```json
 {
   "Result": "OK",
@@ -385,5 +386,142 @@ The result contains an array with either vehicles or clusters or both depending 
     "pois": [],
     "partners": []
   }
+}
+```
+
+The following request will return clusters only because the value of lat delta and lng delta is too big.
+
+`https://api.app.miles-mobility.com/mobile/Vehicles?deviceKey=<YOUR_DEVICE_KEY>&latitude=52.46772&longitude=13.507673&latitudeDelta=0.021653345980664086&longitudeDelta=0.016843199729919434&userLatitude=25.11645255113832&userLongitude=55.39148236389842&lang=en&FuelLevelFilterMin=0&FuelLevelFilterMax=100&VehicleSizeFilter=S,M,L,P&vehicleEngineFilter=&VehicleSeatsFilter=3,5&VehicleTransmissionFilter=M,A&zoomLevel=10&showOnlyDiscountedVehicles=0&showFuelingStations=0&showChargingStations=0&showMilesPartners=0`
+
+```json
+{
+    "Result": "OK",
+    "ResponseText": null,
+    "Data": {
+        "response": {
+            "Result": "OK",
+            "ResponseText": "",
+            "idVehicleBooked": null,
+            "idRide": null,
+            "idVehicleInRide": null,
+            "NearestIdCity": "BER",
+            "LivePayment": false,
+            "TopUpRequired": false,
+            "userAppVersion": 0.00,
+            "nFilterElements": 0,
+            "UserInOpsMode": false,
+            "CloseForceDisplayVehicle": false,
+            "SpecialAirportRate": "{\"previewBox\": [{\"generalTittle\":\"SPECIAL AIRPORT RATE\",\"tariffTittle\":\"AIRPORT RATE\",\"tariffId\":\"AIRP_BER\",\"tariffName\":\"BER \/ P <> BER airport\",\"tariff\":\"34€\",\"tariff_numeric\":34.00,\"tariff_ccy\":\"EUR\",\"tariff_old\":null,\"tariff_old2\":null,\"lower_row1\":\"(!) You pay 34€ for each route.\",\"lower_row2\":\"incl. 1€ Unlock Fee\"}],\"descriptionTexts\": [{\"row1\":\"This rate includes 60 km max. distance, 90 minutes max. duration time incl. 20 minutes max. parking time.\",\"info_title\":\"Important information\",\"info_text\":\"Included within this airport rate: Unlock fee & fuel \/ charging costs. In order to apply the rate, the start or end of the ride should happen at the BER airport, and comply with max 60 km distance & 90 min ride duration. Otherwise, the best available standard rate will be applied.\",\"lower_bold_text\":\"The cost of the selected rate will the charged when starting the rental.\",\"confirmation_message\":\"Apply the SPECIAL AIRPORT RATE to your ride?\",\"greybox_icon\":null,\"greybox_text\":null}],\"rateDetails\": [{\"title\":\"Distance\",\"text\":\"60km\"},{\"title\":\"Duration\",\"text\":\"90 min\"},{\"title\":\"Pick up \/ Drop off\",\"text\":\"BER airport\"}],\"freeFeatures\": [{\"text\":\"Unlock Fee\",\"text2\":\"\"},{\"text\":\"Parking minutes\",\"text2\":\"(limited to 20 minutes)\"},{\"text\":\"Fueling \/ Charging\",\"text2\":\"(free fueling \/ charging on all stations shown in the app)\"},{\"text\":\"Parking ticket\",\"text2\":\"\"}],\"extraCosts\": [{\"text\":\"<u>Parking tickets<\/u> for parking at <u>non<\/u> public parking spots\",\"text2\":\"(also parking outside our business area where a ticket is needed)\"}]}",
+            "SpecialAirportRate_E": "{\"previewBox\": [{\"generalTittle\":\"SPECIAL AIRPORT RATE\",\"tariffTittle\":\"AIRPORT RATE\",\"tariffId\":\"AIRP_BER\",\"tariffName\":\"BER \/ P <> BER airport\",\"tariff\":\"34€\",\"tariff_numeric\":34.00,\"tariff_ccy\":\"EUR\",\"tariff_old\":null,\"tariff_old2\":null,\"lower_row1\":\"(!) You pay 34€ for each route.\",\"lower_row2\":\"incl. 1€ Unlock Fee\"}],\"descriptionTexts\": [{\"row1\":\"This rate includes 60 km max. distance, 90 minutes max. duration time incl. 20 minutes max. parking time.\",\"info_title\":\"Important information\",\"info_text\":\"Included within this airport rate: Unlock fee & electricity costs. In order to apply the rate, the start or end of the ride should happen at the BER airport, and comply with max 60 km distance & 90 min ride duration. Otherwise, the best available standard rate will be applied.\",\"lower_bold_text\":\"The cost of the selected rate will the charged when starting the rental.\",\"confirmation_message\":\"Apply the SPECIAL AIRPORT RATE to your ride?\",\"greybox_icon\":null,\"greybox_text\":null}],\"rateDetails\": [{\"title\":\"Distance\",\"text\":\"60km\"},{\"title\":\"Duration\",\"text\":\"90 min\"},{\"title\":\"Pick up \/ Drop off\",\"text\":\"BER airport\"}],\"freeFeatures\": [{\"text\":\"Unlock Fee\",\"text2\":\"\"},{\"text\":\"Parking minutes\",\"text2\":\"(limited to 20 minutes)\"},{\"text\":\"Electricity\",\"text2\":\"(free charging at the charging stations shown in the app)\"},{\"text\":\"Parking ticket\",\"text2\":\"\"}],\"extraCosts\": [{\"text\":\"<u>Parking tickets<\/u> for parking at <u>non<\/u> public parking spots\",\"text2\":\"(also parking outside our business area where a ticket is needed)\"}]}",
+            "SpecialAirportRate_2": null,
+            "SpecialAirportRate_E_2": null,
+            "UsesPPC": false,
+            "CurrentSubscription": null,
+            "JSONCityAreas": "",
+            "CityAreasTimestamp": "2001-01-01T00:00:00",
+            "AdditionalInfo": "{ \"MinZoomPA\": 12, \"DeltaPA\": 3.00, \"HubAutoOpen\": 17, \"Banner\": null}"
+        },
+        "vehicles": [],
+        "clusters": [
+            {
+                "idCluster": null,
+                "idClusterHash": "1C62A4A62AA08838FE082A94CD22B8D4",
+                "Latitude": 52.36491193518517,
+                "Longitude": 13.514991,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.364273,\"longitude\":13.515244},{\"latitude\":52.364468,\"longitude\":13.515865}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "24F85CEBE97ED2626A47E3B893A86B67",
+                "Latitude": 52.476438568627437,
+                "Longitude": 13.499870122549012,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.473137,\"longitude\":13.489146},{\"latitude\":52.481567,\"longitude\":13.502348}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "1ED211DB0A61E8061E102EDA3BA0A954",
+                "Latitude": 52.48883972213968,
+                "Longitude": 13.421315465081712,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.484619,\"longitude\":13.421391},{\"latitude\":52.494125,\"longitude\":13.429657}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "99D7A8B24914D4A640F6D73648845A64",
+                "Latitude": 52.487271229357809,
+                "Longitude": 13.327233435779819,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.485374,\"longitude\":13.324369},{\"latitude\":52.489918,\"longitude\":13.332579}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "2D3506D891249C113B6E96B778684997",
+                "Latitude": 52.518444723880592,
+                "Longitude": 13.50465354477612,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.512955,\"longitude\":13.496438},{\"latitude\":52.518246,\"longitude\":13.507272}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "76B7EF830AF881C0EB49639444DF47D5",
+                "Latitude": 52.521327405982873,
+                "Longitude": 13.304936132478636,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.516758,\"longitude\":13.299164},{\"latitude\":52.525692,\"longitude\":13.309978}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "0AEC36D86F3CCFC30259893F2CDCA14E",
+                "Latitude": 52.530177202995048,
+                "Longitude": 13.437771054908497,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.529778,\"longitude\":13.433264},{\"latitude\":52.532642,\"longitude\":13.441862}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "E95972D9F9D5071E418D7FFEB487E510",
+                "Latitude": 52.540191245681378,
+                "Longitude": 13.374652401151646,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.538395,\"longitude\":13.371553},{\"latitude\":52.541283,\"longitude\":13.377926}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "C8430FBB65327D1447C7A678DA9C7095",
+                "Latitude": 52.543878499999991,
+                "Longitude": 13.598541499999996,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.542953,\"longitude\":13.596578},{\"latitude\":52.544621,\"longitude\":13.599528}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "1D333B5AE5A8C7F91D76C462DA009955",
+                "Latitude": 52.575642166666661,
+                "Longitude": 13.394522507246378,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.574009,\"longitude\":13.390413},{\"latitude\":52.578449,\"longitude\":13.398307}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "74D6C1966543AF3CCD6307ACC91E36A9",
+                "Latitude": 52.582936602150532,
+                "Longitude": 13.31251331182796,
+                "nUnits": 10,
+                "Bounds": "[{\"latitude\":52.574177,\"longitude\":13.294025},{\"latitude\":52.581032,\"longitude\":13.320618}]"
+            },
+            {
+                "idCluster": null,
+                "idClusterHash": "919935758C7B5317A4F469EB044245AF",
+                "Latitude": 52.633283500000005,
+                "Longitude": 13.496205,
+                "nUnits": 4,
+                "Bounds": "[{\"latitude\":52.628384,\"longitude\":13.492306},{\"latitude\":52.635082,\"longitude\":13.506649}]"
+            }
+        ],
+        "pois": [],
+        "partners": []
+    }
 }
 ```
