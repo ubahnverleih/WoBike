@@ -6,14 +6,17 @@ There is *no* authentication or special headers and only `GET`-Requests required
 
 ## Request vehicles by lat, lng
 
-Miles public API allows querying vehicles via lat, lng, lat delta and lng delta. The API contains two main objects
-- list of vehicles
-- list of clusters
-- or both
+Miles public API allows querying vehicles based on the folllowing 4 fields
+- latitude
+- longitude
+- latitude delta
+- longitude delta
 
-The API response will contain either vehicles or clusters depending upon how large or small the values of latitude delta and longitude delta are 
 
-The following request will return vehicles only based the value of lat delta and lng delta is too small
+The API response contains either list of clusters or vehicles or both depending upon how large or small the values of latitude delta and longitude delta are. 
+
+The following request will only return vehicles
+
 `https://api.app.miles-mobility.com/mobile/Vehicles?deviceKey=<YOUR_DEVICE_KEY>&latitude=52.46772&longitude=13.507673&latitudeDelta=0.021653345980664086&longitudeDelta=0.016843199729919434&userLatitude=25.11645255113832&userLongitude=55.39148236389842&lang=en&FuelLevelFilterMin=0&FuelLevelFilterMax=100&VehicleSizeFilter=S,M,L,P&vehicleEngineFilter=&VehicleSeatsFilter=3,5&VehicleTransmissionFilter=M,A&zoomLevel=10&showOnlyDiscountedVehicles=0&showFuelingStations=0&showChargingStations=0&showMilesPartners=0`
 
 ```json
@@ -389,7 +392,7 @@ The following request will return vehicles only based the value of lat delta and
 }
 ```
 
-The following request will return clusters only because the value of lat delta and lng delta is too big.
+The following request will only return clusters 
 
 `https://api.app.miles-mobility.com/mobile/Vehicles?deviceKey=<YOUR_DEVICE_KEY>&latitude=52.46772&longitude=13.507673&latitudeDelta=0.021653345980664086&longitudeDelta=0.016843199729919434&userLatitude=25.11645255113832&userLongitude=55.39148236389842&lang=en&FuelLevelFilterMin=0&FuelLevelFilterMax=100&VehicleSizeFilter=S,M,L,P&vehicleEngineFilter=&VehicleSeatsFilter=3,5&VehicleTransmissionFilter=M,A&zoomLevel=10&showOnlyDiscountedVehicles=0&showFuelingStations=0&showChargingStations=0&showMilesPartners=0`
 
