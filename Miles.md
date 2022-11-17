@@ -1,12 +1,12 @@
 # Miles
 
-[Miles](https://miles-mobility.com/) is a carsharing company based in Germany providing vehicles in cities like Berlin, Hamburg, Munich, Potsdam, Cologne, Dusseldorf, Bonn and Duisburg
+[Miles](https://miles-mobility.com/) is a car sharing company based in Germany providing vehicles in cities like Berlin, Hamburg, Munich, Potsdam, Cologne, Dusseldorf, Bonn and Duisburg
 
-There is *no* authentication or special headers and only `GET`-Requests required for their API-Endpoints plus a unique DeviceKey which can be obtained as well without creating an account on the Miles app.
+`GET`-Requests required for their API-Endpoints plus a unique DeviceKey which you can easily extract out as well without creating an account on the Miles app.
 
 ## Request vehicles by lat, lng
 
-Miles public API allows querying vehicles based on the folllowing 4 fields
+Miles public API allows querying vehicles based on the following 4 fields
 - latitude
 - longitude
 - latitude delta
