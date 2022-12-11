@@ -8,16 +8,11 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 ### Active
 - [Nextbike (Worldwide)](Nextbike.md)
 - [Call-a-Bike (Germany / Deutsche Bahn)](Call-a-Bike.md)
-- [Mobike](Mobike.md)
-- [Yobike/Ohbike/Indigoweel](Yobike.md)
-- [Gobee bike (Hong Kong & Italy)](Gobee.md)
-- [Motivate (US; Ford GoBike (Bay Area, CA), Biketown (Portland, OR), Capital Bikeshare (Washington, DC), Bike Chattanooga (Chattanooga, TN), Citi Bike (New York), CoGo (Columbus, OH), Divvy (Chicago, IL), Hubway (Boston & MA))](Motivate.md)
-- [BYKE/WIND (Germany)](Wind.md)
+- [Motivate (US; Powers FordGoBike, Biketown, Capital Bikeshare, Bike Chattanooga, Citi Bike, CoGo, Divvy, Hubway)](Motivate.md)
+- [BYKE/WIND](Wind.md)
 - [Dropbike (Canada)](Dropbike.md)
 - [SocialBicycles (USA, Canada, Czech Republic & Poland)](SocialBicycles.md)
 - [Bixi (Montreal)](Bixi.md)
-- [EUBIKE (Sweden)](EUBike.md)
-- [Lidl-Bike](Lidl-Bike.md)
 - [Donkey Republic](Donkey.md)
 - [CityBike Wien (Vienna/Austria)](CityBikeWien.md)
 - [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
@@ -27,30 +22,37 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [ofo bike (China, UK, US, Austria, Thailand, Singapore, France & India)](Ofo.md) - Closed January 2019
 - [Bluegogo (China, US)](Bluegogo.md) - Closed November 2017
 - [OnzO (New Zealand)](Onzo.md) - Closed March 2020
+- [Mobike](Mobike.md) Closed December 2020
+- [Gobee bike (Hong Kong & Italy)](Gobee.md) - Closed July 2018
+- [Yobike/Ohbike/Indigoweel](Yobike.md)
+- [EUBIKE (Sweden)](EUBike.md)
+- [Lidl-Bike](Lidl-Bike.md)
+
 
 ## E-Scooters (🛴, that you stand on)
+### Active
 - [Bird](Bird.md)
-- [VOI (Europe)](Voi.md)
-- [Circ](Circ.md)
+- [VOI](Voi.md)
 - [Helbiz](Helbiz.md)
-- [Hive (Europe)](Hive.md)
-- [TIER (Europe & UAE)](Tier.md)
-- [Ufo (Europe)](Ufo.md)
-- [Zero (Germany)](Zero.md)
-- [Scoota (Austria)](Scoota.md)
-- [Beam (Singapore, Australia, Maylasia & New Zealand)](Beam.md)
-- [Flamingo (New Zealand)](Flamingo.md)
-- [Blip (New Zealand)](Blip.md)
-- [Vaimoo (Denmark, Italy & Netherlands)](Vaimoo.md)
+- [TIER](Tier.md)
+- [Beam](Beam.md)
+- [Flamingo](Flamingo.md)
+- [Blip](Blip.md)
+- [Vaimoo](Vaimoo.md)
 - [Go Sharing](Go-Sharing.md)
-- [Bolt (Europe)](Bolt.md)
-
-## Bikes/E-Scooters
 - [Lime & JUMP](Lime.md)
-- [JUMP (USA, Europe, Australia & NZ)](Jump.md)
-- [Spin (USA)](Spin.md)
+- [Spin](Spin.md)
 - [Pony](Pony.md)
-- [Zagster](Zagster.md)
+
+### Dead (e.g., bankrupt)
+- [JUMP (USA, Europe, Australia & NZ)](Jump.md) Closed 16.6.2020
+- [Zagster](Zagster.md) - Shutdown June 2020
+- [Circ](Circ.md) - Bought by Bird 27.1.2020
+- [Zero (Germany)](Zero.md)
+- [Ufo (Europe)](Ufo.md)
+- [Scoota](Scoota.md)
+- [Hive](Hive.md)
+
 
 ## Scooters/Mopeds (🛵, that you sit on)
 ### Active
