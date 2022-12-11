@@ -45,8 +45,8 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Pony](Pony.md)
 
 ### Dead (e.g., bankrupt)
-- [JUMP (USA, Europe, Australia & NZ)](Jump.md) Closed 16.6.2020
-- [Zagster](Zagster.md) - Shutdown June 2020
+- [JUMP (USA, Europe, Australia & NZ)](Jump.md) - Closed 16.6.2020
+- [Zagster](Zagster.md) - Closed June 2020
 - [Circ](Circ.md) - Bought by Bird 27.1.2020
 - [Zero (Germany)](Zero.md)
 - [Ufo (Europe)](Ufo.md)
