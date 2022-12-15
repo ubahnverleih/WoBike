@@ -249,7 +249,7 @@ Response:
 Here again, is the city id ```value``` under ```city_area_filters```.
 
 ## Ring scooter
-Gets data about the scooter, including ```vehicle_id```, battery percentage and pricing. 
+Make an scooter ring an blink.
 send a ```GET``` request to ```{server_url}/client/ringVehicle```. Replace ```{server_url}``` with the ```server_url``` from prevoius request.
 The Endpoint requires Basic authentication.
 
