@@ -1,8 +1,8 @@
 # Introduction:
 
-[VOI](https://voiscooters.com) is a Swedish ride sharing company focused on electric scooters. They have scooters placed in several cities and countries around the world, including Sweden, Spain, Italy, France and more.
+[VOI](https://voi.com) is a Swedish ride sharing company focused on electric scooters. They have scooters placed in several cities and countries around the world, including Sweden, Spain, Italy, France and more.
 
-Base url of the API is `https://api.voiapp.io/v1`
+Base url of the API is `https://api.voiapp.io/`
 
 
 # Authentication:
@@ -11,6 +11,8 @@ The API requires an **Access Token**. This token is valid for only a short time 
 * a new **Authentication Token** to open the next session
 
 To get the first Authentication Token, see steps 1,2,3 below. 
+
+Python Script to easely obtain your token: [https://gist.github.com/BastelPichi/b084aa5260331424735fadc3b8e1719d](https://gist.github.com/BastelPichi/b084aa5260331424735fadc3b8e1719d)
 
 See here example of python implementation of the session authentication (once the step 1-2-3 are done): [https://github.com/hawisizu/scooter_scrapper/blob/master/providers/voi.py](https://github.com/hawisizu/scooter_scrapper/blob/master/providers/voi.py)
 
@@ -35,7 +37,7 @@ In the body of the answer, you get a UUID in a param `token`, and of course an S
 ## 2 - Verify OTP
 This request gets nothing in the answer, but is necessary so that the token works. The `code` should be the value received by SMS. 
 
-`POST` request to `https://api.voiapp.io/v1/auth/verify/code`
+`POST` request to `https://api.voiapp.io/v2/auth/verify/code`
 
 Body: raw/JSON
 ```json
@@ -44,9 +46,20 @@ Body: raw/JSON
     "token": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
-Answer is 204 with no content.
+Answer is like the following:
+```json
+{
+    "verificationStep": "emailValidationRequired",
+    "authToken": "XXXXXXXXXXXX"
+}
+```
+`verificationStep` can be `emailValidationRequired`, `authorized`, `deviceActivationRequired`.
 
+ 
 ## 3 - Get first authToken
+**If `verificationStep` is `emailValidationRequired`:**  
+This very likely means your phone number isn't linked to any account yet.
+
 `POST` request to `https://api.voiapp.io/v1/auth/verify/presence`
 
 Body: raw/JSON:
@@ -60,10 +73,32 @@ Body: raw/JSON:
 Answer will be: 
 ```json
 {
-    "authenticationToken": "xxxxxxxxxxxxxxxx"
+    "authToken": "xxxxxxxxxxxxxxxx"
 }
 ```
-(the token is really super long)
+  
+**If `verificationStep` is `deviceActivationRequired`:**  
+This very likely means you logged into multiple devices. Per VOI tos this isn't allowed (they don't really care tho), you'll get logged out of other devices above when you have more than a few.
+
+`POST` request to `https://api.voiapp.io/v3/auth/verify/device/activate`
+
+Body: raw/JSON:
+```json
+{
+    "token": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "provider": "sms"
+}
+```
+(the email should apparently be valid)
+Answer will be: 
+```json
+{
+    "authToken": "xxxxxxxxxxxxxxxx"
+}
+```
+
+**If `verificationStep` is `deviceActivationRequired`:**  
+Nothing further to do. An `authToken` is already in the response.
 
 ## 4 - Open Session
 `POST` request to `https://api.voiapp.io/v1/auth/session`

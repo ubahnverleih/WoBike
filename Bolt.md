@@ -113,7 +113,7 @@ You will receive a response like this:
     }
 }
 ```
-This seems to mark the used ```deviceId``` as authenticated internally. Reuse it for all future requests. You must include the header "Authorization" with the value "Basic <phone number>:<deviceId>" in Base64.
+This seems to mark the used ```deviceId``` as authenticated internally. Reuse it for all future requests. You must include the header "Authorization" with the value "Basic \<phone number>:\<deviceId>" in Base64.
 The ```DeviceId``` parameter seems to be ignored.
 
 ## Finding nearby scooters
@@ -249,7 +249,7 @@ Response:
 Here again, is the city id ```value``` under ```city_area_filters```.
 
 ## Ring scooter
-Gets data about the scooter, including ```vehicle_id```, battery percentage and pricing. 
+Make an scooter ring an blink.
 send a ```GET``` request to ```{server_url}/client/ringVehicle```. Replace ```{server_url}``` with the ```server_url``` from prevoius request.
 The Endpoint requires Basic authentication.
 
