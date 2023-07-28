@@ -16,7 +16,6 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Donkey Republic](Donkey.md)
 - [CityBike Wien (Vienna/Austria)](CityBikeWien.md)
 - [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
-- [Avocargo (Berlin)](Avocargo.md)
 
 ### Dead (e.g., bankrupt)
 - [oBike (Worldwide)](Obike.md) - Closed June 2018
@@ -28,6 +27,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Yobike/Ohbike/Indigoweel](Yobike.md)
 - [EUBIKE (Sweden)](EUBike.md)
 - [Lidl-Bike](Lidl-Bike.md)
+- [Avocargo (Berlin)](Avocargo.md) - Closed April 2023
 
 
 ## E-Scooters (🛴, that you stand on)
