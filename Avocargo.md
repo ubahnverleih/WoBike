@@ -1,4 +1,4 @@
-# Avocargo
+# Avocargo (defunct)
 
 [Avocargo](https://www.avocargo.one/) is a cargo-bike sharing company based in Germany.
 
