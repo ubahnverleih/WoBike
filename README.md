@@ -16,7 +16,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Donkey Republic](Donkey.md)
 - [CityBike Wien (Vienna/Austria)](CityBikeWien.md)
 - [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
-- [Avocargo (Berlin)](Avocargo.md)
+- [Evhcle (Germany)](Evhcle.md)
 
 ### Dead (e.g., bankrupt)
 - [oBike (Worldwide)](Obike.md) - Closed June 2018
@@ -28,6 +28,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Yobike/Ohbike/Indigoweel](Yobike.md)
 - [EUBIKE (Sweden)](EUBike.md)
 - [Lidl-Bike](Lidl-Bike.md)
+- [Avocargo (Berlin)](Avocargo.md) - Closed April 2023
 
 
 ## E-Scooters (🛴, that you stand on)
@@ -44,6 +45,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Lime & JUMP](Lime.md)
 - [Spin](Spin.md)
 - [Pony](Pony.md)
+- [Bolt](Bolt.md)
 
 ### Dead (e.g., bankrupt)
 - [JUMP (USA, Europe, Australia & NZ)](Jump.md) - Closed 16.6.2020
@@ -58,7 +60,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 ## Scooters/Mopeds (🛵, that you sit on)
 ### Active
 - [Emmy (Germany)](Emmy.md)
-- [Stella (Germany (Stuttgart))](Stella.md)
+- [Stella (Stuttgart, Germany)](Stella.md)
 - [Felyx (Europe)](Felyx.md)
 - [Eddy (Düsseldorf, Germany)](Eddy.md)
 
