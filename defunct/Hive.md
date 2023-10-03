@@ -1,4 +1,4 @@
-# Hive
+# Hive 
 
 [hive](https://www.ridehive.com) is a scootersharing company based in Europe.
 
