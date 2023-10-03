@@ -1,6 +1,6 @@
-# WeShare
+# WeShare (defunct)
 
-[WeShare](https://www.we-share.io/) is a carsharing company based in Germany providing vehicles in Berlin and Hamburg.
+[WeShare](https://www.we-share.io/) was a carsharing company based in Germany providing vehicles in Berlin and Hamburg.
 
 There is *no* authentication or special headers and only `GET`-Requests required for their API-Endpoints.
 
