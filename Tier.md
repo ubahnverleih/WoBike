@@ -42,15 +42,11 @@ Validate zone for parking: `GET https://platform.tier-services.io/v1/zone/valida
 ### Pricing
 `GET https://platform.tier-services.io/v2/pricing?vehicleId=52911ecb-60a4-2535-2875-fb443eb5409f`
 
-[Full Documentation](https://www.notion.so/TIER-API-Version-1-0a9bfc571e8f41859d994e736a51315b)
-
 
 ## v2
 
 Only difference seems to be `emoped` as an additional vehicle type.
 Get all vehicles within a zone: `GET https://platform.tier-services.io/v2/vehicle?zoneId=BERLIN`
-
-[Full Documentation](https://www.notion.so/Vehicles-b09c4ae1b88d447eb64b7f7cdb0d18e0)
 
 ### Get current subscription
 This endpoint needs an X-Firebase-Auth: Bearer instead of X-Api-Key
