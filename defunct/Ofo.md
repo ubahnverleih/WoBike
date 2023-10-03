@@ -1,4 +1,4 @@
-# Ofo
+# Ofo (defunct)
 
 **Base url**: `https://one.ofo.com`
 
