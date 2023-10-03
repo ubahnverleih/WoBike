@@ -1,4 +1,4 @@
-# Bond
+# Bond (defunct)
 [Bond](https://bond.info/) is an e-bike sharing service that operates in Europe.
 
 ## Get Vehicle Locations
