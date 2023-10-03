@@ -28,6 +28,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Lime & JUMP](Lime.md)
 - [Spin](Spin.md)
 - [Pony](Pony.md)
+- [BOlt](Bolt.md)
 
 ## Scooters/Mopeds (🛵, that you sit on)
 - [Emmy (Germany)](Emmy.md)
