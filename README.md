@@ -5,7 +5,6 @@ Documentation of Bike Sharing APIs
 Public transport and multimodal routing apps could benefit from showing nearby bikes from bikesharing services. So here's a list showing the APIs of a few of these platforms.
 
 ## Bikes
-### Active
 - [Nextbike (Worldwide)](Nextbike.md)
 - [Call-a-Bike (Germany / Deutsche Bahn)](Call-a-Bike.md)
 - [Motivate (US; Powers FordGoBike, Biketown, Capital Bikeshare, Bike Chattanooga, Citi Bike, CoGo, Divvy, Hubway)](Motivate.md)
@@ -14,24 +13,9 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [SocialBicycles (USA, Canada, Czech Republic & Poland)](SocialBicycles.md)
 - [Bixi (Montreal)](Bixi.md)
 - [Donkey Republic](Donkey.md)
-- [CityBike Wien (Vienna/Austria)](CityBikeWien.md)
 - [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
-- [Avocargo (Berlin)](Avocargo.md)
-
-### Dead (e.g., bankrupt)
-- [oBike (Worldwide)](Obike.md) - Closed June 2018
-- [ofo bike (China, UK, US, Austria, Thailand, Singapore, France & India)](Ofo.md) - Closed January 2019
-- [Bluegogo (China, US)](Bluegogo.md) - Closed November 2017
-- [OnzO (New Zealand)](Onzo.md) - Closed March 2020
-- [Mobike](Mobike.md) Closed December 2020
-- [Gobee bike (Hong Kong & Italy)](Gobee.md) - Closed July 2018
-- [Yobike/Ohbike/Indigoweel](Yobike.md)
-- [EUBIKE (Sweden)](EUBike.md)
-- [Lidl-Bike](Lidl-Bike.md)
-
 
 ## E-Scooters (🛴, that you stand on)
-### Active
 - [Bird](Bird.md)
 - [VOI](Voi.md)
 - [Helbiz](Helbiz.md)
@@ -44,31 +28,40 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Lime & JUMP](Lime.md)
 - [Spin](Spin.md)
 - [Pony](Pony.md)
-
-### Dead (e.g., bankrupt)
-- [JUMP (USA, Europe, Australia & NZ)](Jump.md) - Closed 16.6.2020
-- [Zagster](Zagster.md) - Closed June 2020
-- [Circ](Circ.md) - Bought by Bird 27.1.2020
-- [Zero (Germany)](Zero.md)
-- [Ufo (Europe)](Ufo.md)
-- [Scoota](Scoota.md)
-- [Hive](Hive.md)
-
+- [BOlt](Bolt.md)
 
 ## Scooters/Mopeds (🛵, that you sit on)
-### Active
 - [Emmy (Germany)](Emmy.md)
 - [Stella (Germany (Stuttgart))](Stella.md)
 - [Felyx (Europe)](Felyx.md)
 - [Eddy (Düsseldorf, Germany)](Eddy.md)
 
-### Dead (e.g., bankrupt)
-- [Coup (Germany, Spain & France)](Coup.md) - Closed December 2019
-
 ## Cars
 - [Cambio (Germany & Belgium)](Cambio.md)
-- [WeShare (Germany)](WeShare.md)
 - [Miles (Germany)](Miles.md)
+
+## Dead (e.g., bankrupt)
+- [Mobike](defunct/Mobike.md) Closed December 2020
+- [Zagster](defunct/Zagster.md) - Closed June 2020
+- [Circ](defunct/Circ.md) - Bought by Bird 27.1.2020
+- [oBike (Worldwide)](defunct/Obike.md) - Closed June 2018
+- [OnzO (New Zealand)](defunct/Onzo.md) - Closed March 2020
+- [Bluegogo (China, US)](defunct/Bluegogo.md) - Closed November 2017
+- [Gobee bike (Hong Kong & Italy)](defunct/Gobee.md) - Closed July 2018
+- [Coup (Germany, Spain & France)](defunct/Coup.md) - Closed December 2019
+- [JUMP (USA, Europe, Australia & NZ)](defunct/Jump.md) - Closed 16.6.2020
+- [ofo bike (China, UK, US, Austria, Thailand, Singapore, France & India)](defunct/Ofo.md) - Closed January 2019
+- [Hive](defunct/Hive.md)
+- [Scoota](defunct/Scoota.md)
+- [Ufo (Europe)](defunct/Ufo.md)
+- [Blueduck](defunct/Blueduck.md)
+- [Lidl-Bike](defunct/Lidl-Bike.md)
+- [Zero (Germany)](defunct/Zero.md)
+- [EUBIKE (Sweden)](defunct/EUBike.md)
+- [WeShare (Germany)](defunct/WeShare.md)
+- [Avocargo (Berlin)](defunct/Avocargo.md)
+- [Yobike/Ohbike/Indigoweel](defunct/Yobike.md)
+- [CityBike Wien (Vienna/Austria)](defunct/CityBikeWien.md)
 
 
 ## More...

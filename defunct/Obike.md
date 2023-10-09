@@ -1,4 +1,4 @@
-# Obike
+# Obike (defunct)
 
 **Base url**: `https://mobile.o.bike/api/v2`
 

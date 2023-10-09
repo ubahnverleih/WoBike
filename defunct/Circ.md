@@ -1,4 +1,4 @@
-# Flash / Circ / Bird (scooters)
+# Flash / Circ / Bird (scooters) (defunct)
 [Bird](https://www.bird.co/) is a E-Scooter sharing service in the US.
 
 Note: Circ has been bought by Bird.

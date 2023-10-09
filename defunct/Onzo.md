@@ -1,4 +1,4 @@
-# Onzo (bikes, Location: New Zealand)
+# Onzo (bikes, Location: New Zealand) (defunct)
 
 Simple GET request: https://app.onzo.co.nz/nearby/-36.848123/174.765588/50.0
 
