@@ -44,6 +44,8 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Lime & JUMP](Lime.md)
 - [Spin](Spin.md)
 - [Pony](Pony.md)
+- [Bolt](Bolt.md)
+- [Evhcle](Évhcle.md)
 
 ### Dead (e.g., bankrupt)
 - [JUMP (USA, Europe, Australia & NZ)](Jump.md) - Closed 16.6.2020
