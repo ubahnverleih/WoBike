@@ -1,5 +1,5 @@
 # Blue Duck
-[Blue Duck](https://www.flyblueduck.com/) is a step scooter service that operates in the USA.
+[Blue Duck](https://www.flyblueduck.com/) was a step scooter service that operates in the USA.
 
 ## Get Vehicle Locations
 

@@ -1,4 +1,4 @@
-# Mobike
+# Mobike (defunct)
 
 **Base url**: `http://app.mobike.com/api`
 

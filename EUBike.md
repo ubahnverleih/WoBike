@@ -1,4 +1,4 @@
-# Introduction
+# Introduction (defunct)
 EU-BIKE is a Swedish bike sharing service available in some bigger and smaller Swedish cities.
 ### Viewing bikes
 
