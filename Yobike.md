@@ -1,4 +1,4 @@
-# Yobike and yobike-based provider 
+# Yobike and yobike-based provider (defunct)
 
 Yobike (ex ohbike) sell their systems under white label.
 Only the Application key differ

@@ -1,5 +1,5 @@
 # Introduction (defunct)
-EU-BIKE is a Swedish bike sharing service available in some bigger and smaller Swedish cities.
+EU-BIKE was a Swedish bike sharing service available in some bigger and smaller Swedish cities.
 ### Viewing bikes
 
 **PLEASE NOTE: EUBIKE has had some serious problems related to displaying correct locations of bikes. I know that because I have tried their system and I have read some reviews online. With that said, not all bike locations are inaccurate.**

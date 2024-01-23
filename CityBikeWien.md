@@ -1,6 +1,6 @@
-# CityBike Wien
+# CityBike Wien (defunct)
 
-[CityBike Wien](https://www.citybikewien.at/en/) w an short-time rental service in Vienna/Austria
+[CityBike Wien](https://www.citybikewien.at/en/) was an short-time rental service in Vienna/Austria
 
 ## API
 Simple XML API with a list of stations (address & lat/lng), number of free bikes and return boxes

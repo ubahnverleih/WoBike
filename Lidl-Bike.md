@@ -1,4 +1,4 @@
-# Lidl-Bike 
+# Lidl-Bike (defunct)
 
 Lidl-Bike uses a RPC endpoint for their requests.
 As of writing this, only one procedure is known, `listBikes`.

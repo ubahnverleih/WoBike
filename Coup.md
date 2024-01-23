@@ -1,4 +1,4 @@
-# Coup
+# Coup (defunct)
 
 [Coup](https://www.joincoup.com/) was a rental service for electric motorbikes 🛵 (also called scooter, the wording is a mess).
 
