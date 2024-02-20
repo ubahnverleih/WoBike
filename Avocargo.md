@@ -1,6 +1,6 @@
-# Avocargo
+# Avocargo (defunct)
 
-[Avocargo](https://www.avocargo.one/) is a cargo-bike sharing company based in Germany.
+[Avocargo](https://www.avocargo.one/) was a cargo-bike sharing company based in Germany.
 
 There is *no* authentication or special headers, and only `GET`-Requests.
 

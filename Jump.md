@@ -1,4 +1,4 @@
-# JUMP (USA)
+# JUMP (USA) (defunct)
 
 [JUMP](http://jumpbikes.com/) operates electric dockless bikeshares and scooter is various cities around the globe.
 To get bike and scooter data, you need to authenticate yourself.

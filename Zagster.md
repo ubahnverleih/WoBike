@@ -1,4 +1,4 @@
-# Zagster
+# Zagster (defunct)
 
 List of all cities: https://zapi.zagster.com/api/v1/bikeshares/
 
