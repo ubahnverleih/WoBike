@@ -72,7 +72,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 ## More...
 * Also have a look at [this project](https://github.com/eskerda/pybikes/tree/master/pybikes)
 * [GBFS (General Bikeshare Feed Specification)](https://github.com/NABSA/gbfs)
-* [Bikesharing World Map](https://www.google.com/maps/d/u/0/viewer?mid=1UxYw9YrwT_R3SGsktJU3D-2GpMU&ll=50.01042750703113%2C35.03132237929685&z=2)
+* [Bikesharing World Map](https://bikesharingworldmap.com)
 * [Open Bike Share Data](https://bikeshare-research.org/)
 * For more documentation and some updates on the APIs, a look into the issues section could be helpful. Also feel free to add APIs from the issues into the documentation by creating a Pull Request.
 
