@@ -2,31 +2,63 @@
 
 ### GBFS
 
-In select cities, a GBFS feed is also available. Louisville is one for example.
+In select cities, a GBFS feed is available. The feed now includes internal vehicle IDs in deeplink URIs.
 
 **URL** `https://data.lime.bike/api/partners/v1/gbfs/<city>/gbfs.json`
 
+**Free Bike Status** `https://data.lime.bike/api/partners/v1/gbfs/<city>/free_bike_status`
+
+The `free_bike_status` endpoint returns vehicle data including internal IDs:
+
+```json
+{
+  "bike_id": "<uuid>",
+  "lat": 37.785,
+  "lon": -122.41,
+  "is_reserved": false,
+  "is_disabled": false,
+  "rental_uris": {
+    "android": "limebike://map?selected_vehicle_id=<vehicle_id>&generated_at=<timestamp>",
+    "ios": "limebike://map?selected_vehicle_id=<vehicle_id>&generated_at=<timestamp>"
+  }
+}
+```
+
 ## Cities
-| United States  | Germany, Austria and Switzerland | France    | Canada   | Israel    | Norway and Italy | Australia and New Zealand | Belgium   |
-|----------------|----------------------------------|-----------|----------|-----------|------------------|---------------------------|-----------|
-| baltimore      | hamburg                          | paris     | kelowna  | tel_aviv  | oslo             | auckland                  | antwerp   |
-| cleveland      | oberhausen                       | marseille | edmonton |           | rome             | sydney                    | brussels  |
-| detroit        | opfikon                          | paris     |          |           | verona           |                           |           |
-| grand_rapids   | reutlingen                       |           |          |           |                  |                           |           |
-| new_york       | solingen                         |           |          |           |                  |                           |           |
-| norfolk_va     | zug                              |           |          |           |                  |                           |           |
-| washington_dc  |                                  |           |          |           |                  |                           |           |
-| colorado_springs|                                  |           |          |           |                  |                           |           |
-| louisville     |                                  |           |          |           |                  |                           |           |
-| oakland        |                                  |           |          |           |                  |                           |           |
-| san_francisco  |                                  |           |          |           |                  |                           |           |
-| san_jose       |                                  |           |          |           |                  |                           |           |
-| seattle        |                                  |           |          |           |                  |                           |           |
-| chicago        |                                  |           |          |           |                  |                           |           |
+| United States    | Germany, Austria and Switzerland | France    | Canada   | Israel    | Norway and Italy | Australia and New Zealand | Belgium   |
+|------------------|----------------------------------|-----------|----------|-----------|------------------|---------------------------|-----------|
+| atlanta          | hamburg                          | paris     | kelowna  | tel_aviv  | oslo             | auckland                  | antwerp   |
+| baltimore        | oberhausen                       | marseille | edmonton |           | rome             | sydney                    | brussels  |
+| chicago          | opfikon                          |           |          |           | verona           |                           |           |
+| cleveland        | reutlingen                       |           |          |           |                  |                           |           |
+| colorado_springs | solingen                         |           |          |           |                  |                           |           |
+| denver           | zug                              |           |          |           |                  |                           |           |
+| detroit          |                                  |           |          |           |                  |                           |           |
+| grand_rapids     |                                  |           |          |           |                  |                           |           |
+| louisville       |                                  |           |          |           |                  |                           |           |
+| new_york         |                                  |           |          |           |                  |                           |           |
+| norfolk_va       |                                  |           |          |           |                  |                           |           |
+| oakland          |                                  |           |          |           |                  |                           |           |
+| san_francisco    |                                  |           |          |           |                  |                           |           |
+| san_jose         |                                  |           |          |           |                  |                           |           |
+| seattle          |                                  |           |          |           |                  |                           |           |
+| washington_dc    |                                  |           |          |           |                  |                           |           |
 
 
 ---
 **Base URL**: `https://web-production.lime.bike/api/rider`
+
+## Request Headers
+
+Modern versions of the app (v3.248+) use the following headers:
+
+| Header         | Value                                              | Mandatory |
+| -------------- | -------------------------------------------------- | :-------: |
+| Authorization  | Bearer TOKEN                                       | X         |
+| Platform       | Android or iOS                                     |           |
+| App-Version    | 3.248.1                                            |           |
+| Content-Type   | application/json                                   |           |
+| X-Device-Token | Random UUID                                        |           |
 
 ## Methods to authenticate
 
@@ -167,7 +199,7 @@ curl 'https://web-production.lime.bike/api/rider/v2/onboarding/login' \
 
 ## Use API
 
-### Get Vehicles and Zones
+### Get Vehicles and Zones (v1 - Legacy)
 
 :warning: Auth (bearer AND cookie) are mandatory for this endpoint
 
@@ -204,76 +236,68 @@ curl 'https://web-production.lime.bike/api/rider/v2/onboarding/login' \
 ```bash
 curl --request GET \
   --url 'https://web-production.lime.bike/api/rider/v1/views/map?ne_lat=52.6&ne_lng=13.5&sw_lat=52.4&sw_lng=13.3&user_latitude=52.5311&user_longitude=13.3849&zoom=16' \
-  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
-  --cookie '_limebike-web_session=N0xLYmE5ZytSSkRZa0FwQUdvYk1TalBaVWwzcnRDWUloT1Y1Z2ZNOVZSc0NCd3ZRZTFOVkxaS2lOcHFpemx6Y1pxT3ZudU1Zenk2ODlYRHBFZ1dxRWtaZGQybzRTQm96V09TWVdycENLcUltMHYzRWlUaEZlMDBqOCt4ODJqSWZwR09PSEtuNDdINnF3VGpkR3g2SjRBPT0tLTlJVHhSVFRDOE1CNm14S203VGxRd2c9PQ%253D%253D--9f55d56be64fefc5d5af3daf9e2fe9f7d7408cc0'
+  --header 'authorization: Bearer <token>' \
+  --cookie '_limebike-web_session=<session>'
 ```
 
+### Get Bike Pins (v2)
+
+The v1 map endpoint is being replaced by separate v2 endpoints in the mobile app.
+
+**Method**: `GET`
+
+**Path**: `/v2/map/bike_pins`
+
+**Header**:
+
+| Header        | Value        | Mandatory |
+| ------------- | ------------ | :-------: |
+| Authorization | Bearer TOKEN | X         |
+
+**Parameters**:
+
+| Parameters     | Descriptions              | Mandatory |
+| -------------- | ------------------------- | :-------: |
+| ne_lat         | Northeast latitude        | X         |
+| ne_lng         | Northeast longitude       | X         |
+| sw_lat         | Southwest latitude        | X         |
+| sw_lng         | Southwest longitude       | X         |
+| user_latitude  | User's current latitude   | X         |
+| user_longitude | User's current longitude  | X         |
+| zoom           | Map zoom level (15+ for individual pins) | X |
+
+**Example**
+
+```bash
+curl --request GET \
+  --url 'https://web-production.lime.bike/api/rider/v2/map/bike_pins?ne_lat=37.79&ne_lng=-122.40&sw_lat=37.78&sw_lng=-122.42&user_latitude=37.785&user_longitude=-122.41&zoom=16.0' \
+  --header 'Authorization: Bearer <token>'
 ```
-{
-    "data": {
-        "id": "views::mapview",
-        "type": "map_view",
-        "attributes": {
-            "regions": null,
-            "zones": [
-                {
-                    "id": "LPAIXU6PU2GMR",
-                    "type": "zones",
-                    "attributes": {
-                        "name": "[Christchurch][SZ][CHCH_SERVICED_AREA]",
-                        "polyline": "nnvhG}b_|_@rV|iBdd@pOf_@gr@r}A}bC~F|L|GqIhB_BZaC~CyDRgEdCc@lQs\\xKjMht@euAxJqQ``@ku@VcD{@yi@kk@cqE_`AqdAcTm\\kPat@lFsW~FmgAqr@yh@~Fct@yCiqApt@ucAtA_t@a@mU~FmQ|JcLjLuJnNwGvWoBwD}OuHqJob@wIse@c@_bA_WbSgcBld@m\\zRkb@trA{qAwwAwbDgoBvaDinCvkAumJt}BrFlsGsIr`M_n@tyClo@nbDdfBlsAxtH`sB",
-                        "category": "service_zone",
-                        "icon_latitude": "-43.52882",
-                        "icon_longitude": "172.643155",
-                        "show_icon": false,
-                        "zone_styling_id": "116"
-                    }
-                },
-                ...
-            ],
-            "bike_clusters": null,
-            "bikes": [
-                {
-                    "id": "ET-O5RWUHLSWXWTV4FAHYPRUDIJUXXDWKBW4RUDFLQ",
-                    "type": "bikes",
-                    "attributes": {
-                        "status": "locked",
-                        "plate_number": "XXX-338",
-                        "latitude": -43.551564,
-                        "longitude": 172.624372,
-                        "battery_percentage": 27,
-                        "swappable_battery": false,
-                        "last_activity_at": "2021-02-04T04:36:11.000Z",
-                        "type_name": "scooter",
-                        "battery_level": "low",
-                        "meter_range": 1759,
-                        "rate_plan": "NZD $1 to unlock +\nNZD $0.38 / 1 min",
-                        "bike_icon_id": 48,
-                        "last_three": "338",
-                        "license_plate_number": null,
-                        "brand": "lime",
-                        "generation": "2.5"
-                    }
-                },
-		...
-            ],
-            "selected_bike": null,
-            "bike_pins": [],
-            "selected_bike_pin": null,
-            "parking_spots": null,
-            "icons": [
-                {
-                    "id": "50",
-                    "type": "icons",
-                    "attributes": {
-                        "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/scooter_high_battery.png?fingerprint=a14ab0c75f4838b41729eb1ee746dae9",
-                        "description_icon_url": null,
-                        "description_link_url": null,
-                        "description": "translation missing: en.scooter_high_battery"
-                    }
-                }
-}
-```
+
+### Get Static Map Elements (v2)
+
+Returns zones, parking areas, no-ride zones.
+
+**Method**: `GET`
+
+**Path**: `/v2/map/static_elements`
+
+Same parameters as bike_pins.
+
+### Get Map Extra Info (v2)
+
+**Method**: `GET`
+
+**Path**: `/v2/map/extra_info`
+
+**Parameters**:
+
+| Parameters     | Descriptions              | Mandatory |
+| -------------- | ------------------------- | :-------: |
+| user_latitude  | User's latitude           | X         |
+| user_longitude | User's longitude          | X         |
+
+---
 
 ### Ring Vehicle
 
@@ -309,94 +333,34 @@ The ET-ID can be found on the 'Get Vehicles and Zones' endpoint.
 | ------------- | ------------ | :-------: |
 | Authorization | Bearer TOKEN | X         |
 
-**Response**
-
-```
-{
-    "id": "ET-UM7V7RYMPDPCUYMTKOTCYMEAFPCJ7NN4NZ2T3CA",
-    "title": "Available e-bike",
-    "header": {
-        "image_url": "https://limebike-web-public-assets.s3-us-west-1.amazonaws.com/image_files/JumpBike.png",
-        "title": {
-            "type": "text",
-            "icon": null,
-            "value": "Jump IIC262",
-            "action": null
-        },
-        "subtitle": {
-            "type": "text",
-            "icon": 65,
-            "value": "72 km range",
-            "action": null
-        },
-        "action": {
-            "icon": 67,
-            "type": "ui_flow",
-            "value": "expand",
-            "text": null,
-            "subtext": null
-        },
-        "expansion": {
-            "title": {
-                "type": "text",
-                "icon": null,
-                "value": "Jump IIC262",
-                "action": null
-            },
-            "action": null
-        }
-    },
-    "items": [
-        {
-            "type": "html",
-            "icon": 389,
-            "value": "<font color='#000000' size='4'><b>Add payment</b></font><br/><font color='#666666' size='4'>NZD $1 to start, then NZD $0.38/min</font>",
-            "action": {
-                "icon": 391,
-                "type": "deeplink",
-                "value": "limebike://payment_methods",
-                "text": null,
-                "subtext": null
-            }
-        }
-    ],
-    "banner_action": {
-        "icon": null,
-        "type": "ui_flow",
-        "value": "reserve",
-        "text": "Reserve",
-        "subtext": "Free for 10 minutes"
-    },
-    "icons": [
-        {
-            "id": 65,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_battery3_40@3x.png?fingerprint=b3a6d67b61b38995d4d0ef2ff7ae3aca"
-        },
-        {
-            "id": 69,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_time_40@3x.png?fingerprint=66542356edfa1d5a6b26551a4f2dc1df"
-        },
-        {
-            "id": 389,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_add_payment_40%403x.png?fingerprint=aba1ad9584d90a6bf7118ea1ed0e7be6"
-        },
-        {
-            "id": 67,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_carrot_down_40@3x.png?fingerprint=2458978c3bade75743b1c7c768b15f45"
-        },
-        {
-            "id": 296,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_ring_40@3x.png?fingerprint=3d17ce060e2f3b5dd1afb5038c6ee94c"
-        },
-        {
-            "id": 391,
-            "url": "https://assets.lime.bike/icons/simplify_unlock/png/ic_carrot_up_40@3x.png?fingerprint=19b7ee91068c326bda0c8216bf9b8b40"
-        }
-    ]
-}
-```
-
 If you get a 404 "Resource not found" message, it's most likely because the ET-ID provided is invalid.
+
+### Get Area Rate Plan
+
+Returns pricing for a specific location.
+
+**Method**: `GET`
+
+**Path**: `/v1/bikes/area_rate_plan`
+
+**Parameters**:
+
+| Parameters | Descriptions              | Mandatory |
+| ---------- | ------------------------- | :-------: |
+| latitude   | Location latitude         | X         |
+| longitude  | Location longitude        | X         |
+| accuracy   | GPS accuracy in meters    |           |
+| gps_time   | ISO 8601 timestamp        |           |
+
+**Example**
+
+```bash
+curl --request GET \
+  --url 'https://web-production.lime.bike/api/rider/v1/bikes/area_rate_plan?latitude=37.785&longitude=-122.41&accuracy=5.0' \
+  --header 'Authorization: Bearer <token>'
+```
+
+---
 
 ### View your ride history
 
@@ -410,7 +374,202 @@ If you get a 404 "Resource not found" message, it's most likely because the ET-I
 | ------------- | ------------ | :-------: |
 | Authorization | Bearer TOKEN | X         |
 
+### View Trip Receipt (v2)
 
+**Method**: `GET`
+
+**Path**: `/v2/views/trip_receipt`
+
+**Parameters**:
+
+| Parameters | Descriptions                                      |
+| ---------- | ------------------------------------------------- |
+| trip_id    | Trip ID (13-char alphanumeric format)             |
+
+### View Trip Summary (v2)
+
+**Method**: `GET`
+
+**Path**: `/v2/views/trip_summary`
+
+**Parameters**:
+
+| Parameters     | Descriptions                          |
+| -------------- | ------------------------------------- |
+| transaction_id | Base32-encoded transaction ID         |
+| source         | Source context (e.g., `transaction_history`) |
+
+### View User Transactions
+
+**Method**: `GET`
+
+**Path**: `/v1/views/user_transactions`
+
+Returns list of past transactions/rides.
+
+---
+
+## User/Account Endpoints
+
+### Bootstrap (App Initialization)
+
+**Method**: `GET`
+
+**Path**: `/v1/users/bootstrap`
+
+**Parameters**:
+
+| Parameters | Descriptions              |
+| ---------- | ------------------------- |
+| latitude   | Current latitude          |
+| longitude  | Current longitude         |
+| android_id | Android device ID         |
+
+Returns user configuration, feature flags, and initial app state.
+
+### Side Menu
+
+**Method**: `GET`
+
+**Path**: `/v1/users/side_menu`
+
+Returns menu items and badge counts.
+
+### User Groups
+
+**Method**: `GET`
+
+**Path**: `/v1/user/groups`
+
+Returns user's group memberships (enterprise accounts, etc.).
+
+### Wallets
+
+**Method**: `GET`
+
+**Path**: `/v1/wallets`
+
+Returns payment methods and balances.
+
+### Referral Credits
+
+**Method**: `GET`
+
+**Path**: `/v1/views/referral_credits`
+
+Returns referral program status and credits.
+
+### Rider Summary
+
+**Method**: `GET`
+
+**Path**: `/v1/views/rider_summary`
+
+Returns user statistics and ride summary.
+
+---
+
+## App State/Safety Endpoints
+
+### App State
+
+**Method**: `GET`
+
+**Path**: `/v2/app_state`
+
+Returns current application state and configuration.
+
+### Curfew Check
+
+**Method**: `GET`
+
+**Path**: `/v2/curfew/check`
+
+Returns curfew restrictions for current location (used in cities with ride time limits).
+
+### Rider Map Start Blockers
+
+**Method**: `GET`
+
+**Path**: `/v1/views/rider_map_start_blockers`
+
+**Parameters**:
+
+| Parameters     | Descriptions    |
+| -------------- | --------------- |
+| user_latitude  | User's latitude |
+| user_longitude | User's longitude|
+
+Returns any blockers preventing ride start (payment issues, account status, etc.).
+
+### Vehicle Filter Banner
+
+**Method**: `GET`
+
+**Path**: `/v1/views/vehicle_filter_banner/show`
+
+Returns vehicle type filter configuration.
+
+### Safety Center Menu
+
+**Method**: `GET`
+
+**Path**: `/v1/menus/safety_center`
+
+Returns safety center menu configuration and resources.
+
+---
+
+## Destination Endpoints
+
+### Destination Info Card
+
+**Method**: `GET`
+
+**Path**: `/v1/destinations/info_card`
+
+### Pre-Trip Planner Ingress
+
+**Method**: `GET`
+
+**Path**: `/v1/destinations/pre_trip_planner_ingress`
+
+Returns trip planning UI configuration.
+
+---
+
+## Group Rides (v4)
+
+### Group Scan Reserve
+
+**Method**: `GET`
+
+**Path**: `/v4/group_rides/views/bottom_sheets/group_scan_reserve`
+
+Returns UI for group ride QR scanning and reservation.
+
+---
+
+## Deeplink Routes
+
+The app handles the following deeplink routes:
+
+| Deeplink | Parameters | Notes |
+|----------|------------|-------|
+| `limebike://map?selected_vehicle_id=XXX` | selected_vehicle_id, generated_at | Select vehicle on map |
+| `limebike://receipt?trip_id=XXX` | trip_id | Trip receipt view |
+| `limebike://help?trip_id=XXX` | trip_id | Help for specific trip |
+| `limebike://limelab?hide_top_bar=true` | hide_top_bar | LimeLab features |
+| `limebike://referral` | - | Referral program |
+| `limebike://lime_wallet` | - | Wallet view |
+| `limebike://donation` | - | Donation flow |
+| `limebike://ride_history` | - | Ride history |
+| `limebike://safety_center` | - | Safety resources |
+| `limebike://settings` | - | App settings |
+| `limebike://help_v2` | - | Help center |
+| `limebike://payment_methods` | - | Payment methods |
+
+---
 
 The Juicer API can be found here: https://github.com/davidwim/lime-juicer/
 
