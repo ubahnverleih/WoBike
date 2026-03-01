@@ -16,6 +16,7 @@ Public transport and multimodal routing apps could benefit from showing nearby b
 - [Velo Antwerpen (Antwerp/Belgium)](VeloAntwerpen.md)
 - [Cargaroo](Cargaroo.md)
 - [Bicikelj](Bicikelj.md)
+- [Valenbisi](Valenbisi.md)
 
 ## E-Scooters (🛴, that you stand on)
 - [Bird](Bird.md)
